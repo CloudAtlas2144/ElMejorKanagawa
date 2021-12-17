@@ -1,0 +1,12 @@
+
+S
+java:S1128"8Remove this unused import 'javafx.scene.control.Button'.(Ë Í‹øÿÿÿÿ
+D
+java:S1128".Remove this unused import 'javafx.scene.Node'.(ÑÖ¬ï
+E
+java:S6212"/Declare this local variable with "var" instead.(âîÅø
+E
+java:S6212"/Declare this local variable with "var" instead.(œ–Úƒ
+J
+java:S6212"/Declare this local variable with "var" instead.(ƒÑÀ·ùÿÿÿÿ
+S	java:S106'"9Replace this use of System.out or System.err by a logger.(â­ÙÂøÿÿÿÿ
