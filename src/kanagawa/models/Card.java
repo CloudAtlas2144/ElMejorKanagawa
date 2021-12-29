@@ -4,16 +4,15 @@ import kanagawa.models.enums.CardState;
 
 public class Card {
     private CardState state;
-    private Skill primarySkill, secondarySkill;
+    private PersonalWork personalWork;
     private UV uv;
 
     // Default constructor
     public Card() {}
     // Initialization constructor
-    public Card(CardState state, Skill primarySkill, Skill secondarySkill, UV uv) {
+    public Card(CardState state, PersonalWork personalWork, UV uv) {
         this.state = state;
-        this.primarySkill = primarySkill;
-        this.secondarySkill = secondarySkill;
+        this.personalWork = personalWork;
         this.uv = uv;
     }
 
@@ -22,12 +21,8 @@ public class Card {
         return state;
     }
 
-    public Skill getPrimarySkill() {
-        return primarySkill;
-    }
-
-    public Skill getSecondarySkill() {
-        return secondarySkill;
+    public PersonalWork getPersonalWork() {
+        return personalWork;
     }
 
     public UV getUv() {
@@ -38,12 +33,8 @@ public class Card {
         this.state = state;
     }
 
-    public void setPrimarySkill(Skill primarySkill) {
-        this.primarySkill = primarySkill;
-    }
-
-    public void setSecondarySkill(Skill secondarySkill) {
-        this.secondarySkill = secondarySkill;
+    public void setPersonalWork(PersonalWork personalWork) {
+        this.personalWork = personalWork;
     }
 
     public void setUv(UV uv) {

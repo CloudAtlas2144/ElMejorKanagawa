@@ -1,6 +1,6 @@
 package kanagawa.models.enums;
 
-public enum SecondarySkillType {
+public enum Bonus {
     PEN,
     PROFESSOR,
     CREDIT,

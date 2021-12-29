@@ -1,13 +1,10 @@
 package kanagawa.models.enums;
 
-public enum PrimarySkillType {
+public enum Skill {
     MATH,
     INFO,
     ENERGY,
     ERGO,
     MECHANICS,
-    MANAGEMENT,
-    PEN,
-    PROFESSOR,
-    ALL_SKILLS,
+    MANAGEMENT;
 }

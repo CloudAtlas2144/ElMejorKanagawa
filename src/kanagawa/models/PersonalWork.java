@@ -1,4 +1,4 @@
 package kanagawa.models;
 
-public class Skill {
+public class PersonalWork {
 }

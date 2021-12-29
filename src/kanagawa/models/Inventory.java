@@ -5,17 +5,17 @@ import java.util.List;
 
 public class Inventory {
     private int credits;
-    private List<Skill> skills;
+    private List<PersonalWork> personalWorks;
 
     // Constructors
     public Inventory() {
         this.credits = 0;
-        this.skills = new ArrayList<>();
+        this.personalWorks = new ArrayList<>();
     }
 
-    public Inventory(int credits, List<Skill> skills) {
+    public Inventory(int credits, List<PersonalWork> personalWorks) {
         this.credits = credits;
-        this.skills = skills;
+        this.personalWorks = personalWorks;
     }
 
     // Getters and setters
@@ -27,15 +27,15 @@ public class Inventory {
         this.credits = credits;
     }
 
-    public List<Skill> getSkills() {
-        return skills;
+    public List<PersonalWork> getSkills() {
+        return personalWorks;
     }
 
-    public void setSkills(List<Skill> skills) {
-        this.skills = skills;
+    public void setSkills(List<PersonalWork> personalWorks) {
+        this.personalWorks = personalWorks;
     }
 
-    public void addSkill(Skill skill) {
-        this.skills.add(skill);
+    public void addSkill(PersonalWork personalWork) {
+        this.personalWorks.add(personalWork);
     }
 }

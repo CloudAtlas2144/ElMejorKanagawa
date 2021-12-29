@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Player {
     private String username;
-    private boolean hasProfessor;
     private boolean isFirstPlayer;
     private Game game;
 
@@ -15,10 +14,11 @@ public class Player {
     // Constructor
     public Player(String username) {
         this.username = username;
-        this.hasProfessor = false;
         this.isFirstPlayer = false;
         this.inventory = new Inventory();
         this.cards = new ArrayList<>();
+
+        game = Game.getGameInstance();
     }
 
     // Getters et setters
@@ -28,14 +28,6 @@ public class Player {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public boolean isHasProfessor() {
-        return hasProfessor;
-    }
-
-    public void setHasProfessor(boolean hasProfessor) {
-        this.hasProfessor = hasProfessor;
     }
 
     public boolean isFirstPlayer() {
