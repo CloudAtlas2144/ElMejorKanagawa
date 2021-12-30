@@ -15,7 +15,7 @@ public class Game {
     private Player currentPlayer;
 
     private ArrayList<Player> players;
-    private ArrayList<Card> cards;
+    private ArrayList<Card> cardDeck;
     private ArrayList<Diploma> diplomas;
 
     private static Game gameInstance = null;
@@ -25,7 +25,7 @@ public class Game {
      */
     private Game() {
         players = new ArrayList<>();
-        cards = new ArrayList<>();
+        cardDeck = new ArrayList<>();
         diplomas = new ArrayList<>();
     }
 
@@ -81,12 +81,12 @@ public class Game {
             jsonReader = new JsonReader(new FileReader(file));
             jsonReader.setLenient(true);
 
-            cards = gson.fromJson(jsonReader, cardListType);
+            cardDeck = gson.fromJson(jsonReader, cardListType);
 
             jsonReader.close();
         } catch (Exception e) {
             e.printStackTrace();
-            System.out.println("Failed to load cards.");
+            System.err.println("Game.loadCards() : Failed to load cards.");
             System.exit(-1);
         }
     }
@@ -101,10 +101,16 @@ public class Game {
     }
 
     /**
-     * Set new cards on the board for the current round
+     * Deals new cards on the board for the current round and passes them to the
+     * Round class
      */
     public void distributeCards() {
-        // TODO : Implement method
+        Card[] cardsToDeal = new Card[currentRound.getRemainingColumns()];
+
+        for (int i = 0; i < cardsToDeal.length; i++) {
+            cardsToDeal[i] = cardDeck.remove(0);
+        }
+        currentRound.addCards(cardsToDeal);
     }
 
     /**
