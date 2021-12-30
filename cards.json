@@ -1,6 +1,6 @@
 [
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ELEC",
@@ -13,7 +13,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ENERGY",
@@ -26,7 +26,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
@@ -39,7 +39,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",

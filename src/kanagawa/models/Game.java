@@ -27,6 +27,7 @@ public class Game {
         players = new ArrayList<>();
         cardDeck = new ArrayList<>();
         diplomas = new ArrayList<>();
+        loadCards("");
     }
 
     /**
@@ -62,6 +63,11 @@ public class Game {
      */
     public void gameLoop() {
         // TODO : Implement method
+        /*
+         * Create a Round instance
+         * Deal the cards
+         */
+
     }
 
     /**
