@@ -6,5 +6,7 @@ public enum Skill {
     ENERGY,
     ERGO,
     MECHANICS,
+    ELEC,
+    LANGUAGE,
     MANAGEMENT;
 }

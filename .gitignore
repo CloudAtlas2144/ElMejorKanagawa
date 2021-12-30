@@ -1,7 +1,6 @@
 .vscode
 .DS_Store
 .idea
-lib
 out
 bin
 src/module-info.java
@@ -11,3 +10,4 @@ src/kanagawa/models/.DS_Store
 src/kanagawa/models/enums/.DS_Store
 src/kanagawa/views/.DS_Store
 KanagawaGame.iml
+Notes.md
