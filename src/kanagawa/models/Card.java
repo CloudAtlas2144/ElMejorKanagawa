@@ -13,7 +13,7 @@ public class Card {
 
     // Initialization constructor
     public Card(PersonalWork personalWork, UV uv) {
-        this.state = CardState.STACK;
+        this.state = CardState.DECK;
         this.personalWork = personalWork;
         this.uv = uv;
     }

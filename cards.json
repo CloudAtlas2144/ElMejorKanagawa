@@ -1,6 +1,6 @@
 [
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MATH",
@@ -572,7 +572,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MECANICS",
@@ -715,7 +715,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -819,7 +819,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MANAGAMENT",

@@ -4,6 +4,6 @@ package kanagawa.models.enums;
 public enum CardState {
     INVENTORY,
     DRAWN,
-    STACK,
+    DECK,
     GAME_BOARD;
 }

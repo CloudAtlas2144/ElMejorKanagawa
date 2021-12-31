@@ -1,0 +1,65 @@
+{
+  "groupeName": "Groupe0",
+  "diplomas": [
+    {
+      "UVArray": [
+        4,
+        3,
+        6,
+        2
+      ],
+      "skillArray": [
+        0,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        1
+      ],
+      "credit": 9,
+      "isAvailable": true
+    },
+    {
+      "UVArray": [
+        5,
+        2,
+        6,
+        9
+      ],
+      "skillArray": [
+        2,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        1
+      ],
+      "credit": 3,
+      "isAvailable": true
+    },
+    {
+      "UVArray": [
+        3,
+        0,
+        0,
+        0
+      ],
+      "skillArray": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        5,
+        0
+      ],
+      "credit": 9,
+      "isAvailable": true
+    }
+  ]
+}
