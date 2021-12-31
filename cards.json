@@ -1,0 +1,54 @@
+[
+  {
+    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ELEC",
+      "bonus": "PEN"
+    },
+    "uv": {
+      "code": "AP4B",
+      "uvCategory": "CS",
+      "skill": "INFO"
+    }
+  },
+  {
+    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ENERGY",
+      "bonus": "PROFESSOR"
+    },
+    "uv": {
+      "code": "EC05",
+      "uvCategory": "TSS",
+      "skill": "MANAGEMENT"
+    }
+  },
+  {
+    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ERGO",
+      "bonus": "CREDIT"
+    },
+    "uv": {
+      "code": "HE01",
+      "uvCategory": "TM",
+      "skill": "ERGO"
+    }
+  },
+  {
+    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INFO",
+      "bonus": "REMOVE_DOUBLE_CREDIT"
+    },
+    "uv": {
+      "code": "TH55",
+      "uvCategory": "EC",
+      "skill": "MATH"
+    }
+  }
+]

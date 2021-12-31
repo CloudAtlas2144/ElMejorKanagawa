@@ -58,8 +58,12 @@ public class Player {
         this.cards.add(card);
     }
 
-    public void takeCardDeck() {
+    public void takeCardDeck(Card[] cardDeck) {
+        for (int i = 0; i < cardDeck.length; i++) {
+            cards.add(cardDeck[i]);
+        }
 
+        cards.addAll(List.of(cardDeck));
     }
 
     public void addToInventory() {}

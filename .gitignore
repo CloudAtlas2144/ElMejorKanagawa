@@ -1,7 +1,6 @@
 .vscode
 .DS_Store
 .idea
-lib
 out
 bin
 src/module-info.java

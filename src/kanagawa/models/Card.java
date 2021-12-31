@@ -8,10 +8,12 @@ public class Card {
     private UV uv;
 
     // Default constructor
-    public Card() {}
+    public Card() {
+    }
+
     // Initialization constructor
-    public Card(CardState state, PersonalWork personalWork, UV uv) {
-        this.state = state;
+    public Card(PersonalWork personalWork, UV uv) {
+        this.state = CardState.DECK;
         this.personalWork = personalWork;
         this.uv = uv;
     }
