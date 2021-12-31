@@ -2,6 +2,7 @@ package kanagawa.views;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,6 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import kanagawa.Utils;
 import kanagawa.models.Game;
@@ -73,10 +75,12 @@ public class StartScreenController {
 
             // We load the main game window
             try {
+                Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("main_game_screen.fxml"));
 
-                Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
+                Scene scene = new Scene(fxmlLoader.load(), screenBounds.getMaxX(), screenBounds.getMaxY());
                 Stage stage = new Stage();
                 stage.setTitle("Kanagawa");
                 stage.setScene(scene);
