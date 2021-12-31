@@ -14,6 +14,7 @@ public class Game {
     private Round currentRound;
     private Player currentPlayer;
 
+
     private ArrayList<Player> players;
     private ArrayList<Card> cardDeck;
     private ArrayList<Diploma> diplomas;
@@ -36,8 +37,11 @@ public class Game {
      * @return the game instance
      */
     public static Game getGameInstance() {
-        if (gameInstance == null)
+        if (gameInstance == null) {
             new Game();
+            gameInstance = new Game();
+        }
+
 
         return gameInstance;
     }
@@ -134,6 +138,28 @@ public class Game {
      */
     public void nextRound() {
         // TODO : Implement method
+    }
+
+    /**
+     * Add all the players in the list
+     * @param player1
+     * @param player2
+     * @param player3
+     * @param player4
+     */
+    public void addPlayers(Player player1, Player player2, Player player3, Player player4) {
+        players.add(player1);
+        players.add(player2);
+        players.add(player3);
+        players.add(player4);
+    }
+
+    /**
+     * Getter for the players list
+     * @return ArrayList
+     */
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 
 }

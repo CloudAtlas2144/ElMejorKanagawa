@@ -5,14 +5,41 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
 import kanagawa.Utils;
+import kanagawa.models.Game;
+import kanagawa.models.Player;
 
 import java.io.IOException;
 
 public class StartScreenController {
+    private Game game;
+
+    @FXML
+    private TextField tf_player1;
+
+    @FXML
+    private TextField tf_player2;
+
+    @FXML
+    private TextField tf_player3;
+
+    @FXML
+    private TextField tf_player4;
+
+    @FXML
+    private Label error_label;
+
+    public void initialize() {
+        game = Game.getGameInstance();
+    }
+
     @FXML
     private BorderPane borderPane;
 
@@ -23,20 +50,44 @@ public class StartScreenController {
 
     @FXML
     public void onPlayButtonClicked(MouseEvent event) {
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("main_game_screen.fxml"));
+        // Errors handling
+        if (tf_player1.getText().isEmpty()) {
+            error_label.setText("Renseigner un premier joueur");
+        } else if (!tf_player1.getText().isEmpty() && tf_player2.getText().isEmpty()) {
+            error_label.setText("Il faut au moins deux joueurs");
+        } else {
+            Player player1 = new Player(tf_player1.getText());
+            Player player2 = new Player(tf_player2.getText());
+            Player player3 = null;
+            Player player4 = null;
 
-            Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
-            Stage stage = new Stage();
-            stage.setTitle("Kanagawa");
-            stage.setScene(scene);
-            stage.setResizable(false);
-            stage.setFullScreen(true);
-            stage.show();
-            Utils.closeWindow(event); // Close start window
-        } catch (IOException e) {
-            System.out.println("Impossible de créer la fenêtre !");
+            if (!tf_player3.getText().isEmpty()) {
+                player3 = new Player(tf_player3.getText());
+            }
+
+            if (!tf_player4.getText().isEmpty()) {
+                player4 = new Player(tf_player4.getText());
+            }
+
+            game.addPlayers(player1, player2, player3, player4);
+
+            // We load the main game window
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("main_game_screen.fxml"));
+
+                Scene scene = new Scene(fxmlLoader.load(), 1920, 1080);
+                Stage stage = new Stage();
+                stage.setTitle("Kanagawa");
+                stage.setScene(scene);
+                stage.setResizable(false);
+                stage.setFullScreen(true);
+                stage.show();
+                Utils.closeWindow(event); // Close start window
+            } catch (IOException e) {
+                System.out.println("Impossible de créer la fenêtre !");
+            }
         }
+
     }
 }

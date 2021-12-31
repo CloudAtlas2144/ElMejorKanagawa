@@ -16,16 +16,17 @@
                   <Font name="Pristina" size="48.0" />
                </font>
             </Label>
-            <TextField layoutX="913.0" layoutY="345.0" />
-            <TextField layoutX="915.0" layoutY="401.0" />
-            <TextField layoutX="915.0" layoutY="459.0" />
-            <TextField layoutX="915.0" layoutY="514.0" />
+            <TextField fx:id="tf_player1" layoutX="913.0" layoutY="345.0" />
+            <TextField fx:id="tf_player2" layoutX="915.0" layoutY="401.0" />
+            <TextField fx:id="tf_player3" layoutX="915.0" layoutY="459.0" />
+            <TextField fx:id="tf_player4" layoutX="915.0" layoutY="514.0" />
             <Label layoutX="853.0" layoutY="349.0" text="Joueur 1" />
             <Label layoutX="853.0" layoutY="405.0" text="Joueur 2" />
             <Label layoutX="853.0" layoutY="463.0" text="Joueur 3" />
             <Label layoutX="853.0" layoutY="518.0" text="Joueur 4" />
             <Button fx:id="playButton" layoutX="755.0" layoutY="660.0" mnemonicParsing="false" onMouseClicked="#onPlayButtonClicked" prefHeight="63.0" prefWidth="152.0" text="JOUER" />
             <Button fx:id="exitButton" layoutX="1014.0" layoutY="660.0" mnemonicParsing="false" onMouseClicked="#onExitButtonClicked" prefHeight="63.0" prefWidth="152.0" text="QUITTER" />
+            <Label fx:id="error_label" alignment="CENTER" layoutX="722.0" layoutY="580.0" prefHeight="62.0" prefWidth="535.0" textAlignment="CENTER" />
          </children>
       </AnchorPane>
    </top>
