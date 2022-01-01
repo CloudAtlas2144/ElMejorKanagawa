@@ -9,7 +9,7 @@
     "uv": {
       "code": "FQ54",
       "uvCategory": "TM",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -178,7 +178,7 @@
     "uv": {
       "code": "IM42",
       "uvCategory": "CS",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -243,7 +243,7 @@
     "uv": {
       "code": "QP51",
       "uvCategory": "TM",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -386,7 +386,7 @@
     "uv": {
       "code": "TN20",
       "uvCategory": "CS",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -477,7 +477,7 @@
     "uv": {
       "code": "MA44",
       "uvCategory": "CS",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -581,14 +581,14 @@
     "uv": {
       "code": "UN40",
       "uvCategory": "CS",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
     "state": "STACK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "PEN"
     },
     "uv": {
@@ -601,7 +601,7 @@
     "state": "STACK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "PROFESSOR"
     },
     "uv": {
@@ -614,7 +614,7 @@
     "state": "STACK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "CREDIT"
     },
     "uv": {
@@ -627,7 +627,7 @@
     "state": "STACK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
@@ -640,7 +640,7 @@
     "state": "STACK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "REMOVE_DOUBLE_CREDIT"
     },
     "uv": {
@@ -653,7 +653,7 @@
     "state": "STACK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "NONE"
     },
     "uv": {
@@ -666,7 +666,7 @@
     "state": "STACK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "NONE"
     },
     "uv": {
@@ -679,7 +679,7 @@
     "state": "STACK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "NONE"
     },
     "uv": {
@@ -692,13 +692,13 @@
     "state": "STACK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "NONE"
     },
     "uv": {
       "code": "IP52",
       "uvCategory": "TM",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -789,7 +789,7 @@
     "uv": {
       "code": "MC55",
       "uvCategory": "TM",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
