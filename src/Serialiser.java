@@ -1,5 +1,4 @@
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -7,8 +6,6 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.stream.JsonReader;
 import com.google.gson.reflect.TypeToken;
 
 import kanagawa.models.Diploma;
@@ -22,62 +19,49 @@ import kanagawa.models.enums.UVCategory;
 public class Serialiser {
 
     public static void main(String[] args) {
+        Diploma diploma1 = new Diploma(new int[UVCategory.length], new int[Skill.length], 10, true);
+        Diploma diploma2 = new Diploma(new int[UVCategory.length], new int[Skill.length], 10, true);
+        Diploma diploma3 = new Diploma(new int[UVCategory.length], new int[Skill.length], 10, true);
 
-        int[] uVArray = { 4, 3, 6, 2 };
-        int[] skillArray = { 0, 2, 0, 1, 0, 1, 2, 1 };
-        Diploma diploma1 = new Diploma(uVArray, skillArray, 9, true);
+        ArrayList<Diploma> diplomaList = new ArrayList<Diploma>();
+        diplomaList.add(diploma1);
+        diplomaList.add(diploma2);
+        diplomaList.add(diploma3);
 
-        int[] uVArray2 = { 5, 2, 6, 9 };
-        int[] skillArray2 = { 2, 0, 0, 1, 1, 1, 0, 1 };
-        Diploma diploma2 = new Diploma(uVArray2, skillArray2, 3, true);
+        DiplomaGroup diplomaGroup1 = new DiplomaGroup("Goupe1", diplomaList);
 
-        int[] uVArray3 = new int[UVCategory.length];
-        int[] skillArray3 = new int[Skill.length];
+        // ...
+        DiplomaGroup diplomaGroup2 = new DiplomaGroup("Goupe2", diplomaList);
+        DiplomaGroup diplomaGroup3 = new DiplomaGroup("Goupe2", diplomaList);
 
-        uVArray3[UVCategory.CS.toInt()] = 3;
-        skillArray3[Skill.LANGUAGE.toInt()] = 5;
-        Diploma diploma3 = new Diploma(uVArray3, skillArray3, 9, true);
+        ArrayList<DiplomaGroup> list = new ArrayList<DiplomaGroup>();
+        list.add(diplomaGroup1);
+        list.add(diplomaGroup2);
+        list.add(diplomaGroup3);
 
-        ArrayList<Diploma> list1 = new ArrayList<Diploma>();
-        list1.add(diploma1);
-        list1.add(diploma2);
-        list1.add(diploma3);
+        serialize(list);
 
-        DiplomaGroup group = new DiplomaGroup("Groupe0", list1);
+    }
+
+    public static void serialize(ArrayList<DiplomaGroup> list) {
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-        Type diplomaType = new TypeToken<DiplomaGroup>() {
+        Type diplomaType = new TypeToken<ArrayList<DiplomaGroup>>() {
         }.getType();
 
-        String json = gson.toJson(group, diplomaType);
-        JsonElement jsonElement = gson.toJsonTree(group, diplomaType);
+        String json = gson.toJson(list, diplomaType);
 
-        File file = new File("./diploma.json");
+        File file = new File("./diplomas.json");
 
-        FileWriter fw;
+        FileWriter fileWriter;
         try {
-            fw = new FileWriter(file);
-            fw.write(json);
-            fw.close();
-
-            // JsonReader jsonReader = new JsonReader(new FileReader(file));
-            // jsonReader.setLenient(true);
-
-            // do {
-            // cardTarget = gson.fromJson(jsonReader, Card.class);
-            // cards.add(cardTarget);
-            // } while (cardTarget != null);
-
-            // cards = gson.fromJson(jsonReader, cardListType);
-            // System.out.println(gson.toJson(cards, cardListType));
-
+            fileWriter = new FileWriter(file);
+            fileWriter.write(json);
+            fileWriter.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         System.exit(0);
-
-        // launch(args);
     }
 }

@@ -2,6 +2,7 @@ package kanagawa.models;
 
 import kanagawa.models.enums.Bonus;
 import kanagawa.models.enums.Skill;
+import kanagawa.utilities.InvalidGameObjectException;
 
 public class PersonalWork {
     private boolean hasPen;
@@ -14,6 +15,18 @@ public class PersonalWork {
         this.hasPen = false;
         this.skill = skill;
         this.bonus = bonus;
+    }
+
+    /**
+     * Checks if the Object has been parsed and initialized correctly
+     * 
+     * @param parent Collection in which the object is stored
+     * @throws InvalidGameObjectException
+     */
+    public void checkInitialization(Card parent) throws InvalidGameObjectException {
+        if (hasPen != false || skill == null || bonus == null) {
+            throw new InvalidGameObjectException(parent);
+        }
     }
 
     public boolean isHasPen() {

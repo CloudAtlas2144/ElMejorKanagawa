@@ -1,0 +1,197 @@
+[
+  {
+    "groupeName": "Goupe1",
+    "diplomas": [
+      {
+        "UVArray": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillArray": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "credit": 10,
+        "isAvailable": true
+      },
+      {
+        "UVArray": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillArray": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "credit": 10,
+        "isAvailable": true
+      },
+      {
+        "UVArray": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillArray": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "credit": 10,
+        "isAvailable": true
+      }
+    ]
+  },
+  {
+    "groupeName": "Goupe2",
+    "diplomas": [
+      {
+        "UVArray": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillArray": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "credit": 10,
+        "isAvailable": true
+      },
+      {
+        "UVArray": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillArray": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "credit": 10,
+        "isAvailable": true
+      },
+      {
+        "UVArray": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillArray": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "credit": 10,
+        "isAvailable": true
+      }
+    ]
+  },
+  {
+    "groupeName": "Groupe3",
+    "diplomas": [
+      {
+        "UVArray": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillArray": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "credit": 10,
+        "isAvailable": true
+      },
+      {
+        "UVArray": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillArray": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "credit": 10,
+        "isAvailable": true
+      },
+      {
+        "UVArray": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "skillArray": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "credit": 10,
+        "isAvailable": true
+      }
+    ]
+  }
+]

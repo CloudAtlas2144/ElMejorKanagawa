@@ -3,7 +3,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MATH",
+      "skill": "ENERGY",
       "bonus": "PEN"
     },
     "uv": {
@@ -13,7 +13,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MATH",
@@ -26,7 +26,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MATH",
@@ -39,7 +39,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MATH",
@@ -52,7 +52,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MATH",
@@ -65,7 +65,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MATH",
@@ -78,7 +78,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MATH",
@@ -91,7 +91,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MATH",
@@ -104,7 +104,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MATH",
@@ -117,7 +117,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",
@@ -130,7 +130,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",
@@ -143,7 +143,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",
@@ -156,7 +156,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",
@@ -169,7 +169,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",
@@ -182,7 +182,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",
@@ -195,7 +195,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",
@@ -208,7 +208,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",
@@ -217,11 +217,11 @@
     "uv": {
       "code": "MQ40",
       "uvCategory": "CS",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",
@@ -234,7 +234,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ENERGY",
@@ -247,7 +247,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ENERGY",
@@ -260,7 +260,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ENERGY",
@@ -273,7 +273,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ENERGY",
@@ -286,7 +286,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ENERGY",
@@ -295,11 +295,11 @@
     "uv": {
       "code": "PI41",
       "uvCategory": "CS",
-      "skill": "SYSTEM_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ENERGY",
@@ -308,11 +308,11 @@
     "uv": {
       "code": "TE51",
       "uvCategory": "TM",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ENERGY",
@@ -325,7 +325,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ENERGY",
@@ -338,7 +338,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ENERGY",
@@ -351,7 +351,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
@@ -360,11 +360,11 @@
     "uv": {
       "code": "MA52",
       "uvCategory": "TM",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
@@ -377,7 +377,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
@@ -390,7 +390,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
@@ -399,11 +399,11 @@
     "uv": {
       "code": "CP53",
       "uvCategory": "TM",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
@@ -416,7 +416,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
@@ -429,7 +429,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
@@ -442,7 +442,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
@@ -455,7 +455,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
@@ -464,14 +464,14 @@
     "uv": {
       "code": "MAC1/MAC2",
       "uvCategory": "CS",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "PEN"
     },
     "uv": {
@@ -481,10 +481,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "PROFESSOR"
     },
     "uv": {
@@ -494,10 +494,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "CREDIT"
     },
     "uv": {
@@ -507,10 +507,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
@@ -520,10 +520,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "REMOVE_DOUBLE_CREDIT"
     },
     "uv": {
@@ -533,10 +533,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "NONE"
     },
     "uv": {
@@ -546,16 +546,55 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "NONE"
     },
     "uv": {
       "code": "AP4A/AP4B",
       "uvCategory": "CS",
       "skill": "INFO"
+    }
+  },
+  {
+    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "TN81",
+      "uvCategory": "CS",
+      "skill": "ERGO"
+    }
+  },
+  {
+    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "UN40",
+      "uvCategory": "CS",
+      "skill": "INDUSTRY"
+    }
+  },
+  {
+    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INDUSTRY",
+      "bonus": "PEN"
+    },
+    "uv": {
+      "code": "MTA",
+      "uvCategory": "CS",
+      "skill": "MATH"
     }
   },
   {
@@ -575,32 +614,6 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "UN40",
-      "uvCategory": "CS",
-      "skill": "INDUSTRY"
-    }
-  },
-  {
-    "state": "STACK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INDUSTRY",
-      "bonus": "PEN"
-    },
-    "uv": {
-      "code": "MTA",
-      "uvCategory": "CS",
-      "skill": "MATH"
-    }
-  },
-  {
-    "state": "STACK",
-    "personalWork": {
-      "hasPen": false,
       "skill": "INDUSTRY",
       "bonus": "PROFESSOR"
     },
@@ -611,7 +624,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INDUSTRY",
@@ -624,7 +637,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INDUSTRY",
@@ -637,7 +650,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INDUSTRY",
@@ -650,7 +663,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INDUSTRY",
@@ -659,11 +672,11 @@
     "uv": {
       "code": "FQ51",
       "uvCategory": "TM",
-      "skill": "MACANICS"
+      "skill": "MECHANICS"
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INDUSTRY",
@@ -676,7 +689,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INDUSTRY",
@@ -689,7 +702,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INDUSTRY",
@@ -702,7 +715,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -728,7 +741,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -741,7 +754,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -754,7 +767,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -767,7 +780,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -776,11 +789,11 @@
     "uv": {
       "code": "TF40",
       "uvCategory": "CS",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -793,7 +806,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -806,7 +819,7 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -814,7 +827,7 @@
     },
     "uv": {
       "code": "TE41",
-      "uvCategory": "MECANICS",
+      "uvCategory": "CS",
       "skill": "ERGO"
     }
   },
@@ -822,7 +835,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "PEN"
     },
     "uv": {
@@ -832,23 +845,23 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "PROFESSOR"
     },
     "uv": {
       "code": "MA43",
       "uvCategory": "CS",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "CREDIT"
     },
     "uv": {
@@ -858,10 +871,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
@@ -871,10 +884,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "REMOVE_DOUBLE_CREDIT"
     },
     "uv": {
@@ -884,10 +897,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "NONE"
     },
     "uv": {
@@ -897,10 +910,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "NONE"
     },
     "uv": {
@@ -910,10 +923,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "NONE"
     },
     "uv": {
@@ -923,10 +936,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "NONE"
     },
     "uv": {

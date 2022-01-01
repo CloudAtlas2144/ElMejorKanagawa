@@ -47,52 +47,7 @@
             <HBox fx:id="hbox" prefHeight="382.0" prefWidth="1122.0" />
          </content>
       </ScrollPane>
-      <VBox fx:id="playerListVbox" layoutX="1566.0" layoutY="64.0" prefHeight="515.0" prefWidth="323.0" style="-fx-border-color: black; -fx-background-color: white;">
-         <children>
-            <Pane prefHeight="104.0" prefWidth="321.0" style="-fx-background-color: CCACA6; -fx-border-color: black;">
-               <children>
-                  <Label layoutX="38.0" layoutY="25.0" text="Player 1">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="282.0" layoutY="10.0" text="Prof">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="242.0" layoutY="42.0" text="Proviseur">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="276.0" layoutY="73.0" text="Joue">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane prefHeight="104.0" prefWidth="321.0" style="-fx-background-color: CCACA6; -fx-border-color: black;">
-               <children>
-                  <Label layoutX="39.0" layoutY="24.0" text="Player 2">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane prefHeight="104.0" prefWidth="321.0" style="-fx-background-color: CCACA6; -fx-border-color: black;">
-               <children>
-                  <Label layoutX="39.0" layoutY="26.0" text="Player 3">
-                     <font>
-                        <Font size="36.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-         </children>
-      </VBox>
+      <VBox fx:id="playerListVbox" layoutX="1566.0" layoutY="64.0" prefHeight="515.0" prefWidth="323.0" style="-fx-border-color: black; -fx-background-color: white;" />
       <Label fx:id="currentPlayerLabel" layoutX="116.0" layoutY="642.0" prefHeight="66.0" prefWidth="166.0" text="Player 1">
          <font>
             <Font name="System Bold" size="41.0" />

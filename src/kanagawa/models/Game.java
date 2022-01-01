@@ -7,8 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
+
+import kanagawa.utilities.InvalidGameObjectException;
 
 public class Game {
     private Round currentRound;
@@ -16,7 +19,7 @@ public class Game {
 
     private ArrayList<Player> players;
     private ArrayList<Card> cardDeck;
-    private ArrayList<Diploma> diplomas;
+    private ArrayList<DiplomaGroup> diplomaGroups;
 
     private static Game gameInstance = null;
 
@@ -26,8 +29,9 @@ public class Game {
     private Game() {
         players = new ArrayList<>();
         cardDeck = new ArrayList<>();
-        diplomas = new ArrayList<>();
-        loadCards("");
+        diplomaGroups = new ArrayList<>();
+        loadCards();
+        loadDiplomas();
     }
 
     /**
@@ -36,8 +40,9 @@ public class Game {
      * @return the game instance
      */
     public static Game getGameInstance() {
-        if (gameInstance == null)
-            new Game();
+        if (gameInstance == null) {
+            gameInstance = new Game();
+        }
 
         return gameInstance;
     }
@@ -54,8 +59,8 @@ public class Game {
      * Init all game static game objects
      */
     private void initObjects() {
-        loadCards("");
-        loadDiplomas("");
+        loadCards();
+        loadDiplomas();
     }
 
     /**
@@ -71,25 +76,28 @@ public class Game {
     }
 
     /**
-     * Load cards data from json/xml files
-     * 
-     * @param fileName path to the file where the data is
+     * Load cards data from the json files and checks if they have been parsed
+     * correctly
      */
-    private void loadCards(String fileName) {
+    private void loadCards() {
         File file = new File("./cards.json");
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().serializeNulls().create();
         Type cardListType = new TypeToken<ArrayList<Card>>() {
         }.getType();
-
         JsonReader jsonReader;
 
         try {
             jsonReader = new JsonReader(new FileReader(file));
-            jsonReader.setLenient(true);
-
             cardDeck = gson.fromJson(jsonReader, cardListType);
-
+            for (Card card : cardDeck) {
+                card.checkInitialization();
+            }
             jsonReader.close();
+
+        } catch (InvalidGameObjectException e) {
+            e.printStackTrace();
+            System.err.println("Index in cardDeck : " + cardDeck.indexOf(e.getObject()));
+            System.exit(-1);
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println("Game.loadCards() : Failed to load cards.");
@@ -98,12 +106,42 @@ public class Game {
     }
 
     /**
-     * Load diplomas data from json/xml files
-     * 
-     * @param fileName path to the file where the data is
+     * Load diplomas data from the json files and checks if they have been parsed
+     * correctly
      */
-    private void loadDiplomas(String fileName) {
-        // TODO : Implement method
+    private void loadDiplomas() {
+        File file = new File("./diplomas.json");
+        Gson gson = new GsonBuilder().serializeNulls().create();
+        Type diplomaGroupListType = new TypeToken<ArrayList<DiplomaGroup>>() {
+        }.getType();
+        JsonReader jsonReader;
+
+        try {
+            jsonReader = new JsonReader(new FileReader(file));
+            diplomaGroups = gson.fromJson(jsonReader, diplomaGroupListType);
+            for (DiplomaGroup diplomaGroup : diplomaGroups) {
+                diplomaGroup.checkInitialization();
+            }
+            jsonReader.close();
+
+        } catch (InvalidGameObjectException e) {
+            e.printStackTrace();
+            Object object = e.getObject();
+            Object parent = e.getParent();
+            if (parent == null) {
+                System.err.println("Index in diplomaGroups : " + diplomaGroups.indexOf(object));
+            } else {
+                int index = diplomaGroups.indexOf(parent);
+                System.err.println("Index in diplomaGroups : " + index);
+                System.err.println(
+                        "Index of diploma in diplomas : " + diplomaGroups.get(index).getDiplomas().indexOf(object));
+            }
+            System.exit(-1);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.println("Game.loadCards() : Failed to load cards.");
+            System.exit(-1);
+        }
     }
 
     /**
@@ -134,6 +172,30 @@ public class Game {
      */
     public void nextRound() {
         // TODO : Implement method
+    }
+
+    /**
+     * Add all the players in the list
+     * 
+     * @param player1
+     * @param player2
+     * @param player3
+     * @param player4
+     */
+    public void addPlayers(Player player1, Player player2, Player player3, Player player4) {
+        players.add(player1);
+        players.add(player2);
+        players.add(player3);
+        players.add(player4);
+    }
+
+    /**
+     * Getter for the players list
+     * 
+     * @return ArrayList
+     */
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 
 }

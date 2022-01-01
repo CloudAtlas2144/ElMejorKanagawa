@@ -9,14 +9,19 @@ public class Player {
     private Game game;
 
     private Inventory inventory;
-    private List<Card> cards;
+
+    /**
+     * Cards that the player will have to add either to his inventory as UVs or
+     * Personnal Work
+     */
+    private List<Card> cardsInHand;
 
     // Constructor
     public Player(String username) {
         this.username = username;
         this.isFirstPlayer = false;
         this.inventory = new Inventory();
-        this.cards = new ArrayList<>();
+        this.cardsInHand = new ArrayList<>();
 
         game = Game.getGameInstance();
     }
@@ -47,24 +52,35 @@ public class Player {
     }
 
     public List<Card> getCards() {
-        return cards;
+        return cardsInHand;
     }
 
     /**
      * Add a card in the list of all cards owned by the player
+     * 
      * @param card
      */
     public void addCard(Card card) {
-        this.cards.add(card);
+        this.cardsInHand.add(card);
     }
 
-    public void takeCardDeck() {
+    /**
+     * Adds a column of cards from the board to the player's hand
+     * 
+     * @param cardColumn
+     */
+    public void takeCardColumn(Card[] cardColumn) {
+        for (int i = 0; i < cardColumn.length; i++) {
+            cardsInHand.add(cardColumn[i]);
+        }
 
+        cardsInHand.addAll(List.of(cardColumn));
     }
 
-    public void addToInventory() {}
+    public void addToInventory() {
+    }
 
-    public void addToDrawing() {}
-
+    public void addToDrawing() {
+    }
 
 }
