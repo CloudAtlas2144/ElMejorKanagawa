@@ -1,19 +1,21 @@
 package kanagawa.views;
 
+import java.util.ArrayList;
+
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
+
 import kanagawa.Utils;
 import kanagawa.models.Game;
 import kanagawa.models.Player;
-
-import java.util.ArrayList;
 
 public class MainGameController {
 
@@ -38,7 +40,7 @@ public class MainGameController {
         createPlayers(game.getPlayers());
 
         // Initialiser cartes du joueur dans la VBOX
-        for (int i=0; i<10; ++i){
+        for (int i = 0; i < 10; ++i) {
             SplitPane splitPane = new SplitPane();
             splitPane.setMinWidth(400);
             splitPane.setMinHeight(150);

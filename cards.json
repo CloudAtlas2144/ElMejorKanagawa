@@ -3,13 +3,13 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "ELEC",
+      "skill": "ENERGY",
       "bonus": "PEN"
     },
     "uv": {
       "code": "FQ54",
       "uvCategory": "TM",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -178,7 +178,7 @@
     "uv": {
       "code": "IM42",
       "uvCategory": "CS",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -217,7 +217,7 @@
     "uv": {
       "code": "MQ40",
       "uvCategory": "CS",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
@@ -243,7 +243,7 @@
     "uv": {
       "code": "QP51",
       "uvCategory": "TM",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -295,7 +295,7 @@
     "uv": {
       "code": "PI41",
       "uvCategory": "CS",
-      "skill": "SYSTEM_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -308,7 +308,7 @@
     "uv": {
       "code": "TE51",
       "uvCategory": "TM",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
@@ -360,7 +360,7 @@
     "uv": {
       "code": "MA52",
       "uvCategory": "TM",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
@@ -386,7 +386,7 @@
     "uv": {
       "code": "TN20",
       "uvCategory": "CS",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -399,7 +399,7 @@
     "uv": {
       "code": "CP53",
       "uvCategory": "TM",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
@@ -464,27 +464,27 @@
     "uv": {
       "code": "MAC1/MAC2",
       "uvCategory": "CS",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "PEN"
     },
     "uv": {
       "code": "MA44",
       "uvCategory": "CS",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "PROFESSOR"
     },
     "uv": {
@@ -497,7 +497,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "CREDIT"
     },
     "uv": {
@@ -510,7 +510,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
@@ -523,7 +523,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "REMOVE_DOUBLE_CREDIT"
     },
     "uv": {
@@ -536,7 +536,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "NONE"
     },
     "uv": {
@@ -549,7 +549,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "NONE"
     },
     "uv": {
@@ -562,7 +562,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "NONE"
     },
     "uv": {
@@ -575,20 +575,20 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "NONE"
     },
     "uv": {
       "code": "UN40",
       "uvCategory": "CS",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "PEN"
     },
     "uv": {
@@ -601,7 +601,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "PROFESSOR"
     },
     "uv": {
@@ -614,7 +614,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "CREDIT"
     },
     "uv": {
@@ -627,7 +627,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
@@ -640,7 +640,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "REMOVE_DOUBLE_CREDIT"
     },
     "uv": {
@@ -653,20 +653,20 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "NONE"
     },
     "uv": {
       "code": "FQ51",
       "uvCategory": "TM",
-      "skill": "MACANICS"
+      "skill": "MECHANICS"
     }
   },
   {
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "NONE"
     },
     "uv": {
@@ -679,7 +679,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "NONE"
     },
     "uv": {
@@ -692,13 +692,13 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "SYSTEME_INDUS",
+      "skill": "INDUSTRY",
       "bonus": "NONE"
     },
     "uv": {
       "code": "IP52",
       "uvCategory": "TM",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -776,7 +776,7 @@
     "uv": {
       "code": "TF40",
       "uvCategory": "CS",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
@@ -789,7 +789,7 @@
     "uv": {
       "code": "MC55",
       "uvCategory": "TM",
-      "skill": "SYSTEME_INDUS"
+      "skill": "INDUSTRY"
     }
   },
   {
@@ -814,7 +814,7 @@
     },
     "uv": {
       "code": "TE41",
-      "uvCategory": "MECANICS",
+      "uvCategory": "CS",
       "skill": "ERGO"
     }
   },
@@ -822,7 +822,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "PEN"
     },
     "uv": {
@@ -835,20 +835,20 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "PROFESSOR"
     },
     "uv": {
       "code": "MA43",
       "uvCategory": "CS",
-      "skill": "MECANICS"
+      "skill": "MECHANICS"
     }
   },
   {
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "CREDIT"
     },
     "uv": {
@@ -861,7 +861,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
@@ -874,7 +874,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "REMOVE_DOUBLE_CREDIT"
     },
     "uv": {
@@ -887,7 +887,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "NONE"
     },
     "uv": {
@@ -900,7 +900,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "NONE"
     },
     "uv": {
@@ -913,7 +913,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "NONE"
     },
     "uv": {
@@ -926,7 +926,7 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MANAGAMENT",
+      "skill": "MANAGEMENT",
       "bonus": "NONE"
     },
     "uv": {
