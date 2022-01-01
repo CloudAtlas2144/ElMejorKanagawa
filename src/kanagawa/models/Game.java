@@ -27,9 +27,9 @@ public class Game {
      *
      */
     private Game() {
-        players = new ArrayList<>();
-        cardDeck = new ArrayList<>();
-        diplomaGroups = new ArrayList<>();
+        players = new ArrayList<Player>();
+        cardDeck = new ArrayList<Card>();
+        diplomaGroups = new ArrayList<DiplomaGroup>();
         loadCards();
         loadDiplomas();
     }

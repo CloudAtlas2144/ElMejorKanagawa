@@ -598,10 +598,10 @@
     }
   },
   {
-    "state": "STACK",
+    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "MECANICS",
+      "skill": "MECHANICS",
       "bonus": "NONE"
     },
     "uv": {
