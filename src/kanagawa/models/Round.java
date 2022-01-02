@@ -1,20 +1,20 @@
 package kanagawa.models;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Round {
     private int roundCount;
 
-    private ArrayList<Card>[] gameBoard;
-
     private Player currentPlayer;
+
+    private ArrayList<Card>[] gameBoard;
 
     Round() {
         gameBoard = new ArrayList[4];
         for (int i = 0; i < 4; i++) {
             gameBoard[i] = new ArrayList<Card>();
         }
+        roundCount = 0;
     }
 
     /**
@@ -66,11 +66,20 @@ public class Round {
         // TODO : Implement method
     }
 
+    public void setCurrentPlayer(Player player) {
+        currentPlayer = player;
+    }
+
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
-    public void setCurrentPlayer(Player currentPlayer) {
-        this.currentPlayer = currentPlayer;
+    public int getRoundCount() {
+        return roundCount;
     }
+
+    public void setRoundCount(int roundCount) {
+        this.roundCount = roundCount;
+    }
+
 }
