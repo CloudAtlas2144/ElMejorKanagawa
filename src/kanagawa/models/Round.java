@@ -1,11 +1,14 @@
 package kanagawa.models;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Round {
     private int roundCount;
 
     private ArrayList<Card>[] gameBoard;
+
+    private Player currentPlayer;
 
     Round() {
         gameBoard = new ArrayList[4];
@@ -63,4 +66,11 @@ public class Round {
         // TODO : Implement method
     }
 
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
+
+    public void setCurrentPlayer(Player currentPlayer) {
+        this.currentPlayer = currentPlayer;
+    }
 }

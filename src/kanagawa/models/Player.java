@@ -6,6 +6,8 @@ import java.util.List;
 public class Player {
     private String username;
     private boolean isFirstPlayer;
+
+    private boolean isPlaying;
     private Game game;
 
     private Inventory inventory;
@@ -20,6 +22,7 @@ public class Player {
     public Player(String username) {
         this.username = username;
         this.isFirstPlayer = false;
+        this.isPlaying = false;
         this.inventory = new Inventory();
         this.cardsInHand = new ArrayList<>();
 
@@ -55,6 +58,14 @@ public class Player {
         return cardsInHand;
     }
 
+    public boolean isPlaying() {
+        return isPlaying;
+    }
+
+    public void setPlaying(boolean playing) {
+        isPlaying = playing;
+    }
+
     /**
      * Add a card in the list of all cards owned by the player
      * 
@@ -83,4 +94,14 @@ public class Player {
     public void addToDrawing() {
     }
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                "username='" + username + '\'' +
+                ", isFirstPlayer=" + isFirstPlayer +
+                ", game=" + game +
+                ", inventory=" + inventory +
+                ", cardsInHand=" + cardsInHand +
+                '}';
+    }
 }

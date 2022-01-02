@@ -34,6 +34,15 @@ public class UV {
         }
     }
 
+    @Override
+    public String toString() {
+        return "UV{" +
+                "code='" + code + '\'' +
+                ", uvCategory=" + uvCategory +
+                ", skill=" + skill +
+                '}';
+    }
+
     public String getCode() {
         return code;
     }

@@ -29,6 +29,15 @@ public class PersonalWork {
         }
     }
 
+    @Override
+    public String toString() {
+        return "PersonalWork{" +
+                "hasPen=" + hasPen +
+                ", skill=" + skill +
+                ", bonus=" + bonus +
+                '}';
+    }
+
     public boolean isHasPen() {
         return hasPen;
     }

@@ -18,16 +18,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
 
         Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        double outputScaleX = Screen.getPrimary().getOutputScaleX();
-        double outputScaleY = Screen.getPrimary().getOutputScaleY();
-
-        System.out.println(screenBounds);
 
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/start_screen.fxml")));
         primaryStage.setTitle("Kanagawa");
         primaryStage.setScene(new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()));
         primaryStage.setResizable(false);
-        // primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

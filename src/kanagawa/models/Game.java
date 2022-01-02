@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -16,10 +17,15 @@ import kanagawa.utilities.InvalidGameObjectException;
 public class Game {
     private Round currentRound;
     private Player currentPlayer;
+    private int roundCount; // To count how many rounds there were in the whole game
 
     private ArrayList<Player> players;
     private ArrayList<Card> cardDeck;
     private ArrayList<DiplomaGroup> diplomaGroups;
+
+    public ArrayList<Card> getCardDeck() {
+        return cardDeck;
+    }
 
     private static Game gameInstance = null;
 
@@ -30,6 +36,9 @@ public class Game {
         players = new ArrayList<Player>();
         cardDeck = new ArrayList<Card>();
         diplomaGroups = new ArrayList<DiplomaGroup>();
+
+        currentRound = new Round();
+
         loadCards();
         loadDiplomas();
     }
@@ -185,8 +194,22 @@ public class Game {
     public void addPlayers(Player player1, Player player2, Player player3, Player player4) {
         players.add(player1);
         players.add(player2);
-        players.add(player3);
-        players.add(player4);
+        if (player3 != null)
+            players.add(player3);
+
+        if (player4 != null)
+            players.add(player4);
+    }
+
+    public void chooseRandomFirstPlayer() {
+        Random rand = new Random();
+        int i = rand.nextInt(players.size());
+        Player player = players.get(i);
+        player.setPlaying(true);
+        player.setFirstPlayer(true);
+        player.getInventory().setHasProfessor(true);
+
+        currentRound.setCurrentPlayer(players.get(i));
     }
 
     /**

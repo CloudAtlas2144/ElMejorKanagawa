@@ -23,4 +23,44 @@ public class Inventory {
         this.hasProfessor = false;
     }
 
+    // Getters
+    public int getCredits() {
+        return credits;
+    }
+
+    public ArrayList<PersonalWork> getPwPossessed() {
+        return pwPossessed;
+    }
+
+    public ArrayList<UV> getUvPossessed() {
+        return uvPossessed;
+    }
+
+    public ArrayList<Diploma> getDiplomaPossessed() {
+        return diplomaPossessed;
+    }
+
+    public boolean isHasProfessor() {
+        return hasProfessor;
+    }
+
+    // Setters
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
+
+    public void setHasProfessor(boolean hasProfessor) {
+        this.hasProfessor = hasProfessor;
+    }
+
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "credits=" + credits +
+                ", pwPossessed=" + pwPossessed +
+                ", uvPossessed=" + uvPossessed +
+                ", diplomaPossessed=" + diplomaPossessed +
+                ", hasProfessor=" + hasProfessor +
+                '}';
+    }
 }

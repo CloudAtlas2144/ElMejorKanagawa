@@ -58,4 +58,13 @@ public class Card {
     public void setUv(UV uv) {
         this.uv = uv;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "state=" + state +
+                ", personalWork=" + personalWork +
+                ", uv=" + uv +
+                '}';
+    }
 }

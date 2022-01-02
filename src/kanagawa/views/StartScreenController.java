@@ -12,6 +12,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import kanagawa.Utils;
+import kanagawa.models.Card;
 import kanagawa.models.Game;
 import kanagawa.models.Player;
 
@@ -75,6 +76,10 @@ public class StartScreenController {
             }
 
             game.addPlayers(player1, player2, player3, player4);
+
+            // At the start of the game and first round, the game chooses the first player randomly
+            // For the next rounds, the first player will be the one having the professor bonus
+            game.chooseRandomFirstPlayer();
 
             // We load the main game window
             try {
