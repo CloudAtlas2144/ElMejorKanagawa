@@ -1,5 +1,9 @@
 package kanagawa.models;
 
+import kanagawa.models.enums.Skill;
+import kanagawa.models.enums.UVCategory;
+import kanagawa.utilities.InvalidGameObjectException;
+
 public class Diploma {
 
     private int[] UVArray;
@@ -17,6 +21,19 @@ public class Diploma {
         this.skillArray = skillArray;
         this.credit = credit;
         this.isAvailable = isAvailable;
+    }
+
+    /**
+     * Checks if the Object has been parsed and initialized correctly
+     * 
+     * @param parent Collection in which the object is stored
+     * @throws InvalidGameObjectException
+     */
+    public void checkInitialization(DiplomaGroup parent) throws InvalidGameObjectException {
+        if (UVArray == null || UVArray.length != UVCategory.length || skillArray == null
+                || skillArray.length != Skill.length || credit == 0 || isAvailable != true) {
+            throw new InvalidGameObjectException(this, parent);
+        }
     }
 
     public int[] getUVArray() {

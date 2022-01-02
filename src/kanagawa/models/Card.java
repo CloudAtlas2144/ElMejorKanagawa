@@ -1,6 +1,7 @@
 package kanagawa.models;
 
 import kanagawa.models.enums.CardState;
+import kanagawa.utilities.InvalidGameObjectException;
 
 public class Card {
     private CardState state;
@@ -9,6 +10,7 @@ public class Card {
 
     // Default constructor
     public Card() {
+
     }
 
     // Initialization constructor
@@ -16,6 +18,20 @@ public class Card {
         this.state = CardState.DECK;
         this.personalWork = personalWork;
         this.uv = uv;
+    }
+
+    /**
+     * Checks if the Object has been parsed and initialized correctly
+     * 
+     * @throws InvalidGameObjectException
+     */
+    public void checkInitialization() throws InvalidGameObjectException {
+        if (state == CardState.DECK && personalWork != null && uv != null) {
+            personalWork.checkInitialization(this);
+            uv.checkInitialization(this);
+        } else {
+            throw new InvalidGameObjectException(this);
+        }
     }
 
     // Getters and setters
