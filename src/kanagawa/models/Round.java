@@ -62,6 +62,20 @@ public class Round {
         return j;
     }
 
+    /**
+     * Manage the use of a card
+     * 
+     * true = player use the uv part
+     * false = player use the personalWork part
+     */
+    public void choiceCard(Boolean choicecard, Card card) {
+        if (choicecard) {
+            currentPlayer.addToDrawing(card);
+        } else {
+            currentPlayer.addToInventory(card);
+        }
+    }
+
     public void resetBoard() {
         // TODO : Implement method
     }

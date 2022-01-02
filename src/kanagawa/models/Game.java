@@ -97,6 +97,7 @@ public class Game {
                 // case : the player select a column
                 if (takeCards != -99) {
                     currentPlayer.takeCardColumn(currentRound.removeColumn(takeCards));
+                    // TODO : useCards()
                 } else {
                     // case : there is one column remaining or there is no place left to set cards
                     // on the board
@@ -106,6 +107,7 @@ public class Game {
                             // TODO: faire choisir le joueur
                         }
                         currentPlayer.takeCardColumn(currentRound.removeColumn(takeCards));
+                        // TODO : useCards()
                     }
                 }
                 indexCurrentPlayer = indexCurrentPlayer + 1 % players.size();

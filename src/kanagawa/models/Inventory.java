@@ -2,6 +2,8 @@ package kanagawa.models;
 
 import java.util.ArrayList;
 
+import kanagawa.models.enums.Bonus;
+
 public class Inventory {
 
     private int credits;
@@ -62,5 +64,17 @@ public class Inventory {
                 ", diplomaPossessed=" + diplomaPossessed +
                 ", hasProfessor=" + hasProfessor +
                 '}';
+    }
+
+    public void addPersonalWork(PersonalWork pw) {
+        pwPossessed.add(pw);
+        if (pw.getBonus() == Bonus.PROFESSOR) {
+            setHasProfessor(true);
+
+        }
+    }
+
+    public void addUv(UV uv) {
+        uvPossessed.add(uv);
     }
 }
