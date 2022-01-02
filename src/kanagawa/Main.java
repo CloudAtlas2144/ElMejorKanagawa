@@ -2,6 +2,7 @@ package kanagawa;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Dimension2D;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -9,19 +10,24 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import kanagawa.models.Game;
 
+import java.util.Objects;
+
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Game.getGameInstance();
 
-        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
+        double outputScaleX = Screen.getPrimary().getOutputScaleX();
+        double outputScaleY = Screen.getPrimary().getOutputScaleY();
 
-        Parent root = FXMLLoader.load(getClass().getResource("views/start_screen.fxml"));
+        System.out.println(screenBounds);
+
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/start_screen.fxml")));
         primaryStage.setTitle("Kanagawa");
-        primaryStage.setScene(new Scene(root, screenBounds.getMaxX(), screenBounds.getMaxY()));
+        primaryStage.setScene(new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()));
         primaryStage.setResizable(false);
-        primaryStage.setMaximized(true);
+        // primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

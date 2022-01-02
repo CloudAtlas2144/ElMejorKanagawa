@@ -1,14 +1,14 @@
 package kanagawa.views;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Screen;
 import kanagawa.Utils;
 import kanagawa.models.Game;
 import kanagawa.models.Player;
@@ -20,36 +20,41 @@ public class MainGameController {
     private Game game;
 
     @FXML
-    private HBox hbox;
+    private VBox playersList;
 
     @FXML
-    private Pane UnDeux;
+    private Pane one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve;
 
     @FXML
-    private Button nextRoundButton;
+    private Label creditCount, penCount, mathCount, infoCount, energyCount, industryCount, ergoCount, mechaCount, managementCount, LanguageCount;
 
     @FXML
-    private VBox playerListVbox;
+    private Button firstColumnButton, secondColumnButton, thirdColumnButton, fourthColumnButton;
+
+    @FXML
+    private Button nextPlayerButton;
+
+    @FXML
+    private Button quitGameButton;
+
+    @FXML
+    private HBox cardsList;
+
+    @FXML
+    private BorderPane root;
+
+
 
     public void initialize() {
         game = Game.getGameInstance();
 
+        // Set root size to match current window size
+        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
+        root.setPrefWidth(screenBounds.getWidth());
+        root.setPrefHeight(screenBounds.getHeight());
+
         createCardOnBoard();
         createPlayers(game.getPlayers());
-
-        // Initialiser cartes du joueur dans la VBOX
-        for (int i=0; i<10; ++i){
-            SplitPane splitPane = new SplitPane();
-            splitPane.setMinWidth(400);
-            splitPane.setMinHeight(150);
-            splitPane.setMaxHeight(360);
-            AnchorPane skillsPane = new AnchorPane();
-            AnchorPane UVPane = new AnchorPane();
-            splitPane.getItems().addAll(skillsPane, UVPane);
-            splitPane.setDividerPositions(0.32);
-            splitPane.setStyle("-fx-background-color:lightgreen; -fx-border-color:black;");
-            hbox.getChildren().add(splitPane);
-        }
     }
 
     @FXML
@@ -58,44 +63,27 @@ public class MainGameController {
     }
 
     @FXML
-    public void onNextRoundButtonClicked(MouseEvent event) {
-        SplitPane n = (SplitPane) UnDeux.getChildren().get(0);
-        AnchorPane a = (AnchorPane) n.getItems().get(0);
-        VBox v = (VBox) a.getChildren().get(0);
-        v.getChildren().add(new Label("Bonjour"));
+    public void onNextPlayerButtonClicked(MouseEvent event) {
+
     }
 
-    private void createCardOnBoard() {
-        // Initialiser les cartes sur le plateau
-        SplitPane splitPaneBoard = new SplitPane();
-        splitPaneBoard.setMinWidth(277);
-        splitPaneBoard.setMinHeight(194);
-        AnchorPane skillsPaneBoard = new AnchorPane();
-        skillsPaneBoard.getChildren().add(new VBox());
-        AnchorPane UVPaneBoard = new AnchorPane();
-        UVPaneBoard.getChildren().add(new VBox());
-        splitPaneBoard.getItems().addAll(skillsPaneBoard, UVPaneBoard);
-        splitPaneBoard.setDividerPositions(0.298);
+    @FXML
+    public void onFirstColumnButtonClicked(MouseEvent event) {}
 
-        UnDeux.getChildren().add(splitPaneBoard);
+    @FXML
+    public void onSecondColumnButtonClicked(MouseEvent event) {}
+
+    @FXML
+    public void onThirdColumnButtonClicked(MouseEvent event) {}
+
+    @FXML
+    public void onFourthColumnButtonClicked(MouseEvent event) {}
+
+    private void createCardOnBoard() {
+
     }
 
     private void createPlayers(ArrayList<Player> players) {
-        for (Player player : players) {
-            if (player != null) {
-                Pane pane = new Pane();
-                pane.setPrefWidth(321);
-                pane.setPrefHeight(104);
-                pane.setStyle("-fx-background-color: CCACA6; -fx-border-color: black");
 
-                Label playerName = new Label(player.getUsername());
-                playerName.setLayoutX(39);
-                playerName.setLayoutY(24);
-                playerName.setFont(new Font(36));
-                pane.getChildren().add(playerName);
-
-                playerListVbox.getChildren().add(pane);
-            }
-        }
     }
 }
