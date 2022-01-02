@@ -93,6 +93,7 @@ public class StartScreenController {
                 stage.setTitle("Kanagawa");
                 stage.setScene(scene);
                 stage.setResizable(false);
+                stage.setMaximized(true);
                 stage.show();
                 Utils.closeWindow(event); // Close start window
             } catch (IOException e) {

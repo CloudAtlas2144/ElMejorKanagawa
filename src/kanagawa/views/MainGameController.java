@@ -46,18 +46,12 @@ public class MainGameController {
     @FXML
     private HBox cardsList;
 
-    @FXML
-    private BorderPane root;
-
 
 
     public void initialize() throws InterruptedException {
         game = Game.getGameInstance();
 
         // Set root size to match current window size
-        Rectangle2D screenBounds = Screen.getPrimary().getBounds();
-        root.setPrefWidth(screenBounds.getWidth());
-        root.setPrefHeight(screenBounds.getHeight());
 
         createCardOnBoard();
         createPlayers(game.getPlayers());
