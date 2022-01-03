@@ -23,6 +23,7 @@ public class Main extends Application {
         primaryStage.setTitle("Kanagawa");
         primaryStage.setScene(new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()));
         primaryStage.setResizable(false);
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 
