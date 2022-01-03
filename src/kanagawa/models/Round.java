@@ -9,12 +9,15 @@ public class Round {
 
     private ArrayList<Card>[] gameBoard;
 
-    Round() {
+    private ArrayList<Player> players;
+
+    Round(ArrayList<Player> p) {
         gameBoard = new ArrayList[4];
         for (int i = 0; i < 4; i++) {
             gameBoard[i] = new ArrayList<Card>();
         }
         roundCount = 0;
+        players = p;
     }
 
     /**
@@ -28,6 +31,49 @@ public class Round {
             while (gameBoard[j] == null && j < gameBoard.length)
                 j++;
             gameBoard[j].add(card[j]);
+        }
+    }
+
+    /**
+     * Manage the round
+     * 
+     * @param players a list of players
+     */
+    public void playRound(int firstPlayer) { // TODO: exclure les joueurs qui ont déjà joué
+
+        // variable to stock the column selected by the player
+        int takeCards = -99; // initialize at the value were the player pass
+        int indexCurrentPlayer = firstPlayer;
+        int numberPlayerAtStart = players.size(); // if there's only on player at the start he must took a column
+        currentPlayer = players.get(indexCurrentPlayer);
+
+        for (int i = 0; i < numberPlayerAtStart; i++) {
+
+            // TODO: faire choisir le joueur
+
+            // case : the player select a column
+            if (takeCards != -99) {
+                currentPlayer.takeCardColumn(removeColumn(takeCards));
+            } else {
+                // case : there is one column remaining or there is no place left to set cards
+                // on the board
+                if (numberPlayerAtStart == 1 || getRoundCount() == 3) {
+
+                    while (takeCards == -99) {
+                        // TODO: faire choisir le joueur
+                    }
+                    currentPlayer.takeCardColumn(removeColumn(takeCards));
+                }
+            }
+            // Player took card, he use it
+            if (takeCards != -99) {
+                // TODO : usecards()
+
+                players.remove(indexCurrentPlayer);
+                currentPlayer = players.get(indexCurrentPlayer);
+            } else {
+                indexCurrentPlayer = indexCurrentPlayer + 1 % players.size();
+            }
         }
     }
 

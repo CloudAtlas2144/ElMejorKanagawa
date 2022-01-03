@@ -18,7 +18,7 @@ public class Game {
     private Round currentRound;
     private Player currentPlayer;
     private int roundCount; // To count how many rounds there were in the whole game
-    private int indexCurrentPlayer;
+    private int indexFirstPlayer;
 
     private ArrayList<Player> players;
     private ArrayList<Card> cardDeck;
@@ -38,8 +38,7 @@ public class Game {
         cardDeck = new ArrayList<Card>();
         diplomaGroups = new ArrayList<DiplomaGroup>();
 
-        currentRound = new Round();
-
+        roundCount = 0;
         loadCards();
         loadDiplomas();
 
@@ -85,37 +84,17 @@ public class Game {
          * Deal the cards
          */
 
-        int takeCards = -99;// variable to stock the column selected by the player
-        // value were the player pass
-
-        // loop who create rounds end deals cards
         do {
             nextRound();
-            for (int i = 0; i < players.size(); i++) {
-                // TODO: faire choisir le joueur
+            do {
+                distributeCards();
+                currentRound.playRound(indexFirstPlayer);
+            } while (currentRound.getRoundCount() < 3 || currentRound.getRemainingColumns() != 0);
 
-                // case : the player select a column
-                if (takeCards != -99) {
-                    currentPlayer.takeCardColumn(currentRound.removeColumn(takeCards));
-                    // TODO : useCards()
-                } else {
-                    // case : there is one column remaining or there is no place left to set cards
-                    // on the board
-                    if (currentRound.getRemainingColumns() == 1 || currentRound.getRoundCount() == 3) {
+            indexFirstPlayer = firstPlayer();
+            currentRound.setRoundCount(0);
 
-                        while (takeCards == -99) {
-                            // TODO: faire choisir le joueur
-                        }
-                        currentPlayer.takeCardColumn(currentRound.removeColumn(takeCards));
-                        // TODO : useCards()
-                    }
-                }
-                indexCurrentPlayer = indexCurrentPlayer + 1 % players.size();
-                currentPlayer = players.get(indexCurrentPlayer);
-            }
-        } while (currentRound.getRoundCount() < 3 || currentRound.getRemainingColumns() != 0);
-        currentRound.setRoundCount(0);
-
+        } while (true); // TODO : condition de victoire
     }
 
     /**
@@ -214,9 +193,8 @@ public class Game {
      * Allows to end current round and to start a new one
      */
     public void nextRound() {
-        // TODO : Implement method
-        distributeCards();
-        currentRound.setRoundCount(currentRound.getRoundCount() + 1);
+        currentRound = new Round(players);
+        roundCount++;
     }
 
     /**
@@ -240,7 +218,7 @@ public class Game {
     public void chooseRandomFirstPlayer() {
         Random rand = new Random();
         int i = rand.nextInt(players.size());
-        indexCurrentPlayer = i;
+        indexFirstPlayer = i;
         Player player = players.get(i);
         player.setPlaying(true);
         player.setFirstPlayer(true);
@@ -249,6 +227,18 @@ public class Game {
         currentPlayer = player;
         currentRound.setCurrentPlayer(players.get(i));
 
+    }
+
+    public int firstPlayer() {
+        int i = 0;
+        for (Player p : players) {
+            if (p.isFirstPlayer()) {
+                return i;
+            } else {
+                i++;
+            }
+        }
+        return i;
     }
 
     /**
