@@ -80,18 +80,16 @@ public class Player {
      * 
      * @param cardColumn
      */
-    public void takeCardColumn(Card[] cardColumn) {
-        for (int i = 0; i < cardColumn.length; i++) {
-            cardsInHand.add(cardColumn[i]);
-        }
-
-        cardsInHand.addAll(List.of(cardColumn));
+    public void takeCardColumn(ArrayList<Card> cardColumn) {
+        cardsInHand.addAll(cardColumn);
     }
 
-    public void addToInventory() {
+    public void addToInventory(Card card) {
+        inventory.addPersonalWork(card.getPersonalWork());
     }
 
-    public void addToDrawing() {
+    public void addToDrawing(Card card) {
+        inventory.addUv(card.getUv());
     }
 
     @Override
