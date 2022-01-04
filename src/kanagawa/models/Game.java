@@ -37,12 +37,12 @@ public class Game {
         players = new ArrayList<Player>();
         cardDeck = new ArrayList<Card>();
         diplomaGroups = new ArrayList<DiplomaGroup>();
+        currentRound = new Round(players);
 
         roundCount = 0;
         loadCards();
         loadDiplomas();
 
-        gameLoop();
     }
 
     /**
@@ -85,14 +85,12 @@ public class Game {
          */
 
         do {
-            nextRound();
+
             do {
                 distributeCards();
                 currentRound.playRound(indexFirstPlayer);
             } while (currentRound.getRoundCount() < 3 || currentRound.getRemainingColumns() != 0);
-
-            indexFirstPlayer = firstPlayer();
-            currentRound.setRoundCount(0);
+            nextRound();
 
         } while (true); // TODO : condition de victoire
     }
@@ -195,6 +193,7 @@ public class Game {
     public void nextRound() {
         currentRound = new Round(players);
         roundCount++;
+        indexFirstPlayer = firstPlayer();
     }
 
     /**

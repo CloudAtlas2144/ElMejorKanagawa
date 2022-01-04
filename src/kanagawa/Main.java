@@ -24,11 +24,13 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, screenBounds.getWidth(), screenBounds.getHeight()));
         primaryStage.setResizable(false);
         primaryStage.show();
+
+        Game.getGameInstance();
+
     }
 
     public static void main(String[] args) {
 
-        Game.getGameInstance();
         launch(args);
     }
 }
