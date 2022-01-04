@@ -2,6 +2,7 @@ package kanagawa.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import kanagawa.models.enums.Bonus;
 
 public class Player {
     private String username;
@@ -16,7 +17,7 @@ public class Player {
      * Cards that the player will have to add either to his inventory as UVs or
      * Personnal Work
      */
-    private List<Card> cardsInHand;
+    private ArrayList<Card> cardsInHand;
 
     // Constructor
     public Player(String username) {
@@ -54,7 +55,7 @@ public class Player {
         this.inventory = inventory;
     }
 
-    public List<Card> getCards() {
+    public ArrayList<Card> getCards() {
         return cardsInHand;
     }
 
@@ -84,11 +85,24 @@ public class Player {
         cardsInHand.addAll(cardColumn);
     }
 
-    public void addToInventory(Card card) {
+    public void addToPersonalWork(Card card) {
         inventory.addPersonalWork(card.getPersonalWork());
+
+        if (card.getPersonalWork().getBonus() == Bonus.PEN) {
+            inventory.addPen();
+        }
+        if (card.getPersonalWork().getBonus() == Bonus.CREDIT) {
+            this.inventory.setCredits(inventory.getCredits() + 1);
+        }
+        if (card.getPersonalWork().getBonus() == Bonus.DOUBLE_CREDIT) {
+            this.inventory.setCredits(inventory.getCredits() + 2);
+        }
+        if (card.getPersonalWork().getBonus() == Bonus.PROFESSOR) {
+            this.setFirstPlayer(true);
+        }
     }
 
-    public void addToDrawing(Card card) {
+    public void addToUv(Card card) {
         inventory.addUv(card.getUv());
     }
 

@@ -2,10 +2,14 @@ package kanagawa.models;
 
 import java.util.ArrayList;
 
+import kanagawa.models.enums.Bonus;
+
 public class Round {
     private int roundCount;
 
     private Player currentPlayer;
+
+    private int indexFirstPlayer;
 
     private ArrayList<Card>[] gameBoard;
 
@@ -43,9 +47,11 @@ public class Round {
 
         // variable to stock the column selected by the player
         int takeCards = -99; // initialize at the value were the player pass
-        int indexCurrentPlayer = firstPlayer;
         int numberPlayerAtStart = players.size(); // if there's only on player at the start he must took a column
+        int indexCurrentPlayer = firstPlayer;
+        indexFirstPlayer = firstPlayer;
         currentPlayer = players.get(indexCurrentPlayer);
+        boolean choiceCard = false;// true => the player keep the uv | false => the player keep the personalWork
 
         for (int i = 0; i < numberPlayerAtStart; i++) {
 
@@ -61,6 +67,10 @@ public class Round {
 
                     while (takeCards == -99) {
                         // TODO: faire choisir le joueur
+                        for (Card card : currentPlayer.getCards()) {
+                            // TODO : faire choisir le joueur et changer choiceCard
+                            choiceCard(choiceCard, card);
+                        }
                     }
                     currentPlayer.takeCardColumn(removeColumn(takeCards));
                 }
@@ -116,9 +126,12 @@ public class Round {
      */
     public void choiceCard(Boolean choicecard, Card card) {
         if (choicecard) {
-            currentPlayer.addToDrawing(card);
+            currentPlayer.addToUv(card);
         } else {
-            currentPlayer.addToInventory(card);
+            currentPlayer.addToPersonalWork(card);
+            if (card.getPersonalWork().getBonus() == Bonus.PROFESSOR) {
+                players.get(indexFirstPlayer).setFirstPlayer(false);
+            }
         }
     }
 

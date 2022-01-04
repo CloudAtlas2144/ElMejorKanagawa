@@ -3,6 +3,58 @@
     "state": "DECK",
     "personalWork": {
       "hasPen": false,
+      "skill": "INFO",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "OI40",
+      "uvCategory": "CS",
+      "skill": "MATH"
+    }
+  },
+  {
+    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ERGO",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "PC40",
+      "uvCategory": "CS",
+      "skill": "INFO"
+    }
+  },
+  {
+    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ENERGY",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "TE51",
+      "uvCategory": "TM",
+      "skill": "MECHANICS"
+    }
+  },
+  {
+    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INDUSTRY",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "RS40",
+      "uvCategory": "CS",
+      "skill": "INFO"
+    }
+  },
+  {
+    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
       "skill": "ENERGY",
       "bonus": "PEN"
     },
@@ -189,19 +241,6 @@
       "bonus": "NONE"
     },
     "uv": {
-      "code": "OI40",
-      "uvCategory": "CS",
-      "skill": "MATH"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INFO",
-      "bonus": "NONE"
-    },
-    "uv": {
       "code": "LG00",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
@@ -296,19 +335,6 @@
       "code": "PI41",
       "uvCategory": "CS",
       "skill": "INDUSTRY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ENERGY",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "TE51",
-      "uvCategory": "TM",
-      "skill": "MECHANICS"
     }
   },
   {
@@ -426,19 +452,6 @@
       "code": "MT28",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ERGO",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "PC40",
-      "uvCategory": "CS",
-      "skill": "INFO"
     }
   },
   {
@@ -673,19 +686,6 @@
       "code": "FQ51",
       "uvCategory": "TM",
       "skill": "MECHANICS"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INDUSTRY",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "RS40",
-      "uvCategory": "CS",
-      "skill": "INFO"
     }
   },
   {
