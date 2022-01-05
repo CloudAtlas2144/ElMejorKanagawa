@@ -67,6 +67,9 @@ public class MainGameController {
 
         game.getCurrentRound().setRemainingPlayers(game.getPlayers());
         game.getCurrentRound().initBoardWithPlayersCount();
+
+        disableButtons();
+
         game.distributeCards();
 
         createPlayers(game.getPlayers());
@@ -340,6 +343,24 @@ public class MainGameController {
         anchorPane.getChildren().addAll(uvCode, category, cat, requiredSkill, line, imageView);
 
         cardsList.getChildren().add(anchorPane);
+    }
+
+    private void disableButtons() {
+        if (game.getCurrentRound().getGameBoard()[0] == null) {
+            firstColumnButton.setDisable(true);
+        }
+
+        if (game.getCurrentRound().getGameBoard()[1] == null) {
+            secondColumnButton.setDisable(true);
+        }
+
+        if (game.getCurrentRound().getGameBoard()[2] == null) {
+            thirdColumnButton.setDisable(true);
+        }
+
+        if (game.getCurrentRound().getGameBoard()[3] == null) {
+            fourthColumnButton.setDisable(true);
+        }
     }
 
     private String getImageUrlFromSkill(Skill skill) {

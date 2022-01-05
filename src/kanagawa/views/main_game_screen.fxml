@@ -151,18 +151,26 @@
                <children>
                   <AnchorPane prefHeight="57.0" style="-fx-background-color: white; -fx-border-color: black;">
                      <children>
-                        <JFXButton layoutX="233.0" layoutY="13.0" prefHeight="32.0" prefWidth="30.0" style="-fx-background-color: #ffbe76;" text=" " />
-                        <JFXButton layoutX="273.0" layoutY="13.0" prefHeight="32.0" prefWidth="30.0" style="-fx-background-color: #6ab04c;" text=" " />
-                        <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="277.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@assets/check.png" />
-                           </image>
-                        </ImageView>
-                        <ImageView fitHeight="23.0" fitWidth="22.0" layoutX="237.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@assets/hourglass.png" />
-                           </image>
-                        </ImageView>
+                        <JFXButton layoutX="233.0" layoutY="13.0" prefHeight="32.0" prefWidth="30.0" style="-fx-background-color: #ffbe76;" text=" " >
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="23.0" layoutX="277.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/check.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton layoutX="273.0" layoutY="13.0" prefHeight="32.0" prefWidth="30.0" style="-fx-background-color: #6ab04c;" text=" " >
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="22.0" layoutX="237.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@assets/hourglass.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+
+
                         <ImageView fitHeight="25.0" fitWidth="21.0" layoutX="76.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@assets/credit.png" />

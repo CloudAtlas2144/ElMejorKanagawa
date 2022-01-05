@@ -8,6 +8,10 @@ public class Card {
     private PersonalWork personalWork;
     private UV uv;
 
+
+
+    private boolean isStarterCard;
+
     // Default constructor
     public Card() {
 
@@ -18,6 +22,7 @@ public class Card {
         this.state = CardState.DECK;
         this.personalWork = personalWork;
         this.uv = uv;
+        this.isStarterCard = false;
     }
 
     /**
@@ -47,6 +52,10 @@ public class Card {
         return uv;
     }
 
+    public boolean isStarterCard() {
+        return isStarterCard;
+    }
+
     public void setState(CardState state) {
         this.state = state;
     }
@@ -57,6 +66,10 @@ public class Card {
 
     public void setUv(UV uv) {
         this.uv = uv;
+    }
+
+    public void setStarterCard(boolean starterCard) {
+        isStarterCard = starterCard;
     }
 
     @Override
