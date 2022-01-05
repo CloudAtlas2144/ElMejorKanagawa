@@ -271,4 +271,14 @@ public class Game {
         return players;
     }
 
+
+    /**
+     * Set the next player as the current player
+     *
+     * @return ArrayList
+     */
+
+    public void nextPlayer(){
+       currentPlayer=players.get((players.indexOf(currentPlayer)+1)%4) ;
+    }
 }
