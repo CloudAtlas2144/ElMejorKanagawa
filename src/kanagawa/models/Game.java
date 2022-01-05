@@ -2,6 +2,7 @@ package kanagawa.models;
 
 import java.io.File;
 import java.io.FileReader;
+import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.*;
 
@@ -232,17 +233,24 @@ public class Game {
     }
 
     public void randomFirstCardForPlayers() {
-        for (Player player : players) {
-            if (player != null) {
-                Random rand = new Random();
-                Card randomCard = cardDeck.remove(rand.nextInt(cardDeck.size()));
-
-                player.addToPersonalWork(randomCard);
-                player.addToUv(randomCard);
-
-                randomCard.setState(CardState.INVENTORY);
+        ArrayList<Card> starterCards = new ArrayList<>();
+        for (Card card : cardDeck) {
+            if (card.isStarterCard()) {
+                starterCards.add(card);
             }
+        }
 
+        System.out.println(starterCards);
+
+        for (Player player : players) {
+            Random rand = new Random();
+            Card randomCard = starterCards.remove(rand.nextInt(starterCards.size()));
+            cardDeck.remove(randomCard);
+
+            player.addToPersonalWork(randomCard);
+            player.addToUv(randomCard);
+
+            randomCard.setState(CardState.INVENTORY);
         }
     }
 

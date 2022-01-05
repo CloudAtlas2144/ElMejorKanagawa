@@ -10,7 +10,8 @@
       "code": "OI40",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
+    },
+    "isStarterCard": "true"
   },
   {
     "state": "DECK",
@@ -23,7 +24,8 @@
       "code": "PC40",
       "uvCategory": "CS",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -36,7 +38,8 @@
       "code": "TE51",
       "uvCategory": "TM",
       "skill": "MECHANICS"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -49,7 +52,8 @@
       "code": "RS40",
       "uvCategory": "CS",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -62,7 +66,8 @@
       "code": "FQ54",
       "uvCategory": "TM",
       "skill": "INDUSTRY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -75,7 +80,8 @@
       "code": "SV53",
       "uvCategory": "TM",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -88,7 +94,8 @@
       "code": "PE01",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -101,7 +108,8 @@
       "code": "ER51",
       "uvCategory": "TM",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -114,7 +122,8 @@
       "code": "AI53",
       "uvCategory": "TM",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -127,7 +136,8 @@
       "code": "LE03",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
-    }
+    },
+    "isStarterCard": "true"
   },
   {
     "state": "DECK",
@@ -140,7 +150,8 @@
       "code": "LR00",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -153,7 +164,8 @@
       "code": "MT82",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -166,7 +178,8 @@
       "code": "MA81",
       "uvCategory": "CS",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -179,7 +192,8 @@
       "code": "DI82",
       "uvCategory": "CS",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -192,7 +206,8 @@
       "code": "MN41",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -205,7 +220,8 @@
       "code": "CP80",
       "uvCategory": "CS",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -218,7 +234,8 @@
       "code": "SY80",
       "uvCategory": "CS",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -231,7 +248,8 @@
       "code": "IM42",
       "uvCategory": "CS",
       "skill": "INDUSTRY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -244,7 +262,8 @@
       "code": "LG00",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -257,7 +276,8 @@
       "code": "MQ40",
       "uvCategory": "CS",
       "skill": "MECHANICS"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -270,7 +290,8 @@
       "code": "SM58",
       "uvCategory": "TM",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -283,7 +304,8 @@
       "code": "QP51",
       "uvCategory": "TM",
       "skill": "INDUSTRY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -296,7 +318,8 @@
       "code": "LS00",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -309,7 +332,8 @@
       "code": "GE37",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -322,7 +346,8 @@
       "code": "DI9PE",
       "uvCategory": "TM",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -336,7 +361,8 @@
       "code": "PI41",
       "uvCategory": "CS",
       "skill": "INDUSTRY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -349,7 +375,8 @@
       "code": "ER41",
       "uvCategory": "CS",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "true"
   },
   {
     "state": "DECK",
@@ -362,7 +389,8 @@
       "code": "CP93",
       "uvCategory": "TM",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -375,7 +403,8 @@
       "code": "LE01",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -388,7 +417,8 @@
       "code": "MA52",
       "uvCategory": "TM",
       "skill": "MECHANICS"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -401,7 +431,8 @@
       "code": "MTB",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -414,7 +445,8 @@
       "code": "TN20",
       "uvCategory": "CS",
       "skill": "INDUSTRY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -427,7 +459,8 @@
       "code": "CP53",
       "uvCategory": "TM",
       "skill": "MECHANICS"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -440,7 +473,8 @@
       "code": "TI05",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -453,7 +487,8 @@
       "code": "MT28",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -466,7 +501,8 @@
       "code": "MG01",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -479,7 +515,8 @@
       "code": "MAC1/MAC2",
       "uvCategory": "CS",
       "skill": "MECHANICS"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -492,7 +529,8 @@
       "code": "MA44",
       "uvCategory": "CS",
       "skill": "INDUSTRY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -505,7 +543,8 @@
       "code": "EL61",
       "uvCategory": "TM",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -518,7 +557,8 @@
       "code": "LK00",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -531,7 +571,8 @@
       "code": "SY45",
       "uvCategory": "CS",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -544,7 +585,8 @@
       "code": "IT46",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -557,7 +599,8 @@
       "code": "IA41",
       "uvCategory": "CS",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "true"
   },
   {
     "state": "DECK",
@@ -570,7 +613,8 @@
       "code": "AP4A/AP4B",
       "uvCategory": "CS",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -583,7 +627,8 @@
       "code": "TN81",
       "uvCategory": "CS",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -596,7 +641,8 @@
       "code": "UN40",
       "uvCategory": "CS",
       "skill": "INDUSTRY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -609,7 +655,8 @@
       "code": "MTA",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -622,7 +669,8 @@
       "code": "TN81",
       "uvCategory": "CS",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -635,7 +683,8 @@
       "code": "MV54",
       "uvCategory": "TM",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -648,7 +697,8 @@
       "code": "EG90",
       "uvCategory": "TM",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -661,7 +711,8 @@
       "code": "LG02",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -674,7 +725,8 @@
       "code": "TF42",
       "uvCategory": "CS",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -687,7 +739,8 @@
       "code": "FQ51",
       "uvCategory": "TM",
       "skill": "MECHANICS"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -700,7 +753,8 @@
       "code": "MA90",
       "uvCategory": "TM",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -713,7 +767,8 @@
       "code": "IP52",
       "uvCategory": "TM",
       "skill": "INDUSTRY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -726,7 +781,8 @@
       "code": "GE01",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -739,7 +795,8 @@
       "code": "SY41",
       "uvCategory": "CS",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -752,7 +809,8 @@
       "code": "MG07",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -765,7 +823,8 @@
       "code": "SP07",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -778,7 +837,8 @@
       "code": "MG05",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -791,7 +851,8 @@
       "code": "TF40",
       "uvCategory": "CS",
       "skill": "MECHANICS"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -804,7 +865,8 @@
       "code": "MC55",
       "uvCategory": "TM",
       "skill": "INDUSTRY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -817,7 +879,8 @@
       "code": "IT40",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -830,7 +893,8 @@
       "code": "TE41",
       "uvCategory": "CS",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -843,7 +907,8 @@
       "code": "LC00",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -856,7 +921,8 @@
       "code": "MA43",
       "uvCategory": "CS",
       "skill": "MECHANICS"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -869,7 +935,8 @@
       "code": "LI00",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -882,7 +949,8 @@
       "code": "EN41",
       "uvCategory": "CS",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -895,7 +963,8 @@
       "code": "DA52",
       "uvCategory": "TM",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -908,7 +977,8 @@
       "code": "OI45",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -921,7 +991,8 @@
       "code": "EL48",
       "uvCategory": "CS",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -934,7 +1005,8 @@
       "code": "TR57",
       "uvCategory": "TM",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
     "state": "DECK",
@@ -947,6 +1019,7 @@
       "code": "SO07",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   }
 ]
