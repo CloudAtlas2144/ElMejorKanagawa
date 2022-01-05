@@ -103,7 +103,28 @@ public class Player {
     }
 
     public void addToUv(Card card) {
-        inventory.addUv(card.getUv());
+        if(hasSkill(card.getPersonalWork())){
+            inventory.addUv(card.getUv());
+        } else if (){
+
+        }
+    }
+
+    public boolean hasSkill(PersonalWork pwToTest) {
+        int i = 0;
+        boolean availableSkills = false;
+        PersonalWork cardToTest; // FIXME : look for a less confusing name;
+
+        while (availableSkills == false) {
+            cardToTest = inventory.getPwPossessed().get(i);
+            if (cardToTest.getSkill() == pwToTest.getSkill()) {
+                if (cardToTest.isHasPen()) {
+                    availableSkills = true;
+                }
+            }
+            i++;
+        }
+        return availableSkills;
     }
 
     @Override
