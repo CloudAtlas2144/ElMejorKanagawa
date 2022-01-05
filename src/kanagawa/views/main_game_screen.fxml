@@ -11,7 +11,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kanagawa.views.MainGameController">
@@ -55,7 +54,7 @@
             </ImageView>
             <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="24.0" layoutY="506.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@assets/machanics.png" />
+                  <Image url="@assets/mechanics.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="24.0" layoutY="453.0" pickOnBounds="true" preserveRatio="true">
@@ -76,42 +75,42 @@
             <Label layoutX="97.0" layoutY="519.0" text="Mécanique" />
             <Label layoutX="97.0" layoutY="572.0" text="Management" />
             <Label layoutX="97.0" layoutY="626.0" text="Langues" />
-            <Label fx:id="mathCount" layoutX="296.0" layoutY="252.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="163.0">
+            <Label fx:id="penCount" layoutX="296.0" layoutY="252.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="163.0">
                <font>
                   <Font name="Verdana Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="LanguageCount" layoutX="296.0" layoutY="622.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="569.0">
+            <Label fx:id="managementCount" layoutX="296.0" layoutY="622.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="569.0">
                <font>
                   <Font name="Verdana Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="managementCount" layoutX="296.0" layoutY="568.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="414.0">
+            <Label fx:id="industryCount" layoutX="296.0" layoutY="568.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="414.0">
                <font>
                   <Font name="Verdana Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="mechaCount" layoutX="296.0" layoutY="622.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="622.0">
+            <Label fx:id="languageCount" layoutX="296.0" layoutY="622.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="622.0">
                <font>
                   <Font name="Verdana Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="ergoCount" layoutX="293.0" layoutY="515.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="515.0">
+            <Label fx:id="mechaCount" layoutX="293.0" layoutY="515.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="515.0">
                <font>
                   <Font name="Verdana Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="industryCount" layoutX="296.0" layoutY="411.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="360.0">
+            <Label fx:id="energyCount" layoutX="296.0" layoutY="411.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="360.0">
                <font>
                   <Font name="Verdana Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="energyCount" layoutX="296.0" layoutY="359.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="305.0">
+            <Label fx:id="infoCount" layoutX="296.0" layoutY="359.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="305.0">
                <font>
                   <Font name="Verdana Bold" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="infoCount" layoutX="296.0" layoutY="304.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="253.0">
+            <Label fx:id="mathCount" layoutX="296.0" layoutY="304.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="253.0">
                <font>
                   <Font name="Verdana Bold" size="20.0" />
                </font>
@@ -138,7 +137,7 @@
                </image>
             </ImageView>
             <Label layoutX="100.0" layoutY="166.0" text="Stylos" />
-            <Label fx:id="penCount" layoutX="289.0" layoutY="462.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="462.0">
+            <Label fx:id="ergoCount" layoutX="289.0" layoutY="462.0" text="0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="462.0">
                <font>
                   <Font name="Verdana Bold" size="20.0" />
                </font>
@@ -224,64 +223,90 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+                  <AnchorPane fx:id="one" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
                      <children>
-                        <Label layoutX="128.0" layoutY="20.0" text="AP4B" AnchorPane.rightAnchor="128.0" AnchorPane.topAnchor="20.0">
-                           <font>
-                              <Font name="Tahoma Bold" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="14.0" layoutY="56.0" text="Categorie :" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="56.0">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="243.0" layoutY="50.0" text="CS" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="50.0">
-                           <font>
-                              <Font size="28.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="86.0" layoutY="101.0" text="Compétence requise" AnchorPane.rightAnchor="85.0" AnchorPane.topAnchor="101.0">
-                           <font>
-                              <Font name="Verdana Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="140.0" layoutY="137.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="138.0" AnchorPane.topAnchor="137.0">
-                           <image>
-                              <Image url="@assets/info.png" />
-                           </image>
-                        </ImageView>
+                        <AnchorPane layoutX="-159.0" layoutY="7.0" prefHeight="201.0" prefWidth="155.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="7.0" layoutY="14.0" text="Bonus" AnchorPane.rightAnchor="106.33333333333334" AnchorPane.topAnchor="14.0">
+                                 <font>
+                                    <Font name="Verdana Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="21.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="104.33333333333334" AnchorPane.topAnchor="42.0">
+                                 <image>
+                                    <Image url="@assets/credit.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="7.0" layoutY="92.0" text="Compétence" AnchorPane.rightAnchor="65.00000000000001" AnchorPane.topAnchor="92.0">
+                                 <font>
+                                    <Font name="Verdana Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="21.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="42.66666666666666" AnchorPane.rightAnchor="104.33333333333334" AnchorPane.topAnchor="128.0">
+                                 <image>
+                                    <Image url="@assets/math.png" />
+                                 </image>
+                              </ImageView>
+                           </children></AnchorPane>
+                        <AnchorPane layoutX="157.0" prefHeight="201.0" prefWidth="164.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Label layoutX="51.0" layoutY="14.0" text="AP4B" AnchorPane.rightAnchor="50.33333333333334" AnchorPane.topAnchor="14.0">
+                                 <font>
+                                    <Font name="Verdana Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="17.0" layoutY="52.0" prefHeight="19.0" prefWidth="65.0" text="Catégorie :" AnchorPane.rightAnchor="86.33333333333333" AnchorPane.topAnchor="52.0">
+                                 <font>
+                                    <Font size="13.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="140.0" layoutY="42.0" text="CS" AnchorPane.bottomAnchor="119.66666666666666" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="42.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="21.0" layoutY="100.0" text="Compétence requise" AnchorPane.rightAnchor="21.666666666666657" AnchorPane.topAnchor="100.0">
+                                 <font>
+                                    <Font name="System Bold" size="13.0" />
+                                 </font>
+                              </Label>
+                              <ImageView fitHeight="42.0" fitWidth="44.0" layoutX="49.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="64.33333333333334" AnchorPane.topAnchor="133.0">
+                                 <image>
+                                    <Image url="@assets/info.png" />
+                                 </image>
+                              </ImageView>
+                           </children></AnchorPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff7979;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff7979;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff7979;" GridPane.rowIndex="3" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff7979;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <AnchorPane fx:id="two" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <AnchorPane fx:id="three" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff7979;" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <AnchorPane fx:id="four" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <AnchorPane fx:id="five" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
+                  <AnchorPane fx:id="six" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff7979;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <AnchorPane fx:id="seven" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <AnchorPane fx:id="eight" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <AnchorPane fx:id="nine" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff7979;" GridPane.rowIndex="3" />
+                  <AnchorPane fx:id="ten" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <AnchorPane fx:id="eleven" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                  <AnchorPane fx:id="twelve" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ff7979;" GridPane.columnIndex="3" GridPane.rowIndex="3" />
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;">
                      <children>
-                        <JFXButton fx:id="secondColumnButton" layoutX="128.0" layoutY="4.0" onMouseClicked="#onSecondColumnButtonClicked" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: lightgreen;" text="Prendre" AnchorPane.rightAnchor="127.0" />
+                        <JFXButton fx:id="secondColumnButton" layoutX="128.0" layoutY="4.0" onMouseClicked="#onSecondColumnButtonClicked" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: lightgreen;" text="Prendre" AnchorPane.rightAnchor="127.0" AnchorPane.topAnchor="4.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="1">
                      <children>
-                        <JFXButton fx:id="firstColumnButton" layoutX="128.0" layoutY="4.0" onMouseClicked="#onFirstColumnButtonClicked" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: lightgreen;" text="Prendre" AnchorPane.rightAnchor="127.0" />
+                        <JFXButton fx:id="firstColumnButton" layoutX="128.0" layoutY="4.0" onMouseClicked="#onFirstColumnButtonClicked" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: lightgreen;" text="Prendre" AnchorPane.rightAnchor="127.0" AnchorPane.topAnchor="4.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="2">
                      <children>
-                        <JFXButton fx:id="thirdColumnButton" layoutX="127.0" layoutY="4.0" onMouseClicked="#onThirdColumnButtonClicked" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: lightgreen;" text="Prendre" AnchorPane.rightAnchor="127.0" />
+                        <JFXButton fx:id="thirdColumnButton" layoutX="127.0" layoutY="4.0" onMouseClicked="#onThirdColumnButtonClicked" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: lightgreen;" text="Prendre" AnchorPane.rightAnchor="127.0" AnchorPane.topAnchor="4.0" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="3">
                      <children>
-                        <JFXButton fx:id="fourthColumnButton" layoutX="127.0" layoutY="4.0" onMouseClicked="#onFourthColumnButtonClicked" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: lightgreen;" text="Prendre" AnchorPane.rightAnchor="127.0" />
+                        <JFXButton fx:id="fourthColumnButton" layoutX="127.0" layoutY="4.0" onMouseClicked="#onFourthColumnButtonClicked" prefHeight="33.0" prefWidth="65.0" style="-fx-background-color: lightgreen;" text="Prendre" AnchorPane.rightAnchor="127.0" AnchorPane.topAnchor="4.0" />
                      </children>
                   </AnchorPane>
                </children>
@@ -291,42 +316,7 @@
       <VBox fx:id="playersList" layoutX="1719.0" layoutY="52.0" prefHeight="583.0" prefWidth="201.0" style="-fx-border-color: black;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0" />
       <ScrollPane layoutX="391.0" layoutY="715.0" prefHeight="365.0" prefWidth="1262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="391.0" AnchorPane.rightAnchor="267.0" AnchorPane.topAnchor="662.0">
          <content>
-            <HBox fx:id="cardsList" prefHeight="380.0" prefWidth="1261.0">
-               <children>
-                  <AnchorPane prefWidth="250.0" style="-fx-border-color: black; -fx-background-color: white;">
-                     <children>
-                        <Label layoutX="93.0" layoutY="24.0" text="AP4B" AnchorPane.bottomAnchor="326.0" AnchorPane.rightAnchor="93.0" AnchorPane.topAnchor="24.0">
-                           <font>
-                              <Font name="Tahoma Bold" size="24.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="14.0" layoutY="110.0" text="Categorie :" AnchorPane.bottomAnchor="243.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="110.0">
-                           <font>
-                              <Font size="19.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="192.0" layoutY="105.0" text="CS" AnchorPane.bottomAnchor="244.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="105.0">
-                           <font>
-                              <Font size="28.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="53.0" layoutY="210.0" text="Compétence requise" AnchorPane.bottomAnchor="165.0" AnchorPane.rightAnchor="49.0" AnchorPane.topAnchor="210.0">
-                           <font>
-                              <Font name="Verdana Bold" size="13.0" />
-                           </font>
-                        </Label>
-                        <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="106.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="65.0" AnchorPane.rightAnchor="103.0" AnchorPane.topAnchor="283.0">
-                           <image>
-                              <Image url="@assets/info.png" />
-                           </image>
-                        </ImageView>
-                        <Line endX="100.0" layoutX="124.0" layoutY="77.0" startX="-100.0" AnchorPane.bottomAnchor="301.5" AnchorPane.leftAnchor="22.5" AnchorPane.rightAnchor="25.5" AnchorPane.topAnchor="76.5" />
-                     </children>
-                  </AnchorPane>
-                  <AnchorPane prefWidth="250.0" style="-fx-border-color: black; -fx-background-color: white;" />
-                  <AnchorPane prefWidth="250.0" style="-fx-border-color: black; -fx-background-color: white;" />
-               </children>
-            </HBox>
+            <HBox fx:id="cardsList" prefHeight="380.0" prefWidth="1261.0" />
          </content>
       </ScrollPane>
       <JFXButton fx:id="nextPlayerButton" layoutX="1736.0" layoutY="668.0" onMouseClicked="#onNextPlayerButtonClicked" prefHeight="64.0" prefWidth="114.0" style="-fx-background-color: #48dbfb;" text="Prochain Joueur" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="668.0" />

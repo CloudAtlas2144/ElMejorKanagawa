@@ -3,10 +3,13 @@ package kanagawa.models;
 import java.util.ArrayList;
 
 import kanagawa.models.enums.Bonus;
+import kanagawa.models.enums.Skill;
 
 public class Inventory {
 
     private int credits;
+
+    private int penCount;
 
     private ArrayList<PersonalWork> pwPossessed;
 
@@ -19,6 +22,7 @@ public class Inventory {
     // Constructors
     public Inventory() {
         this.credits = 0;
+        this.penCount = 0;
         this.pwPossessed = new ArrayList<PersonalWork>();
         this.uvPossessed = new ArrayList<UV>();
         this.diplomaPossessed = new ArrayList<Diploma>();
@@ -46,9 +50,17 @@ public class Inventory {
         return hasProfessor;
     }
 
+    public int getPenCount() {
+        return penCount;
+    }
+
     // Setters
     public void setCredits(int credits) {
         this.credits = credits;
+    }
+
+    public void setPenCount(int penCount) {
+        this.penCount = penCount;
     }
 
     public void setHasProfessor(boolean hasProfessor) {
@@ -76,5 +88,16 @@ public class Inventory {
 
     public void addUv(UV uv) {
         uvPossessed.add(uv);
+    }
+
+    public int getSkillCount(Skill skill) {
+        int count = 0;
+        for (PersonalWork pw : pwPossessed) {
+            if (pw.getSkill() == skill) {
+                count++;
+            }
+        }
+
+        return count;
     }
 }

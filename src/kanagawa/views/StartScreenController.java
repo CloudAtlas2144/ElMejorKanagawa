@@ -64,6 +64,7 @@ public class StartScreenController {
         } else {
             Player player1 = new Player(tf_player1.getText());
             Player player2 = new Player(tf_player2.getText());
+
             Player player3 = null;
             Player player4 = null;
 

@@ -3,15 +3,14 @@ package kanagawa.models;
 import java.io.File;
 import java.io.FileReader;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 
+import kanagawa.models.enums.CardState;
 import kanagawa.utilities.InvalidGameObjectException;
 
 public class Game {
@@ -34,16 +33,16 @@ public class Game {
      *
      */
     private Game() {
-        players = new ArrayList<Player>();
-        cardDeck = new ArrayList<Card>();
-        diplomaGroups = new ArrayList<DiplomaGroup>();
+        players = new ArrayList<>();
+        cardDeck = new ArrayList<>();
+        diplomaGroups = new ArrayList<>();
 
-        currentRound = new Round();
+        currentRound = new Round(players);
 
         loadCards();
         loadDiplomas();
 
-        gameLoop();
+        // gameLoop();
     }
 
     /**
@@ -197,6 +196,7 @@ public class Game {
         for (int i = 0; i < cardsToDeal.length; i++) {
             cardsToDeal[i] = cardDeck.remove(0);
         }
+
         currentRound.addCards(cardsToDeal);
     }
 
@@ -249,6 +249,25 @@ public class Game {
         currentPlayer = player;
         currentRound.setCurrentPlayer(players.get(i));
 
+    }
+
+    public void randomFirstCardForPlayers() {
+        for (Player player : players) {
+            if (player != null) {
+                Random rand = new Random();
+                Card randomCard = cardDeck.remove(rand.nextInt(cardDeck.size()));
+
+                player.addToInventory(randomCard);
+                player.addToDrawing(randomCard);
+
+                randomCard.setState(CardState.INVENTORY);
+            }
+
+        }
+    }
+
+    public void shuffleCards() {
+        Collections.shuffle(cardDeck);
     }
 
     /**

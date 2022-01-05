@@ -56,7 +56,7 @@
     "personalWork": {
       "hasPen": false,
       "skill": "MATH",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
+      "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
       "code": "AI53",
@@ -173,7 +173,7 @@
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
+      "bonus": "NONE"
     },
     "uv": {
       "code": "IM42",
@@ -290,7 +290,8 @@
     "personalWork": {
       "hasPen": false,
       "skill": "ENERGY",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
+      "bonus": "DOUBLE_CREDIT"
+
     },
     "uv": {
       "code": "PI41",
@@ -407,7 +408,7 @@
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
+      "bonus": "NONE"
     },
     "uv": {
       "code": "TI05",
@@ -524,7 +525,7 @@
     "personalWork": {
       "hasPen": false,
       "skill": "MECHANICS",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
+      "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
       "code": "IT46",
@@ -654,7 +655,7 @@
     "personalWork": {
       "hasPen": false,
       "skill": "INDUSTRY",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
+      "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
       "code": "TF42",
@@ -771,7 +772,7 @@
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
+      "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
       "code": "MG05",
@@ -888,7 +889,7 @@
     "personalWork": {
       "hasPen": false,
       "skill": "MANAGEMENT",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
+      "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
       "code": "DA52",

@@ -9,7 +9,11 @@ public class Round {
 
     private ArrayList<Card>[] gameBoard;
 
-    Round() {
+    private ArrayList<Player> remainingPlayers = new ArrayList<>();
+
+    Round(ArrayList<Player> players) {
+        remainingPlayers = players;
+
         gameBoard = new ArrayList[4];
         for (int i = 0; i < 4; i++) {
             gameBoard[i] = new ArrayList<Card>();
@@ -20,15 +24,22 @@ public class Round {
     /**
      * Deals 1 card to each column of the board
      * 
-     * @param card a pointer on the array of cards to add
+     * @param cards a pointer on the array of cards to add
      */
-    public void addCards(Card[] card) {
-        int j = 0;
-        for (int i = 0; i < card.length; i++) {
-            while (gameBoard[j] == null && j < gameBoard.length)
-                j++;
-            gameBoard[j].add(card[j]);
+    public void addCards(Card[] cards) {
+        int index = -1;
+        for (int i=0; i<cards.length; i++) {
+            for (int j=index+1; j<gameBoard.length; j++) {
+                if (gameBoard[j] != null) {
+                    gameBoard[j].add(cards[i]);
+                    index = j;
+
+                    break;
+                }
+
+            }
         }
+
     }
 
     /**
@@ -76,6 +87,10 @@ public class Round {
         }
     }
 
+    public void removeFromRemainingPlayers(Player player) {
+        remainingPlayers.remove(player);
+    }
+
     public void resetBoard() {
         // TODO : Implement method
     }
@@ -94,6 +109,10 @@ public class Round {
 
     public void setRoundCount(int roundCount) {
         this.roundCount = roundCount;
+    }
+
+    public ArrayList<Card>[] getGameBoard() {
+        return gameBoard;
     }
 
 }
