@@ -1,6 +1,8 @@
 package kanagawa.models;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Round {
     private int roundCount;
@@ -17,8 +19,17 @@ public class Round {
         gameBoard = new ArrayList[4];
         for (int i = 0; i < 4; i++) {
             gameBoard[i] = new ArrayList<Card>();
+
         }
         roundCount = 0;
+    }
+
+    public void initBoardWithPlayersCount() {
+        for (int i = remainingPlayers.size(); i < gameBoard.length; i++) {
+            //On initialise autant de colonne que de joueur
+            gameBoard[i] = null;
+
+        }
     }
 
     /**
@@ -109,6 +120,10 @@ public class Round {
 
     public void setRoundCount(int roundCount) {
         this.roundCount = roundCount;
+    }
+
+    public void setRemainingPlayers(ArrayList<Player> remainingPlayers) {
+        this.remainingPlayers = remainingPlayers;
     }
 
     public ArrayList<Card>[] getGameBoard() {

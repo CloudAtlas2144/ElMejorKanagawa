@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,8 +16,10 @@ import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import kanagawa.Utils;
 import kanagawa.models.*;
+import kanagawa.models.enums.Bonus;
 import kanagawa.models.enums.Skill;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class MainGameController {
@@ -61,9 +64,9 @@ public class MainGameController {
 
         game.shuffleCards();
         game.randomFirstCardForPlayers();
-        game.distributeCards();
 
-        System.out.println(Arrays.toString(game.getCurrentRound().getGameBoard()));
+        game.getCurrentRound().initBoardWithPlayersCount();
+        game.distributeCards();
 
         createPlayers(game.getPlayers());
 
@@ -83,7 +86,9 @@ public class MainGameController {
     }
 
     @FXML
-    public void onFirstColumnButtonClicked(MouseEvent event) {}
+    public void onFirstColumnButtonClicked(MouseEvent event) {
+
+    }
 
     @FXML
     public void onSecondColumnButtonClicked(MouseEvent event) {}
@@ -170,10 +175,15 @@ public class MainGameController {
     private void showCardsOnBoard() {
         HashMap<Integer, Card> cards = new HashMap<>();
         for (int i = 0; i<game.getCurrentRound().getGameBoard().length; i++) {
-            for (int j=0; j<game.getCurrentRound().getGameBoard()[i].size(); j++) {
-                cards.put(i+j, game.getCurrentRound().getGameBoard()[i].get(j));
+            if (game.getCurrentRound().getGameBoard()[i] != null) {
+                for (int j=0; j<game.getCurrentRound().getGameBoard()[i].size(); j++) {
+                    cards.put(i+j*4, game.getCurrentRound().getGameBoard()[i].get(j));
+                }
             }
+
         }
+
+        System.out.println(cards);
 
         for (Map.Entry<Integer, Card> entry : cards.entrySet()) {
             displayCardOnBoard(entry.getValue(), getAnchorPaneFromPositionNumber(entry.getKey()));
@@ -184,6 +194,8 @@ public class MainGameController {
         AnchorPane uv = new AnchorPane();
         uv.setPrefWidth(164);
         uv.setPrefHeight(200);
+        uv.setLayoutX(157.0);
+
         AnchorPane.setBottomAnchor(uv, 0.0);
         AnchorPane.setTopAnchor(uv, 0.0);
         AnchorPane.setRightAnchor(uv, 0.0);
@@ -195,14 +207,66 @@ public class MainGameController {
         AnchorPane.setBottomAnchor(pw, 0.0);
         AnchorPane.setTopAnchor(pw, 0.0);
         AnchorPane.setLeftAnchor(pw, 0.0);
-        pw.setStyle("-fx-border-color: black;");
 
+        // Adding elements in the Personal Work section (left section)
         Label bonus = new Label("Bonus");
         bonus.setFont(new Font("Verdana Bold", 12));
         AnchorPane.setRightAnchor(bonus,106.33333333333334);
         AnchorPane.setTopAnchor(bonus,14.0);
 
-        pw.getChildren().addAll(bonus);
+        ImageView bonusImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream(getImageUrlFromBonus(card.getPersonalWork().getBonus())))));
+        bonusImageView.setFitWidth(30);
+        bonusImageView.setFitHeight(30);
+        bonusImageView.setPickOnBounds(true);
+        bonusImageView.setPreserveRatio(true);
+        AnchorPane.setRightAnchor(bonusImageView, 104.33333333333334);
+        AnchorPane.setTopAnchor(bonusImageView, 42.0);
+
+        Label skill = new Label("Compétence");
+        skill.setFont(new Font("Verdana Bold", 12));
+        AnchorPane.setRightAnchor(skill,65.0);
+        AnchorPane.setTopAnchor(skill,92.0);
+
+        ImageView skillImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream(getImageUrlFromSkill(card.getPersonalWork().getSkill())))));
+        skillImageView.setFitWidth(30);
+        skillImageView.setFitHeight(30);
+        skillImageView.setPickOnBounds(true);
+        skillImageView.setPreserveRatio(true);
+        AnchorPane.setRightAnchor(skillImageView, 104.33333333333334);
+        AnchorPane.setBottomAnchor(skillImageView, 42.66666666666666);
+
+        // Adding elements in the UV section (right section)
+        Label uvCode = new Label(card.getUv().getCode());
+        uvCode.setFont(new Font("Verdana Bold", 18));
+        AnchorPane.setRightAnchor(uvCode,50.33333333333334);
+        AnchorPane.setTopAnchor(uvCode,14.0);
+
+        Label categoryLabel = new Label("Catégorie :");
+        categoryLabel.setFont(new Font(13));
+        AnchorPane.setRightAnchor(categoryLabel,86.33333333333333);
+        AnchorPane.setTopAnchor(categoryLabel,52.0);
+
+        Label category = new Label(card.getUv().getUvCategory().toString());
+        category.setFont(new Font(20));
+        AnchorPane.setBottomAnchor(category, 119.66666666666666);
+        AnchorPane.setRightAnchor(category,18.0);
+        AnchorPane.setTopAnchor(category,42.0);
+
+        Label requiredSkillLabel = new Label("Compétence requise");
+        requiredSkillLabel.setFont(new Font("Verdana Bold", 13));
+        AnchorPane.setRightAnchor(requiredSkillLabel,21.666666666666657);
+        AnchorPane.setTopAnchor(requiredSkillLabel,100.0);
+
+        ImageView requiredSkillImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream(getImageUrlFromSkill(card.getUv().getSkill())))));
+        requiredSkillImageView.setFitWidth(42);
+        requiredSkillImageView.setFitHeight(42);
+        requiredSkillImageView.setPickOnBounds(true);
+        requiredSkillImageView.setPreserveRatio(true);
+        AnchorPane.setRightAnchor(requiredSkillImageView, 64.33333333333334);
+        AnchorPane.setTopAnchor(requiredSkillImageView, 133.0);
+
+        pw.getChildren().addAll(bonus, bonusImageView, skill, skillImageView);
+        uv.getChildren().addAll(uvCode, categoryLabel, category, requiredSkillLabel, requiredSkillImageView);
 
         position.getChildren().addAll(uv, pw);
     }
@@ -305,6 +369,29 @@ public class MainGameController {
                 urlBase += "language.png";
                 break;
             default:
+                break;
+        }
+
+        return urlBase;
+    }
+
+    private String getImageUrlFromBonus(Bonus bonus) {
+        String urlBase = "assets/";
+        switch (bonus) {
+            case PEN:
+                urlBase += "pen.png";
+                break;
+            case PROFESSOR:
+                urlBase += "professor.png";
+                break;
+            case CREDIT:
+                urlBase += "credit.png";
+                break;
+            case DOUBLE_CREDIT:
+                urlBase += "double_credits.png";
+                break;
+            default:
+                urlBase += "empty.png";
                 break;
         }
 

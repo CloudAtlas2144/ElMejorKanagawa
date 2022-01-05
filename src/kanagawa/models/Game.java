@@ -191,7 +191,15 @@ public class Game {
      * Round class
      */
     public void distributeCards() {
+        int playersCount = 0;
+        for (Player player : players) {
+            if (player != null) {
+                playersCount++;
+            }
+        }
+
         Card[] cardsToDeal = new Card[currentRound.getRemainingColumns()];
+
 
         for (int i = 0; i < cardsToDeal.length; i++) {
             cardsToDeal[i] = cardDeck.remove(0);
