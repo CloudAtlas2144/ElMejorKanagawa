@@ -2,6 +2,7 @@ package kanagawa.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import kanagawa.models.enums.Bonus;
 
 public class Player {
     private String username;
@@ -16,7 +17,7 @@ public class Player {
      * Cards that the player will have to add either to his inventory as UVs or
      * Personnal Work
      */
-    private List<Card> cardsInHand;
+    private ArrayList<Card> cardsInHand;
 
     // Constructor
     public Player(String username) {
@@ -54,7 +55,7 @@ public class Player {
         this.inventory = inventory;
     }
 
-    public List<Card> getCards() {
+    public ArrayList<Card> getCards() {
         return cardsInHand;
     }
 
@@ -84,12 +85,51 @@ public class Player {
         cardsInHand.addAll(cardColumn);
     }
 
-    public void addToInventory(Card card) {
+    public void addToPersonalWork(Card card) {
         inventory.addPersonalWork(card.getPersonalWork());
+
+        if (card.getPersonalWork().getBonus() == Bonus.PEN) {
+            inventory.setPenCount(inventory.getPenCount() + 1);
+        }
+        if (card.getPersonalWork().getBonus() == Bonus.CREDIT) {
+            this.inventory.setCredits(inventory.getCredits() + 1);
+        }
+        if (card.getPersonalWork().getBonus() == Bonus.DOUBLE_CREDIT) {
+            this.inventory.setCredits(inventory.getCredits() + 2);
+        }
+        if (card.getPersonalWork().getBonus() == Bonus.PROFESSOR) {
+            this.inventory.setHasProfessor(true);
+        }
     }
 
-    public void addToDrawing(Card card) {
+    public void addToUv(Card card) {
         inventory.addUv(card.getUv());
+    }
+
+    public boolean hasSkill(PersonalWork pwToTest) {
+        int i = 0;
+        boolean availableSkills = false;
+        PersonalWork cardToTest; // FIXME : look for a less confusing name;
+
+        boolean out = false;
+
+        while (!out) {
+            if (i < inventory.getUvPossessed().size()) {
+                cardToTest = inventory.getPwPossessed().get(i);
+                if (cardToTest.getSkill() == pwToTest.getSkill()) {
+                    if (cardToTest.isHasPen()) {
+                        availableSkills = true;
+                        out = true;
+                    }
+                }
+                i++;
+            } else {
+                availableSkills = false;
+                out = true;
+            }
+
+        }
+        return availableSkills;
     }
 
     @Override

@@ -83,19 +83,7 @@ public class MainGameController {
     }
 
     @FXML
-    public void onFirstColumnButtonClicked(MouseEvent event) {
-        ArrayList<Card> cards = game.getCurrentRound().getGameBoard()[0];
-        Player player = game.getCurrentRound().getCurrentPlayer();
-
-        for (Card card : cards) {
-            // Afficher fenêtre de dialogue DESSIN ou INVENTAIRE
-            if (result == 0) {
-                cards.get(1); // 2 eme elem list
-                cards.remove(1);
-            }
-
-        }
-    }
+    public void onFirstColumnButtonClicked(MouseEvent event) {}
 
     @FXML
     public void onSecondColumnButtonClicked(MouseEvent event) {}

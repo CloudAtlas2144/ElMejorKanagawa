@@ -25,11 +25,13 @@ public class Main extends Application {
         primaryStage.setResizable(false);
         primaryStage.setMaximized(true);
         primaryStage.show();
+
+        Game.getGameInstance();
+
     }
 
     public static void main(String[] args) {
 
-        Game.getGameInstance();
         launch(args);
     }
 }
