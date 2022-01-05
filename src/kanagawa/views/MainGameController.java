@@ -65,6 +65,7 @@ public class MainGameController {
         game.shuffleCards();
         game.randomFirstCardForPlayers();
 
+        game.getCurrentRound().setRemainingPlayers(game.getPlayers());
         game.getCurrentRound().initBoardWithPlayersCount();
         game.distributeCards();
 
