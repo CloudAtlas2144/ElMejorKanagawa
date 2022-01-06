@@ -11,6 +11,8 @@ public class Inventory {
 
     private int penCount;
 
+    private int tempPenCount;
+
     private ArrayList<PersonalWork> pwPossessed;
 
     private ArrayList<UV> uvPossessed;
@@ -22,7 +24,8 @@ public class Inventory {
     // Constructors
     public Inventory() {
         this.credits = 0;
-        this.penCount = 0;
+        this.penCount = 2;
+        this.tempPenCount = this.penCount;
         this.pwPossessed = new ArrayList<PersonalWork>();
         this.uvPossessed = new ArrayList<UV>();
         this.diplomaPossessed = new ArrayList<Diploma>();
@@ -40,6 +43,10 @@ public class Inventory {
 
     public ArrayList<UV> getUvPossessed() {
         return uvPossessed;
+    }
+
+    public int getTempPenCount() {
+        return tempPenCount;
     }
 
     public ArrayList<Diploma> getDiplomaPossessed() {
@@ -65,6 +72,10 @@ public class Inventory {
 
     public void setHasProfessor(boolean hasProfessor) {
         this.hasProfessor = hasProfessor;
+    }
+
+    public void setTempPenCount(int tempPenCount) {
+        this.tempPenCount = tempPenCount;
     }
 
     @Override

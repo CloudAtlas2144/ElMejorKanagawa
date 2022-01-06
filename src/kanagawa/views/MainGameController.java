@@ -2,10 +2,9 @@ package kanagawa.views;
 
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.Label;
+import javafx.scene.Node;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.ChoiceBoxListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -14,6 +13,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.shape.LineTo;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
+import javafx.util.Callback;
 import kanagawa.Utils;
 import kanagawa.models.*;
 import kanagawa.models.enums.Bonus;
@@ -56,11 +56,6 @@ public class MainGameController {
         game = Game.getGameInstance();
 
         // Initialize players data
-        for (Player player : game.getPlayers()) {
-            if (player != null) {
-                player.getInventory().setPenCount(2);
-            }
-        }
 
         game.shuffleCards();
         game.randomFirstCardForPlayers();
@@ -91,17 +86,108 @@ public class MainGameController {
 
     @FXML
     public void onFirstColumnButtonClicked(MouseEvent event) {
-
+        takeCardColumn(0);
     }
 
     @FXML
-    public void onSecondColumnButtonClicked(MouseEvent event) {}
+    public void onSecondColumnButtonClicked(MouseEvent event) {
+        takeCardColumn(1);
+    }
 
     @FXML
-    public void onThirdColumnButtonClicked(MouseEvent event) {}
+    public void onThirdColumnButtonClicked(MouseEvent event) {
+        takeCardColumn(2);
+    }
 
     @FXML
-    public void onFourthColumnButtonClicked(MouseEvent event) {}
+    public void onFourthColumnButtonClicked(MouseEvent event) {
+        takeCardColumn(3);
+    }
+
+    private void takeCardColumn(int colIndex) {
+        ArrayList<Card> firstColumnCards = game.getCurrentRound().getGameBoard()[colIndex];
+
+        boolean deleteColumn = false;
+
+        int columnSize = firstColumnCards.size();
+
+        HashMap<Card, Boolean> takenCards = new HashMap<>();
+
+        for (int i=0; i<columnSize; i++) {
+            HashMap<Card, Boolean> result = createChoiceDialog(firstColumnCards);
+            if (result != null) {
+                deleteColumn = true;
+                Map.Entry<Card, Boolean> entry = result.entrySet().iterator().next();
+                if (result.get(entry.getKey())) {
+                    game.getCurrentRound().getCurrentPlayer().addToPersonalWork(entry.getKey());
+                    takenCards.put(entry.getKey(), true);
+                } else {
+                    game.getCurrentRound().getCurrentPlayer().addToUv(entry.getKey());
+                    takenCards.put(entry.getKey(), false);
+                }
+
+                firstColumnCards.remove(entry.getKey());
+
+                updateData();
+            } else {
+                deleteColumn = false;
+                for (Map.Entry<Card, Boolean> entry : takenCards.entrySet()) {
+                    if (entry.getValue()) {
+                        game.getCurrentRound().getCurrentPlayer().getInventory().getPwPossessed().remove(entry.getKey().getPersonalWork());
+                    } else {
+                        game.getCurrentRound().getCurrentPlayer().getInventory().getUvPossessed().remove(entry.getKey().getUv());
+                    }
+                }
+
+                break;
+            }
+        }
+
+        if (deleteColumn) {
+            game.getCurrentRound().removeColumn(colIndex);
+            showCardsOnBoard();
+            disableAllButtons();
+        }
+
+        updateData();
+    }
+
+    private HashMap<Card, Boolean> createChoiceDialog(ArrayList<Card> data) {
+        ChoiceDialog dialog = new ChoiceDialog(data.get(0), data);
+        dialog.setTitle("Faites votre choix !");
+        dialog.setHeaderText("Faites votre choix !");
+        dialog.getDialogPane().getButtonTypes().remove(0);
+
+        ButtonType travailPersonel = new ButtonType("Travail Perso", ButtonBar.ButtonData.OK_DONE);
+        ButtonType UV = new ButtonType("UV", ButtonBar.ButtonData.OK_DONE);
+
+        dialog.getDialogPane().getButtonTypes().addAll(travailPersonel, UV);
+
+        dialog.setResultConverter(new Callback<ButtonType, HashMap<Card, Boolean>>() {
+            @Override
+            public HashMap<Card, Boolean> call(ButtonType b) {
+                if (b == travailPersonel) {
+                    HashMap<Card, Boolean> res = new HashMap<>();
+                    res.put((Card) dialog.getSelectedItem(), true);
+                    return res;
+                }
+
+                if (b == UV) {
+                    HashMap<Card, Boolean> res = new HashMap<>();
+                    res.put((Card) dialog.getSelectedItem(), false);
+                    return res;
+                }
+
+                return null;
+            }
+        });
+
+        Optional result = dialog.showAndWait();
+        if (result.isPresent()) {
+            return (HashMap<Card, Boolean>) result.get();
+        }
+        return null;
+    }
 
 
     private void createPlayers(ArrayList<Player> players) {
@@ -183,11 +269,17 @@ public class MainGameController {
                 for (int j=0; j<game.getCurrentRound().getGameBoard()[i].size(); j++) {
                     cards.put(i+j*4, game.getCurrentRound().getGameBoard()[i].get(j));
                 }
+            } else {
+                int k = i;
+                for (int j=0; j<3; j++) {
+                    AnchorPane anchorPane = getAnchorPaneFromPositionNumber(k);
+                    anchorPane.getChildren().clear();
+                    k += 4;
+                }
+
             }
 
         }
-
-        System.out.println(cards);
 
         for (Map.Entry<Integer, Card> entry : cards.entrySet()) {
             displayCardOnBoard(entry.getValue(), getAnchorPaneFromPositionNumber(entry.getKey()));
@@ -276,6 +368,8 @@ public class MainGameController {
     }
 
     private void showPlayerCards() {
+        cardsList.getChildren().clear();
+
         for (UV uv : game.getCurrentRound().getCurrentPlayer().getInventory().getUvPossessed()) {
             displayCard(uv);
         }
@@ -363,6 +457,30 @@ public class MainGameController {
         }
     }
 
+    private void disableAllButtons() {
+        firstColumnButton.setDisable(true);
+        secondColumnButton.setDisable(true);
+        thirdColumnButton.setDisable(true);
+        fourthColumnButton.setDisable(true);
+    }
+
+    private void enableButtons() {
+        if (game.getCurrentRound().getGameBoard()[0] != null) {
+            firstColumnButton.setDisable(false);
+        }
+
+        if (game.getCurrentRound().getGameBoard()[1] != null) {
+            firstColumnButton.setDisable(false);
+        }
+
+        if (game.getCurrentRound().getGameBoard()[2] != null) {
+            firstColumnButton.setDisable(false);
+        }
+
+        if (game.getCurrentRound().getGameBoard()[3] != null) {
+            firstColumnButton.setDisable(false);
+        }
+    }
     private String getImageUrlFromSkill(Skill skill) {
         String urlBase = "assets/";
         switch (skill) {
@@ -469,5 +587,6 @@ public class MainGameController {
     private void updateData() {
         showPlayerData();
         showPlayerCards();
+        disableButtons();
     }
 }

@@ -107,7 +107,7 @@ public class Round {
      */
     public ArrayList<Card> removeColumn(int index) {
         ArrayList<Card> temp = null;
-        if (index < getRemainingColumns() && index > 0) {
+        if (index < getRemainingColumns() && index >= 0) {
             temp = this.gameBoard[index];
             this.gameBoard[index] = null;
         } else {

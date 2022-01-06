@@ -74,10 +74,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card{" +
-                "state=" + state +
-                ", personalWork=" + personalWork +
-                ", uv=" + uv +
-                '}';
+        return this.getUv().getCode();
     }
 }

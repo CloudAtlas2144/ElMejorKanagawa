@@ -240,8 +240,6 @@ public class Game {
             }
         }
 
-        System.out.println(starterCards);
-
         for (Player player : players) {
             Random rand = new Random();
             Card randomCard = starterCards.remove(rand.nextInt(starterCards.size()));
