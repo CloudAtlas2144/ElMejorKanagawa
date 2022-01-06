@@ -61,7 +61,6 @@ public class MainGameController {
         disableButtons();
 
         game.distributeCards();
-        game.distributeCards();
 
         createPlayers(game.getPlayers());
 
