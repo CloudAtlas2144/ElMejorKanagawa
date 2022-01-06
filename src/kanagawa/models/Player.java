@@ -117,7 +117,7 @@ public class Player {
             if (i < inventory.getUvPossessed().size()) {
                 cardToTest = inventory.getPwPossessed().get(i);
                 if (cardToTest.getSkill() == pwToTest.getSkill()) {
-                    if (cardToTest.isHasPen()) {
+                    if (inventory.getTempPenCount() > 0) {
                         availableSkills = true;
                         out = true;
                     }
