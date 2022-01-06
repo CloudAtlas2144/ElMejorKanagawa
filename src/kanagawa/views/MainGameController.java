@@ -1,25 +1,20 @@
 package kanagawa.views;
 
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.ChoiceBoxListCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.LineTo;
 import javafx.scene.text.Font;
-import javafx.stage.Screen;
 import javafx.util.Callback;
 import kanagawa.Utils;
 import kanagawa.models.*;
 import kanagawa.models.enums.Bonus;
 import kanagawa.models.enums.Skill;
 
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class MainGameController {
@@ -124,8 +119,21 @@ public class MainGameController {
                     game.getCurrentRound().getCurrentPlayer().addToPersonalWork(entry.getKey());
                     takenCards.put(entry.getKey(), true);
                 } else {
-                    game.getCurrentRound().getCurrentPlayer().addToUv(entry.getKey());
-                    takenCards.put(entry.getKey(), false);
+                    Player currentPlayer = game.getCurrentRound().getCurrentPlayer();
+                    boolean hasSkill = currentPlayer.hasSkill(entry.getKey().getUv().getSkill());
+                    if (hasSkill) {
+                        game.getCurrentRound().getCurrentPlayer().addToUv(entry.getKey());
+                        takenCards.put(entry.getKey(), false);
+                    } else {
+                        Alert errorDialog = new Alert(Alert.AlertType.ERROR);
+                        errorDialog.setTitle("Erreur");
+                        errorDialog.setHeaderText("Impossible d'ajouter l'UV");
+                        errorDialog.setContentText("Vérifier les compétences disponibles et les stylos");
+                        errorDialog.showAndWait();
+                        deleteColumn = false;
+
+                        break;
+                    }
                 }
 
                 firstColumnCards.remove(entry.getKey());
@@ -373,11 +381,15 @@ public class MainGameController {
         cardsList.getChildren().clear();
 
         for (UV uv : game.getCurrentRound().getCurrentPlayer().getInventory().getUvPossessed()) {
-            displayCard(uv);
+            displayCardUv(uv);
+        }
+
+        for (PersonalWork pw : game.getCurrentRound().getCurrentPlayer().getInventory().getPwPossessed()) {
+            displayCardPersonalWork(pw);
         }
     }
 
-    private void displayCard(UV uv) {
+    private void displayCardUv(UV uv) {
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefWidth(250);
         anchorPane.setStyle("-fx-border-color: black; -fx-background-color: white;");
@@ -437,6 +449,68 @@ public class MainGameController {
 
 
         anchorPane.getChildren().addAll(uvCode, category, cat, requiredSkill, line, imageView);
+
+        cardsList.getChildren().add(anchorPane);
+    }
+
+    private void displayCardPersonalWork(PersonalWork pw) {
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setPrefWidth(200);
+        anchorPane.setStyle("-fx-border-color: black; -fx-background-color: white;");
+
+        Label bonusLabel = new Label("Bonus");
+        bonusLabel.setFont(new Font("System Bold", 16));
+        bonusLabel.setLayoutX(77);
+        bonusLabel.setLayoutY(14);
+
+        ImageView bonusImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream(getImageUrlFromBonus(pw.getBonus())))));
+        bonusImageView.setFitHeight(42);
+        bonusImageView.setFitWidth(42);
+        bonusImageView.setLayoutX(79);
+        bonusImageView.setLayoutY(63);
+        bonusImageView.setPickOnBounds(true);
+        bonusImageView.setPreserveRatio(true);
+
+        Label skillLabel = new Label("Compétence :");
+        skillLabel.setFont(new Font("System bold", 16));
+        skillLabel.setLayoutX(53);
+        skillLabel.setLayoutY(174);
+
+        ImageView skillImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream(getImageUrlFromSkill(pw.getSkill())))));
+        skillImageView.setFitHeight(42);
+        skillImageView.setFitWidth(42);
+        skillImageView.setLayoutX(32);
+        skillImageView.setLayoutY(253);
+        skillImageView.setPickOnBounds(true);
+        skillImageView.setPreserveRatio(true);
+
+        CheckBox checkBox = new CheckBox();
+        checkBox.setLayoutX(121);
+        checkBox.setLayoutY(265);
+        checkBox.setText("Stylo");
+        checkBox.setSelected(pw.isHasPen());
+        Player currentPlayer = game.getCurrentRound().getCurrentPlayer();
+        if (!currentPlayer.checkPenCount() && !checkBox.isSelected()) {
+            checkBox.setDisable(true);
+        }
+
+        checkBox.selectedProperty().addListener(
+                (ObservableValue<? extends Boolean> ov, Boolean old_val, Boolean new_val) -> {
+                    if (new_val) {
+                        boolean hasEnoughPen = currentPlayer.checkPenCount();
+                        if (hasEnoughPen) {
+                            currentPlayer.removePen();
+                            currentPlayer.getInventory().getPwPossessed().get(currentPlayer.getInventory().getPwPossessed().indexOf(pw)).setHasPen(true);
+                        }
+                    } else {
+                        currentPlayer.addPen();
+                        currentPlayer.getInventory().getPwPossessed().get(currentPlayer.getInventory().getPwPossessed().indexOf(pw)).setHasPen(false);
+                    }
+
+                    updateData();
+                });
+
+        anchorPane.getChildren().addAll(bonusLabel, bonusImageView, skillLabel, skillImageView, checkBox);
 
         cardsList.getChildren().add(anchorPane);
     }
