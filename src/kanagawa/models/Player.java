@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import kanagawa.models.enums.Bonus;
 import kanagawa.models.enums.Skill;
+import kanagawa.models.enums.UVCategory;
 
 public class Player {
     private String username;
@@ -158,5 +159,73 @@ public class Player {
                 ", inventory=" + inventory +
                 ", cardsInHand=" + cardsInHand +
                 '}';
+    }
+
+    /**
+     * Finds all diplomas available to the user according to the content of its
+     * {@code Inventory}.
+     * 
+     * @return an {@code ArrayList<Diploma>} of the available diplomas or
+     *         {@code null} if no diplomas are available.
+     */
+    public ArrayList<Diploma> findAvailableDiplomas() {
+        ArrayList<Diploma> availableDiplomas = new ArrayList<Diploma>();
+
+        ArrayList<DiplomaGroup> diplomaGroups = game.getDiplomaGroups();
+
+        ArrayList<Diploma> refusedDiplomas = inventory.getRefusedDiplomas();
+        ArrayList<DiplomaGroup> unavailableDiplomaGroups = inventory.getUnavailableDiplomaGroups();
+
+        int[] totalUVsPossessed = new int[UVCategory.length];
+        int[] totalSkillsPossessed = new int[Skill.length];
+
+        // We compute the total of UVs the user possesses in each ECTS category
+        for (UV currentUV : inventory.getUvPossessed()) {
+            totalUVsPossessed[currentUV.getUvCategory().toInt()] += 1;
+        }
+
+        // We compute the total of skills the user possesses in each category
+        for (PersonalWork currentPW : inventory.getPwPossessed()) {
+            totalSkillsPossessed[currentPW.getSkill().toInt()] += 1;
+        }
+
+        for (DiplomaGroup diplomaGroup : diplomaGroups) {
+            // We check if the user does not possess a diploma of this group yet
+            if (!unavailableDiplomaGroups.contains(diplomaGroup)) {
+
+                for (Diploma diploma : diplomaGroup.getDiplomas()) {
+                    // We check if the user has not refused or taken this diploma yet
+                    if (!refusedDiplomas.contains(diploma) && !inventory.getDiplomaPossessed().contains(diploma)) {
+                        int[] necessaryUVs = diploma.getUVArray();
+                        int[] necessarySkills = diploma.getSkillArray();
+
+                        // We check if he has enough UVs in each category
+                        boolean hasRequiredUVs = true;
+                        for (int i = 0; i < necessaryUVs.length; i++) {
+                            if (totalUVsPossessed[i] < necessaryUVs[i]) {
+                                hasRequiredUVs = false;
+                                break;
+                            }
+                        }
+
+                        // We check if he has enough skills in each category
+                        boolean hasRequiredSkills = true;
+                        for (int i = 0; i < necessarySkills.length; i++) {
+                            if (totalSkillsPossessed[i] < necessarySkills[i]) {
+                                hasRequiredSkills = false;
+                                break;
+                            }
+                        }
+
+                        // If all conditions are fulfilled, we add the diploma to the list of available
+                        // diplomas
+                        if (hasRequiredUVs && hasRequiredSkills)
+                            availableDiplomas.add(diploma);
+                    }
+                }
+            }
+        }
+
+        return availableDiplomas.isEmpty() ? null : availableDiplomas;
     }
 }

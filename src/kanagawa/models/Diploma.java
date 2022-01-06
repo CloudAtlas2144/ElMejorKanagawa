@@ -34,6 +34,7 @@ public class Diploma {
                 || skillArray.length != Skill.length || credit == 0 || isAvailable != true) {
             throw new InvalidGameObjectException(this, parent);
         }
+        this.group = parent;
     }
 
     public int[] getUVArray() {
@@ -54,9 +55,5 @@ public class Diploma {
 
     public boolean isAvailable() {
         return isAvailable;
-    }
-
-    public void setGroup(DiplomaGroup group) {
-        this.group = group;
     }
 }

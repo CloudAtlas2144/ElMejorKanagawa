@@ -24,11 +24,11 @@ public class Game {
     private ArrayList<Card> cardDeck;
     private ArrayList<DiplomaGroup> diplomaGroups;
 
+    private static Game gameInstance = null;
+
     public ArrayList<Card> getCardDeck() {
         return cardDeck;
     }
-
-    private static Game gameInstance = null;
 
     /**
      *
@@ -67,13 +67,18 @@ public class Game {
         return currentPlayer;
     }
 
-    /**
-     * Init all game static game objects
-     */
-    private void initObjects() {
-        loadCards();
-        loadDiplomas();
+    public ArrayList<DiplomaGroup> getDiplomaGroups() {
+        return this.diplomaGroups;
     }
+
+    // FIXME : @CloudAtlas2144 is following function necessary?
+    // /**
+    // * Init all game static game objects
+    // */
+    // private void initObjects() {
+    // loadCards();
+    // loadDiplomas();
+    // }
 
     /**
      * Main game loop
@@ -172,7 +177,6 @@ public class Game {
     public void distributeCards() {
 
         Card[] cardsToDeal = new Card[currentRound.getRemainingColumns()];
-
 
         for (int i = 0; i < cardsToDeal.length; i++) {
             cardsToDeal[i] = cardDeck.remove(0);
@@ -277,14 +281,13 @@ public class Game {
         return players;
     }
 
-
     /**
      * Set the next player as the current player
      *
      * @return ArrayList
      */
 
-    public void nextPlayer(){
-       currentPlayer=players.get((players.indexOf(currentPlayer)+1)%players.size());
+    public void nextPlayer() {
+        currentPlayer = players.get((players.indexOf(currentPlayer) + 1) % players.size());
     }
 }

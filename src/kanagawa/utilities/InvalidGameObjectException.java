@@ -1,8 +1,8 @@
 package kanagawa.utilities;
 
 /**
- * Class extending the Exception class, used to throw an exception when the
- * parsing of an object failed
+ * Class extending the {@code Exception} class, used to throw an exception when
+ * the parsing of an object failed
  */
 public class InvalidGameObjectException extends Exception {
 
