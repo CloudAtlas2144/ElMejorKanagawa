@@ -164,6 +164,10 @@ public class Round {
         return currentPlayer;
     }
 
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
     public int getRoundCount() {
         return roundCount;
     }
@@ -173,11 +177,22 @@ public class Round {
     }
 
     public void setRemainingPlayers(ArrayList<Player> players) {
-        this.players = players;
+        this.players = new ArrayList<>(players);
     }
 
     public ArrayList<Card>[] getGameBoard() {
         return gameBoard;
     }
 
+
+    /**
+     * Set the next player as the current player
+     *
+     * @return ArrayList
+     */
+
+    public void nextPlayer(){
+        currentPlayer=players.get((players.indexOf(currentPlayer)+1)%players.size());
+        currentPlayer.setPlaying(true);
+    }
 }
