@@ -107,7 +107,7 @@ public class Round {
      */
     public ArrayList<Card> removeColumn(int index) {
         ArrayList<Card> temp = null;
-        if (index < getRemainingColumns() && index >= 0) {
+        if (index >= 0) {
             temp = this.gameBoard[index];
             this.gameBoard[index] = null;
         } else {
@@ -168,12 +168,16 @@ public class Round {
         return roundCount;
     }
 
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
     public void setRoundCount(int roundCount) {
         this.roundCount = roundCount;
     }
 
     public void setRemainingPlayers(ArrayList<Player> players) {
-        this.players = players;
+        this.players = new ArrayList<>(players);
     }
 
     public ArrayList<Card>[] getGameBoard() {

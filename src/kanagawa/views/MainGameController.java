@@ -2,9 +2,11 @@ package kanagawa.views;
 
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
+import javafx.geometry.Point2D;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Line;
@@ -54,8 +56,8 @@ public class MainGameController {
 
         game.shuffleCards();
         game.randomFirstCardForPlayers();
-
         game.getCurrentRound().setRemainingPlayers(game.getPlayers());
+
         game.getCurrentRound().initBoardWithPlayersCount();
 
         disableButtons();
@@ -75,9 +77,7 @@ public class MainGameController {
     }
 
     @FXML
-    public void onNextPlayerButtonClicked(MouseEvent event) {
-
-    }
+    public void onNextPlayerButtonClicked(MouseEvent event) {}
 
     @FXML
     public void onFirstColumnButtonClicked(MouseEvent event) {
@@ -128,6 +128,9 @@ public class MainGameController {
                         errorDialog.setHeaderText("Impossible d'ajouter l'UV");
                         errorDialog.setContentText("Vérifier les compétences disponibles et les stylos");
                         errorDialog.showAndWait();
+
+                        fireEventButtonEvent(colIndex);
+
                         deleteColumn = false;
 
                         break;
@@ -145,6 +148,8 @@ public class MainGameController {
                     } else {
                         game.getCurrentRound().getCurrentPlayer().getInventory().getUvPossessed().remove(entry.getKey().getUv());
                     }
+
+                    firstColumnCards.add(0, entry.getKey());
                 }
 
                 break;
@@ -154,10 +159,40 @@ public class MainGameController {
         if (deleteColumn) {
             game.getCurrentRound().removeColumn(colIndex);
             showCardsOnBoard();
-            disableAllButtons();
+            // disableAllButtons();
         }
 
         updateData();
+    }
+
+    private void fireEventButtonEvent(int colIndex) {
+        Button button = null;
+
+        switch (colIndex){
+            case 0:
+                button = firstColumnButton;
+                break;
+            case 1:
+                button = secondColumnButton;
+                break;
+            case 2:
+                button = thirdColumnButton;
+                break;
+            case 3:
+                button = fourthColumnButton;
+                break;
+            default:
+                break;
+        }
+
+        double buttonX = button.getWidth()/2;
+        double buttonY = button.getHeight()/2;
+
+        Point2D screenCoords = button.localToScreen(buttonX, buttonX);
+        Point2D sceneCoords = button.localToScene(buttonX, buttonY);
+
+        button.fireEvent(new MouseEvent(MouseEvent.MOUSE_CLICKED, sceneCoords.getX(), sceneCoords.getY(), screenCoords.getX(),
+                screenCoords.getY(), MouseButton.PRIMARY, 1, true,true, true, true, true, true, true, true, true, true, null));
     }
 
     private HashMap<Card, Boolean> createChoiceDialog(ArrayList<Card> data) {
@@ -166,23 +201,39 @@ public class MainGameController {
         dialog.setHeaderText("Faites votre choix !");
         dialog.getDialogPane().getButtonTypes().remove(0);
 
-        ButtonType travailPersonel = new ButtonType("Travail Perso", ButtonBar.ButtonData.OK_DONE);
+        ButtonType travailPersonelNoPen = new ButtonType("Travail Perso " + "\n" + "(Sans stylo)", ButtonBar.ButtonData.OK_DONE);
+        ButtonType travailPersonelPen = new ButtonType("Travail Perso " + "\n" + "(Avec stylo)", ButtonBar.ButtonData.OK_DONE);
         ButtonType UV = new ButtonType("UV", ButtonBar.ButtonData.OK_DONE);
 
-        dialog.getDialogPane().getButtonTypes().addAll(travailPersonel, UV);
+        dialog.getDialogPane().getButtonTypes().addAll(travailPersonelPen,travailPersonelNoPen, UV);
 
         dialog.setResultConverter(new Callback<ButtonType, HashMap<Card, Boolean>>() {
             @Override
             public HashMap<Card, Boolean> call(ButtonType b) {
-                if (b == travailPersonel) {
+                if (b == travailPersonelNoPen) {
                     HashMap<Card, Boolean> res = new HashMap<>();
                     res.put((Card) dialog.getSelectedItem(), true);
+                    updateData();
+                    return res;
+                }
+
+                if (b == travailPersonelPen) {
+                    HashMap<Card, Boolean> res = new HashMap<>();
+                    Card selectedCard = (Card) dialog.getSelectedItem();
+                    if (game.getCurrentRound().getCurrentPlayer().checkPenCount()) {
+                        selectedCard.getPersonalWork().setHasPen(true);
+                        game.getCurrentRound().getCurrentPlayer().removePen();
+                    }
+
+                    res.put(selectedCard, true);
+                    updateData();
                     return res;
                 }
 
                 if (b == UV) {
                     HashMap<Card, Boolean> res = new HashMap<>();
                     res.put((Card) dialog.getSelectedItem(), false);
+                    updateData();
                     return res;
                 }
 
@@ -199,6 +250,8 @@ public class MainGameController {
 
 
     private void createPlayers(ArrayList<Player> players) {
+        playersList.getChildren().clear();
+
         for (Player player : game.getPlayers()) {
             AnchorPane anchorPane = new AnchorPane();
             anchorPane.setPrefWidth(199);

@@ -115,7 +115,7 @@ public class Player {
         boolean out = false;
 
         while (!out) {
-            if (i < inventory.getUvPossessed().size()) {
+            if (i < inventory.getPwPossessed().size()) {
                 cardToTest = inventory.getPwPossessed().get(i);
                 if (cardToTest.getSkill() == skill) {
                     if (cardToTest.isHasPen()) {
