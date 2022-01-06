@@ -24,11 +24,11 @@ public class Game {
     private ArrayList<Card> cardDeck;
     private ArrayList<DiplomaGroup> diplomaGroups;
 
+    private static Game gameInstance = null;
+
     public ArrayList<Card> getCardDeck() {
         return cardDeck;
     }
-
-    private static Game gameInstance = null;
 
     /**
      *
@@ -48,7 +48,7 @@ public class Game {
 
     /**
      * Initializes the game instance if null and returns it
-     *
+     * 
      * @return the game instance
      */
     public static Game getGameInstance() {
@@ -67,12 +67,8 @@ public class Game {
         return currentPlayer;
     }
 
-    /**
-     * Init all game static game objects
-     */
-    private void initObjects() {
-        loadCards();
-        loadDiplomas();
+    public ArrayList<DiplomaGroup> getDiplomaGroups() {
+        return this.diplomaGroups;
     }
 
     /**
@@ -173,7 +169,6 @@ public class Game {
 
         Card[] cardsToDeal = new Card[currentRound.getRemainingColumns()];
 
-
         for (int i = 0; i < cardsToDeal.length; i++) {
             cardsToDeal[i] = cardDeck.remove(0);
         }
@@ -183,7 +178,7 @@ public class Game {
 
     /**
      * Computes all players points at the end of the game
-     *
+     * 
      * @return an HashMap with the points associated with the player
      */
     public HashMap<Player, Integer> computeTotalPoints() {
@@ -214,7 +209,7 @@ public class Game {
 
     /**
      * Add all the players in the list
-     *
+     * 
      * @param player1
      * @param player2
      * @param player3
@@ -282,12 +277,20 @@ public class Game {
 
     /**
      * Getter for the players list
-     *
+     * 
      * @return ArrayList
      */
     public ArrayList<Player> getPlayers() {
         return players;
     }
 
-}
+    /**
+     * Set the next player as the current player
+     *
+     * @return ArrayList
+     */
 
+    public void nextPlayer() {
+        currentPlayer = players.get((players.indexOf(currentPlayer) + 1) % players.size());
+    }
+}

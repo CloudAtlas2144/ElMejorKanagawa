@@ -25,7 +25,7 @@ public class Round {
 
     public void initBoardWithPlayersCount() {
         for (int i = players.size(); i < gameBoard.length; i++) {
-            //On initialise autant de colonne que de joueur
+            // On initialise autant de colonne que de joueur
             gameBoard[i] = null;
 
         }
@@ -38,8 +38,8 @@ public class Round {
      */
     public void addCards(Card[] cards) {
         int index = -1;
-        for (int i=0; i<cards.length; i++) {
-            for (int j=index+1; j<gameBoard.length; j++) {
+        for (int i = 0; i < cards.length; i++) {
+            for (int j = index + 1; j < gameBoard.length; j++) {
                 if (gameBoard[j] != null) {
                     gameBoard[j].add(cards[i]);
                     index = j;
@@ -51,6 +51,7 @@ public class Round {
         }
     }
 
+    // FIXME : @CloudAtlas2144 is following function useful?
     /**
      * Manage the round
      *

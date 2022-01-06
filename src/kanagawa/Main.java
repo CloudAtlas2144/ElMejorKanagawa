@@ -26,7 +26,8 @@ public class Main extends Application {
         primaryStage.setMaximized(true);
         primaryStage.show();
 
-        Game.getGameInstance();
+        // FIXME : @CloudAtlas2144 is following line necessary?
+        // Game.getGameInstance();
 
     }
 
