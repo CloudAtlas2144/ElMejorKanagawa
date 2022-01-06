@@ -17,6 +17,9 @@ import kanagawa.utilities.InvalidGameObjectException;
 public class Game {
     private Round currentRound;
     private Player currentPlayer;
+
+
+
     private int roundCount; // To count how many rounds there were in the whole game
     private int indexFirstPlayer;
 
@@ -40,7 +43,7 @@ public class Game {
 
         currentRound = new Round(players);
 
-        roundCount = 0;
+        roundCount = 1;
         loadCards();
         loadDiplomas();
 
@@ -69,6 +72,10 @@ public class Game {
 
     public ArrayList<DiplomaGroup> getDiplomaGroups() {
         return this.diplomaGroups;
+    }
+
+    public int getRoundCount() {
+        return roundCount;
     }
 
     /**

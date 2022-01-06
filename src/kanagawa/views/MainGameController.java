@@ -1,6 +1,8 @@
 package kanagawa.views;
 
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Point2D;
 import javafx.scene.control.*;
@@ -16,6 +18,7 @@ import kanagawa.Utils;
 import kanagawa.models.*;
 import kanagawa.models.enums.Bonus;
 import kanagawa.models.enums.Skill;
+import kanagawa.models.enums.UVCategory;
 
 import java.util.*;
 
@@ -26,7 +29,7 @@ public class MainGameController {
     private int compteurDePlace=0;
 
     @FXML
-    private VBox playersList;
+    private VBox playersList, availableDiplomasList;
 
     @FXML
     private AnchorPane one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve;
@@ -42,6 +45,9 @@ public class MainGameController {
 
     @FXML
     private Button nextPlayerButton;
+
+    @FXML
+    private Label roundCountLabel;
 
     @FXML
     private Button quitGameButton;
@@ -67,8 +73,7 @@ public class MainGameController {
 
         createPlayers(game.getPlayers());
 
-        showPlayerData();
-        showPlayerCards();
+        updateData();
         showCardsOnBoard();
     }
 
@@ -111,6 +116,9 @@ public class MainGameController {
                 game.nextRound();
                 game.getCurrentRound().initBoardWithPlayersCount();
                 game.distributeCards();
+                roundCountLabel.setText("Tour n°" + game.getRoundCount());
+                compteur = 0;
+                compteurDePlace = 0;
             }
             enableButtons();
             updateData();
@@ -202,6 +210,8 @@ public class MainGameController {
             compteur--;
             nextPlayerButton.setDisable(false);
         }
+
+        System.out.println(game.getCurrentRound().getCurrentPlayer().findAvailableDiplomas());
         updateData();
     }
 
@@ -481,6 +491,18 @@ public class MainGameController {
         }
     }
 
+    private void showAvailableDiplomas() {
+        availableDiplomasList.getChildren().clear();
+
+        ArrayList<Diploma> availableDiplomas = game.getCurrentRound().getCurrentPlayer().findAvailableDiplomas();
+
+        if (availableDiplomas != null) {
+            for (Diploma diploma : game.getCurrentRound().getCurrentPlayer().findAvailableDiplomas()) {
+                displayAvailableDiploma(diploma);
+            }
+        }
+    }
+
     private void displayCardUv(UV uv) {
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefWidth(250);
@@ -607,6 +629,86 @@ public class MainGameController {
         cardsList.getChildren().add(anchorPane);
     }
 
+    private void displayAvailableDiploma(Diploma diploma) {
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane.setPrefHeight(57);
+        anchorPane.setStyle("-fx-background-color: white; -fx-border-color: black;");
+
+        Button checkButton = new Button(" ");
+        checkButton.setLayoutX(233);
+        checkButton.setLayoutY(13);
+        checkButton.setPrefHeight(32);
+        checkButton.setPrefWidth(30);
+        checkButton.setStyle("-fx-background-color: #ffbe76;");
+
+        checkButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                game.getCurrentRound().getCurrentPlayer().getInventory().addDiploma(diploma);
+                updateData();
+            }
+        });
+
+        ImageView checkImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("assets/check.png"))));
+        checkImageView.setFitHeight(22);
+        checkImageView.setFitWidth(22);
+        checkImageView.setLayoutX(277);
+        checkImageView.setLayoutY(18);
+        checkImageView.setPickOnBounds(true);
+        checkImageView.setPreserveRatio(true);
+
+        checkButton.setGraphic(checkImageView);
+
+        Button waitButton = new Button(" ");
+        waitButton.setLayoutX(273);
+        waitButton.setLayoutY(13);
+        waitButton.setPrefHeight(32);
+        waitButton.setPrefWidth(30);
+        waitButton.setStyle("-fx-background-color: #6ab04c;");
+
+        waitButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                game.getCurrentRound().getCurrentPlayer().getInventory().addRefusedDiploma(diploma);
+                updateData();
+            }
+        });
+
+        ImageView waitImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("assets/hourglass.png"))));
+        waitImageView.setFitHeight(22);
+        waitImageView.setFitWidth(22);
+        waitImageView.setLayoutX(237);
+        waitImageView.setLayoutY(18);
+        waitImageView.setPickOnBounds(true);
+        waitImageView.setPreserveRatio(true);
+
+        waitButton.setGraphic(waitImageView);
+
+        ImageView diplomaGroupImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream(getImageUrlFromDiplomaGroup(diploma.getGroup().getGroupeName())))));
+        diplomaGroupImageView.setFitHeight(33);
+        diplomaGroupImageView.setFitWidth(33);
+        diplomaGroupImageView.setLayoutX(16);
+        diplomaGroupImageView.setLayoutY(12);
+        diplomaGroupImageView.setPickOnBounds(true);
+        diplomaGroupImageView.setPreserveRatio(true);
+
+        ImageView creditImageView = new ImageView(new Image(Objects.requireNonNull(getClass().getResourceAsStream("assets/credit.png"))));
+        creditImageView.setFitHeight(25);
+        creditImageView.setFitWidth(21);
+        creditImageView.setLayoutX(76);
+        creditImageView.setLayoutY(17);
+        creditImageView.setPickOnBounds(true);
+        creditImageView.setPreserveRatio(true);
+
+        Label label = new Label(String.valueOf(diploma.getCredit()));
+        label.setLayoutX(62);
+        label.setLayoutY(19);
+
+        anchorPane.getChildren().addAll(checkButton, waitButton, checkImageView, waitImageView, diplomaGroupImageView, creditImageView, label);
+
+        availableDiplomasList.getChildren().add(anchorPane);
+    }
+
     private void disableButtons() {
         if (game.getCurrentRound().getGameBoard()[0] == null) {
             firstColumnButton.setDisable(true);
@@ -630,6 +732,14 @@ public class MainGameController {
         secondColumnButton.setDisable(true);
         thirdColumnButton.setDisable(true);
         fourthColumnButton.setDisable(true);
+    }
+
+    private void checkDiplomasAvailable() {
+        if (game.getCurrentRound().getCurrentPlayer().findAvailableDiplomas() != null) {
+            nextPlayerButton.setDisable(true);
+        } else {
+            nextPlayerButton.setDisable(false);
+        }
     }
 
     private void enableButtons() {
@@ -706,6 +816,32 @@ public class MainGameController {
         return urlBase;
     }
 
+    private String getImageUrlFromDiplomaGroup(String diplomaGroup) {
+        String urlBase = "assets/";
+        switch (diplomaGroup) {
+            case "INFO":
+                urlBase += "info.png";
+                break;
+            case "ENERGY":
+                urlBase += "energy.png";
+                break;
+            case "INDUSTRY":
+                urlBase += "industry.png";
+                break;
+            case "ERGO":
+                urlBase += "ergo.png";
+                break;
+            case "MECHANICS":
+                urlBase += "mechanics.png";
+                break;
+            default:
+                urlBase += "empty.png";
+                break;
+        }
+
+        return urlBase;
+    }
+
     private AnchorPane getAnchorPaneFromPositionNumber(int position) {
         AnchorPane anchorPane = null;
         switch (position) {
@@ -755,6 +891,8 @@ public class MainGameController {
     private void updateData() {
         showPlayerData();
         showPlayerCards();
+        showAvailableDiplomas();
+        checkDiplomasAvailable();
         disableButtons();
         createPlayers(game.getPlayers());
     }

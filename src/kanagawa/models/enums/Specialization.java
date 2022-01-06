@@ -1,8 +1,9 @@
 package kanagawa.models.enums;
 
 public enum Specialization {
-    COMPUTER_SCIENCE,
+    INFO,
     ENERGY,
     MECHANICS,
+    ERGO,
     INDUSTRY;
 }

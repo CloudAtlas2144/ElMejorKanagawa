@@ -4,6 +4,8 @@ import kanagawa.models.enums.Skill;
 import kanagawa.models.enums.UVCategory;
 import kanagawa.utilities.InvalidGameObjectException;
 
+import java.util.Arrays;
+
 public class Diploma {
 
     private int[] UVArray;
@@ -55,5 +57,16 @@ public class Diploma {
 
     public boolean isAvailable() {
         return isAvailable;
+    }
+
+    @Override
+    public String toString() {
+        return "Diploma{" +
+                "UVArray=" + Arrays.toString(UVArray) +
+                ", skillArray=" + Arrays.toString(skillArray) +
+                ", credit=" + credit +
+                ", isAvailable=" + isAvailable +
+                ", group=" + group.getGroupeName() +
+                '}';
     }
 }

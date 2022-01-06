@@ -147,7 +147,7 @@
                   <Font name="Verdana Bold" size="13.0" />
                </font>
             </Label>
-            <VBox layoutX="15.0" layoutY="705.0" prefHeight="372.0" prefWidth="319.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="705.0">
+            <VBox fx:id="availableDiplomasList" layoutX="15.0" layoutY="705.0" prefHeight="372.0" prefWidth="319.0" style="-fx-border-color: black;" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="705.0">
                <children>
                   <AnchorPane prefHeight="57.0" style="-fx-background-color: white; -fx-border-color: black;">
                      <children>

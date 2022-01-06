@@ -113,6 +113,14 @@ public class Inventory {
         }
         this.diplomaPossessed.add(diploma);
         this.unavailableDiplomaGroups.add(diploma.getGroup());
+
+        updateCredits();
+    }
+
+    private void updateCredits() {
+        for (Diploma diploma : diplomaPossessed) {
+            credits += diploma.getCredit();
+        }
     }
 
     /**
