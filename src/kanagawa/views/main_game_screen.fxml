@@ -270,7 +270,7 @@
       <VBox fx:id="playersList" layoutX="1719.0" layoutY="52.0" prefHeight="583.0" prefWidth="201.0" style="-fx-border-color: black;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0" />
       <ScrollPane layoutX="391.0" layoutY="715.0" prefHeight="365.0" prefWidth="1262.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="391.0" AnchorPane.rightAnchor="267.0" AnchorPane.topAnchor="662.0">
          <content>
-            <HBox fx:id="cardsList" prefHeight="380.0" prefWidth="1261.0" />
+            <HBox fx:id="cardsList" prefHeight="407.0" prefWidth="1261.0" />
          </content>
       </ScrollPane>
       <JFXButton fx:id="nextPlayerButton" layoutX="1736.0" layoutY="668.0" onMouseClicked="#onNextPlayerButtonClicked" prefHeight="64.0" prefWidth="114.0" style="-fx-background-color: #48dbfb;" text="Prochain Joueur" AnchorPane.rightAnchor="70.0" AnchorPane.topAnchor="668.0" />

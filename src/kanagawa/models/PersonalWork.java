@@ -49,4 +49,8 @@ public class PersonalWork {
     public Bonus getBonus() {
         return bonus;
     }
+
+    public void setHasPen(boolean hasPen) {
+        this.hasPen = hasPen;
+    }
 }

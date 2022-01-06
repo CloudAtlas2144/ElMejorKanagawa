@@ -3,6 +3,7 @@ package kanagawa.models;
 import java.util.ArrayList;
 import java.util.List;
 import kanagawa.models.enums.Bonus;
+import kanagawa.models.enums.Skill;
 
 public class Player {
     private String username;
@@ -106,7 +107,7 @@ public class Player {
         inventory.addUv(card.getUv());
     }
 
-    public boolean hasSkill(PersonalWork pwToTest) {
+    public boolean hasSkill(Skill skill) {
         int i = 0;
         boolean availableSkills = false;
         PersonalWork cardToTest; // FIXME : look for a less confusing name;
@@ -116,8 +117,8 @@ public class Player {
         while (!out) {
             if (i < inventory.getUvPossessed().size()) {
                 cardToTest = inventory.getPwPossessed().get(i);
-                if (cardToTest.getSkill() == pwToTest.getSkill()) {
-                    if (inventory.getTempPenCount() > 0) {
+                if (cardToTest.getSkill() == skill) {
+                    if (cardToTest.isHasPen()) {
                         availableSkills = true;
                         out = true;
                     }
@@ -130,6 +131,22 @@ public class Player {
 
         }
         return availableSkills;
+    }
+
+    public void addPen() {
+        inventory.setPenCount(inventory.getPenCount() + 1);
+    }
+
+    public void removePen() {
+        inventory.setPenCount(inventory.getPenCount() - 1);
+    }
+
+    public int getPenCount() {
+        return inventory.getPenCount();
+    }
+
+    public boolean checkPenCount() {
+        return getPenCount() > 0;
     }
 
     @Override
