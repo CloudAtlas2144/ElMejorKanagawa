@@ -287,6 +287,6 @@ public class Game {
      */
 
     public void nextPlayer(){
-       currentPlayer=players.get((players.indexOf(currentPlayer)+1)%4) ;
+       currentPlayer=players.get((players.indexOf(currentPlayer)+1)%players.size());
     }
 }

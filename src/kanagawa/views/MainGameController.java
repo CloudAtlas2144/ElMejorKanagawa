@@ -86,6 +86,8 @@ public class MainGameController {
 
     @FXML
     public void onNextPlayerButtonClicked(MouseEvent event) {
+        game.nextPlayer();
+        updateData();
 
     }
 
