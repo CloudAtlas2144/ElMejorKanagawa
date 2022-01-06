@@ -22,6 +22,8 @@ import java.util.*;
 public class MainGameController {
 
     private Game game;
+    private int compteur=0;  //remet a 0 à chaque nouvelle distribution
+    private int compteurDePlace=0;
 
     @FXML
     private VBox playersList;
@@ -57,7 +59,6 @@ public class MainGameController {
         game.shuffleCards();
         game.randomFirstCardForPlayers();
         game.getCurrentRound().setRemainingPlayers(game.getPlayers());
-
         game.getCurrentRound().initBoardWithPlayersCount();
 
         disableButtons();
@@ -77,7 +78,44 @@ public class MainGameController {
     }
 
     @FXML
-    public void onNextPlayerButtonClicked(MouseEvent event) {}
+    public void onNextPlayerButtonClicked(MouseEvent event) {
+        compteur++;
+        System.out.println(compteur);
+        System.out.println("cdp"+compteurDePlace);
+
+        if(compteurDePlace>=2 && compteur == game.getCurrentRound().getPlayers().size()) {
+            nextPlayerButton.setDisable(true);
+            if (game.getCurrentRound().getPlayers().isEmpty())
+                compteurDePlace = 0;
+
+        }
+
+        if (compteur == game.getCurrentRound().getPlayers().size() && compteurDePlace<2) {
+            {
+                System.out.println("compteur avant" + compteurDePlace);
+                game.distributeCards();
+                compteur = 0;
+                compteurDePlace++;
+                System.out.println("compteur apres" + compteurDePlace);
+
+            }
+
+
+        }
+
+            game.getCurrentRound().getCurrentPlayer().setPlaying(false);
+            if (!game.getCurrentRound().getPlayers().isEmpty()) {
+                game.getCurrentRound().nextPlayer();
+            } else {
+
+                game.nextRound();
+                game.getCurrentRound().initBoardWithPlayersCount();
+                game.distributeCards();
+            }
+            enableButtons();
+            updateData();
+            showCardsOnBoard();
+        }
 
     @FXML
     public void onFirstColumnButtonClicked(MouseEvent event) {
@@ -159,9 +197,11 @@ public class MainGameController {
         if (deleteColumn) {
             game.getCurrentRound().removeColumn(colIndex);
             showCardsOnBoard();
-            // disableAllButtons();
+            disableAllButtons();
+            game.getCurrentRound().getPlayers().remove(game.getCurrentRound().getCurrentPlayer());
+            compteur--;
+            nextPlayerButton.setDisable(false);
         }
-
         updateData();
     }
 
@@ -252,6 +292,7 @@ public class MainGameController {
     private void createPlayers(ArrayList<Player> players) {
         playersList.getChildren().clear();
 
+        playersList.getChildren().clear();
         for (Player player : game.getPlayers()) {
             AnchorPane anchorPane = new AnchorPane();
             anchorPane.setPrefWidth(199);
@@ -597,15 +638,15 @@ public class MainGameController {
         }
 
         if (game.getCurrentRound().getGameBoard()[1] != null) {
-            firstColumnButton.setDisable(false);
+            secondColumnButton.setDisable(false);
         }
 
         if (game.getCurrentRound().getGameBoard()[2] != null) {
-            firstColumnButton.setDisable(false);
+            thirdColumnButton.setDisable(false);
         }
 
         if (game.getCurrentRound().getGameBoard()[3] != null) {
-            firstColumnButton.setDisable(false);
+            fourthColumnButton.setDisable(false);
         }
     }
     private String getImageUrlFromSkill(Skill skill) {
@@ -715,5 +756,6 @@ public class MainGameController {
         showPlayerData();
         showPlayerCards();
         disableButtons();
+        createPlayers(game.getPlayers());
     }
 }

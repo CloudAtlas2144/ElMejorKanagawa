@@ -48,7 +48,7 @@ public class Game {
 
     /**
      * Initializes the game instance if null and returns it
-     * 
+     *
      * @return the game instance
      */
     public static Game getGameInstance() {
@@ -183,7 +183,7 @@ public class Game {
 
     /**
      * Computes all players points at the end of the game
-     * 
+     *
      * @return an HashMap with the points associated with the player
      */
     public HashMap<Player, Integer> computeTotalPoints() {
@@ -198,11 +198,23 @@ public class Game {
         currentRound = new Round(players);
         roundCount++;
         indexFirstPlayer = firstPlayer();
+        currentRound.setRemainingPlayers(players);
+        for (Player player: players)
+        {
+            player.setFirstPlayer(false);
+            if(player.getInventory().isHasProfessor())
+            {
+                currentRound.setCurrentPlayer(player);
+                currentRound.getCurrentPlayer().setFirstPlayer(true);
+            }
+
+        }
+        currentRound.getCurrentPlayer().setPlaying(true);
     }
 
     /**
      * Add all the players in the list
-     * 
+     *
      * @param player1
      * @param player2
      * @param player3
@@ -270,7 +282,7 @@ public class Game {
 
     /**
      * Getter for the players list
-     * 
+     *
      * @return ArrayList
      */
     public ArrayList<Player> getPlayers() {
@@ -278,3 +290,4 @@ public class Game {
     }
 
 }
+

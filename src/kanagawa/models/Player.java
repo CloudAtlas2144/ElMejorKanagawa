@@ -14,6 +14,8 @@ public class Player {
 
     private Inventory inventory;
 
+    private boolean hasPlayedTheRound;
+
     /**
      * Cards that the player will have to add either to his inventory as UVs or
      * Personnal Work
@@ -27,6 +29,7 @@ public class Player {
         this.isPlaying = false;
         this.inventory = new Inventory();
         this.cardsInHand = new ArrayList<>();
+        hasPlayedTheRound=false;
 
         game = Game.getGameInstance();
     }
@@ -99,7 +102,10 @@ public class Player {
             this.inventory.setCredits(inventory.getCredits() + 2);
         }
         if (card.getPersonalWork().getBonus() == Bonus.PROFESSOR) {
+            for(Player player : game.getPlayers())
+                player.getInventory().setHasProfessor(false);
             this.inventory.setHasProfessor(true);
+
         }
     }
 

@@ -184,4 +184,15 @@ public class Round {
         return gameBoard;
     }
 
+
+    /**
+     * Set the next player as the current player
+     *
+     * @return ArrayList
+     */
+
+    public void nextPlayer(){
+        currentPlayer=players.get((players.indexOf(currentPlayer)+1)%players.size());
+        currentPlayer.setPlaying(true);
+    }
 }
