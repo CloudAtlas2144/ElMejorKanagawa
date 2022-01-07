@@ -1,188 +1,5 @@
 [
   {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ENERGY",
-      "bonus": "PEN"
-    },
-    "uv": {
-      "code": "FQ54",
-      "uvCategory": "TM",
-      "skill": "INDUSTRY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MATH",
-      "bonus": "PROFESSOR"
-    },
-    "uv": {
-      "code": "SV53",
-      "uvCategory": "TM",
-      "skill": "INFO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MATH",
-      "bonus": "CREDIT"
-    },
-    "uv": {
-      "code": "PE01",
-      "uvCategory": "TSS",
-      "skill": "MANAGEMENT"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MATH",
-      "bonus": "DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "ER51",
-      "uvCategory": "TM",
-      "skill": "ENERGY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MATH",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "AI53",
-      "uvCategory": "TM",
-      "skill": "INFO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MATH",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "LE03",
-      "uvCategory": "EC",
-      "skill": "LANGUAGE"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MATH",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "LR00",
-      "uvCategory": "EC",
-      "skill": "LANGUAGE"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MATH",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "MT82",
-      "uvCategory": "CS",
-      "skill": "MATH"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MATH",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "MA81",
-      "uvCategory": "CS",
-      "skill": "ERGO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INFO",
-      "bonus": "PEN"
-    },
-    "uv": {
-      "code": "DI82",
-      "uvCategory": "CS",
-      "skill": "ERGO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INFO",
-      "bonus": "PROFESSOR"
-    },
-    "uv": {
-      "code": "MN41",
-      "uvCategory": "CS",
-      "skill": "MATH"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INFO",
-      "bonus": "CREDIT"
-    },
-    "uv": {
-      "code": "CP80",
-      "uvCategory": "CS",
-      "skill": "ERGO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INFO",
-      "bonus": "DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "SY80",
-      "uvCategory": "CS",
-      "skill": "ERGO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INFO",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "IM42",
-      "uvCategory": "CS",
-      "skill": "INDUSTRY"
-    }
-  },
-  {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INFO",
@@ -192,244 +9,10 @@
       "code": "OI40",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INFO",
-      "bonus": "NONE"
     },
-    "uv": {
-      "code": "LG00",
-      "uvCategory": "EC",
-      "skill": "LANGUAGE"
-    }
+    "isStarterCard": "true"
   },
   {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INFO",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "MQ40",
-      "uvCategory": "CS",
-      "skill": "MECHANICS"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INFO",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "SM58",
-      "uvCategory": "TM",
-      "skill": "ENERGY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ENERGY",
-      "bonus": "PEN"
-    },
-    "uv": {
-      "code": "QP51",
-      "uvCategory": "TM",
-      "skill": "INDUSTRY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ENERGY",
-      "bonus": "PROFESSOR"
-    },
-    "uv": {
-      "code": "LS00",
-      "uvCategory": "EC",
-      "skill": "LANGUAGE"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ENERGY",
-      "bonus": "CREDIT"
-    },
-    "uv": {
-      "code": "GE37",
-      "uvCategory": "TSS",
-      "skill": "MANAGEMENT"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ENERGY",
-      "bonus": "DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "DI9PE",
-      "uvCategory": "TM",
-      "skill": "ERGO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ENERGY",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "PI41",
-      "uvCategory": "CS",
-      "skill": "INDUSTRY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ENERGY",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "TE51",
-      "uvCategory": "TM",
-      "skill": "MECHANICS"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ENERGY",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "ER41",
-      "uvCategory": "CS",
-      "skill": "ENERGY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ENERGY",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "CP93",
-      "uvCategory": "TM",
-      "skill": "ERGO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ENERGY",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "LE01",
-      "uvCategory": "EC",
-      "skill": "LANGUAGE"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ERGO",
-      "bonus": "PEN"
-    },
-    "uv": {
-      "code": "MA52",
-      "uvCategory": "TM",
-      "skill": "MECHANICS"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ERGO",
-      "bonus": "PROFESSOR"
-    },
-    "uv": {
-      "code": "MTB",
-      "uvCategory": "CS",
-      "skill": "MATH"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ERGO",
-      "bonus": "CREDIT"
-    },
-    "uv": {
-      "code": "TN20",
-      "uvCategory": "CS",
-      "skill": "INDUSTRY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ERGO",
-      "bonus": "DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "CP53",
-      "uvCategory": "TM",
-      "skill": "MECHANICS"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ERGO",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "TI05",
-      "uvCategory": "TSS",
-      "skill": "MANAGEMENT"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ERGO",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "MT28",
-      "uvCategory": "CS",
-      "skill": "MATH"
-    }
-  },
-  {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "ERGO",
@@ -439,244 +22,23 @@
       "code": "PC40",
       "uvCategory": "CS",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
-      "skill": "ERGO",
+      "skill": "ENERGY",
       "bonus": "NONE"
     },
     "uv": {
-      "code": "MG01",
-      "uvCategory": "TSS",
-      "skill": "MANAGEMENT"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "ERGO",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "MAC1/MAC2",
-      "uvCategory": "CS",
-      "skill": "MECHANICS"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MECHANICS",
-      "bonus": "PEN"
-    },
-    "uv": {
-      "code": "MA44",
-      "uvCategory": "CS",
-      "skill": "INDUSTRY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MECHANICS",
-      "bonus": "PROFESSOR"
-    },
-    "uv": {
-      "code": "EL61",
-      "uvCategory": "TM",
-      "skill": "ENERGY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MECHANICS",
-      "bonus": "CREDIT"
-    },
-    "uv": {
-      "code": "LK00",
-      "uvCategory": "EC",
-      "skill": "LANGUAGE"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MECHANICS",
-      "bonus": "DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "SY45",
-      "uvCategory": "CS",
-      "skill": "ENERGY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MECHANICS",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "IT46",
-      "uvCategory": "CS",
-      "skill": "MATH"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MECHANICS",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "IA41",
-      "uvCategory": "CS",
-      "skill": "INFO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MECHANICS",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "AP4A/AP4B",
-      "uvCategory": "CS",
-      "skill": "INFO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MECHANICS",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "TN81",
-      "uvCategory": "CS",
-      "skill": "ERGO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MECHANICS",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "UN40",
-      "uvCategory": "CS",
-      "skill": "INDUSTRY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INDUSTRY",
-      "bonus": "PEN"
-    },
-    "uv": {
-      "code": "MTA",
-      "uvCategory": "CS",
-      "skill": "MATH"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "MECHANICS",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "TN81",
-      "uvCategory": "CS",
-      "skill": "ERGO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INDUSTRY",
-      "bonus": "PROFESSOR"
-    },
-    "uv": {
-      "code": "MV54",
-      "uvCategory": "TM",
-      "skill": "INFO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INDUSTRY",
-      "bonus": "CREDIT"
-    },
-    "uv": {
-      "code": "EG90",
-      "uvCategory": "TM",
-      "skill": "ERGO"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INDUSTRY",
-      "bonus": "DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "LG02",
-      "uvCategory": "EC",
-      "skill": "LANGUAGE"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INDUSTRY",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
-    },
-    "uv": {
-      "code": "TF42",
-      "uvCategory": "CS",
-      "skill": "ENERGY"
-    }
-  },
-  {
-    "state": "DECK",
-    "personalWork": {
-      "hasPen": false,
-      "skill": "INDUSTRY",
-      "bonus": "NONE"
-    },
-    "uv": {
-      "code": "FQ51",
+      "code": "TE51",
       "uvCategory": "TM",
       "skill": "MECHANICS"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INDUSTRY",
@@ -686,10 +48,647 @@
       "code": "RS40",
       "uvCategory": "CS",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ENERGY",
+      "bonus": "PEN"
+    },
+    "uv": {
+      "code": "FQ54",
+      "uvCategory": "TM",
+      "skill": "INDUSTRY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MATH",
+      "bonus": "PROFESSOR"
+    },
+    "uv": {
+      "code": "SV53",
+      "uvCategory": "TM",
+      "skill": "INFO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MATH",
+      "bonus": "CREDIT"
+    },
+    "uv": {
+      "code": "PE01",
+      "uvCategory": "TSS",
+      "skill": "MANAGEMENT"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MATH",
+      "bonus": "DOUBLE_CREDIT"
+    },
+    "uv": {
+      "code": "ER51",
+      "uvCategory": "TM",
+      "skill": "ENERGY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MATH",
+      "bonus": "DOUBLE_CREDIT"
+    },
+    "uv": {
+      "code": "AI53",
+      "uvCategory": "TM",
+      "skill": "INFO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MATH",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "LE03",
+      "uvCategory": "EC",
+      "skill": "LANGUAGE"
+    },
+    "isStarterCard": "true"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MATH",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "LR00",
+      "uvCategory": "EC",
+      "skill": "LANGUAGE"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MATH",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "MT82",
+      "uvCategory": "CS",
+      "skill": "MATH"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MATH",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "MA81",
+      "uvCategory": "CS",
+      "skill": "ERGO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INFO",
+      "bonus": "PEN"
+    },
+    "uv": {
+      "code": "DI82",
+      "uvCategory": "CS",
+      "skill": "ERGO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INFO",
+      "bonus": "PROFESSOR"
+    },
+    "uv": {
+      "code": "MN41",
+      "uvCategory": "CS",
+      "skill": "MATH"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INFO",
+      "bonus": "CREDIT"
+    },
+    "uv": {
+      "code": "CP80",
+      "uvCategory": "CS",
+      "skill": "ERGO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INFO",
+      "bonus": "DOUBLE_CREDIT"
+    },
+    "uv": {
+      "code": "SY80",
+      "uvCategory": "CS",
+      "skill": "ERGO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INFO",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "IM42",
+      "uvCategory": "CS",
+      "skill": "INDUSTRY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INFO",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "LG00",
+      "uvCategory": "EC",
+      "skill": "LANGUAGE"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INFO",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "MQ40",
+      "uvCategory": "CS",
+      "skill": "MECHANICS"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INFO",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "SM58",
+      "uvCategory": "TM",
+      "skill": "ENERGY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ENERGY",
+      "bonus": "PEN"
+    },
+    "uv": {
+      "code": "QP51",
+      "uvCategory": "TM",
+      "skill": "INDUSTRY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ENERGY",
+      "bonus": "PROFESSOR"
+    },
+    "uv": {
+      "code": "LS00",
+      "uvCategory": "EC",
+      "skill": "LANGUAGE"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ENERGY",
+      "bonus": "CREDIT"
+    },
+    "uv": {
+      "code": "GE37",
+      "uvCategory": "TSS",
+      "skill": "MANAGEMENT"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ENERGY",
+      "bonus": "DOUBLE_CREDIT"
+    },
+    "uv": {
+      "code": "DI9PE",
+      "uvCategory": "TM",
+      "skill": "ERGO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ENERGY",
+      "bonus": "DOUBLE_CREDIT"
+    },
+    "uv": {
+      "code": "PI41",
+      "uvCategory": "CS",
+      "skill": "INDUSTRY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ENERGY",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "ER41",
+      "uvCategory": "CS",
+      "skill": "ENERGY"
+    },
+    "isStarterCard": "true"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ENERGY",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "CP93",
+      "uvCategory": "TM",
+      "skill": "ERGO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ENERGY",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "LE01",
+      "uvCategory": "EC",
+      "skill": "LANGUAGE"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ERGO",
+      "bonus": "PEN"
+    },
+    "uv": {
+      "code": "MA52",
+      "uvCategory": "TM",
+      "skill": "MECHANICS"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ERGO",
+      "bonus": "PROFESSOR"
+    },
+    "uv": {
+      "code": "MTB",
+      "uvCategory": "CS",
+      "skill": "MATH"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ERGO",
+      "bonus": "CREDIT"
+    },
+    "uv": {
+      "code": "TN20",
+      "uvCategory": "CS",
+      "skill": "INDUSTRY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ERGO",
+      "bonus": "DOUBLE_CREDIT"
+    },
+    "uv": {
+      "code": "CP53",
+      "uvCategory": "TM",
+      "skill": "MECHANICS"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ERGO",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "TI05",
+      "uvCategory": "TSS",
+      "skill": "MANAGEMENT"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ERGO",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "MT28",
+      "uvCategory": "CS",
+      "skill": "MATH"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ERGO",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "MG01",
+      "uvCategory": "TSS",
+      "skill": "MANAGEMENT"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "ERGO",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "MAC1/MAC2",
+      "uvCategory": "CS",
+      "skill": "MECHANICS"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "PEN"
+    },
+    "uv": {
+      "code": "MA44",
+      "uvCategory": "CS",
+      "skill": "INDUSTRY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "PROFESSOR"
+    },
+    "uv": {
+      "code": "EL61",
+      "uvCategory": "TM",
+      "skill": "ENERGY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "CREDIT"
+    },
+    "uv": {
+      "code": "LK00",
+      "uvCategory": "EC",
+      "skill": "LANGUAGE"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "DOUBLE_CREDIT"
+    },
+    "uv": {
+      "code": "SY45",
+      "uvCategory": "CS",
+      "skill": "ENERGY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "DOUBLE_CREDIT"
+    },
+    "uv": {
+      "code": "IT46",
+      "uvCategory": "CS",
+      "skill": "MATH"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "IA41",
+      "uvCategory": "CS",
+      "skill": "INFO"
+    },
+    "isStarterCard": "true"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "AP4A/AP4B",
+      "uvCategory": "CS",
+      "skill": "INFO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "TN81",
+      "uvCategory": "CS",
+      "skill": "ERGO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "UN40",
+      "uvCategory": "CS",
+      "skill": "INDUSTRY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INDUSTRY",
+      "bonus": "PEN"
+    },
+    "uv": {
+      "code": "MTA",
+      "uvCategory": "CS",
+      "skill": "MATH"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "MECHANICS",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "TN81",
+      "uvCategory": "CS",
+      "skill": "ERGO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INDUSTRY",
+      "bonus": "PROFESSOR"
+    },
+    "uv": {
+      "code": "MV54",
+      "uvCategory": "TM",
+      "skill": "INFO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INDUSTRY",
+      "bonus": "CREDIT"
+    },
+    "uv": {
+      "code": "EG90",
+      "uvCategory": "TM",
+      "skill": "ERGO"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INDUSTRY",
+      "bonus": "DOUBLE_CREDIT"
+    },
+    "uv": {
+      "code": "LG02",
+      "uvCategory": "EC",
+      "skill": "LANGUAGE"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INDUSTRY",
+      "bonus": "DOUBLE_CREDIT"
+    },
+    "uv": {
+      "code": "TF42",
+      "uvCategory": "CS",
+      "skill": "ENERGY"
+    },
+    "isStarterCard": "false"
+  },
+  {
+    "personalWork": {
+      "hasPen": false,
+      "skill": "INDUSTRY",
+      "bonus": "NONE"
+    },
+    "uv": {
+      "code": "FQ51",
+      "uvCategory": "TM",
+      "skill": "MECHANICS"
+    },
+    "isStarterCard": "false"
+  },
+  {
     "personalWork": {
       "hasPen": false,
       "skill": "INDUSTRY",
@@ -699,10 +698,10 @@
       "code": "MA90",
       "uvCategory": "TM",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "INDUSTRY",
@@ -712,10 +711,10 @@
       "code": "IP52",
       "uvCategory": "TM",
       "skill": "INDUSTRY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -725,10 +724,10 @@
       "code": "GE01",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -738,10 +737,10 @@
       "code": "SY41",
       "uvCategory": "CS",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -751,10 +750,10 @@
       "code": "MG07",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -764,23 +763,23 @@
       "code": "SP07",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
+      "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
       "code": "MG05",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -790,10 +789,10 @@
       "code": "TF40",
       "uvCategory": "CS",
       "skill": "MECHANICS"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -803,10 +802,10 @@
       "code": "MC55",
       "uvCategory": "TM",
       "skill": "INDUSTRY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -816,10 +815,10 @@
       "code": "IT40",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "LANGUAGE",
@@ -829,10 +828,10 @@
       "code": "TE41",
       "uvCategory": "CS",
       "skill": "ERGO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MANAGEMENT",
@@ -842,10 +841,10 @@
       "code": "LC00",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MANAGEMENT",
@@ -855,10 +854,10 @@
       "code": "MA43",
       "uvCategory": "CS",
       "skill": "MECHANICS"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MANAGEMENT",
@@ -868,10 +867,10 @@
       "code": "LI00",
       "uvCategory": "EC",
       "skill": "LANGUAGE"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MANAGEMENT",
@@ -881,23 +880,23 @@
       "code": "EN41",
       "uvCategory": "CS",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MANAGEMENT",
-      "bonus": "REMOVE_DOUBLE_CREDIT"
+      "bonus": "DOUBLE_CREDIT"
     },
     "uv": {
       "code": "DA52",
       "uvCategory": "TM",
       "skill": "INFO"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MANAGEMENT",
@@ -907,10 +906,10 @@
       "code": "OI45",
       "uvCategory": "CS",
       "skill": "MATH"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MANAGEMENT",
@@ -920,10 +919,10 @@
       "code": "EL48",
       "uvCategory": "CS",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MANAGEMENT",
@@ -933,10 +932,10 @@
       "code": "TR57",
       "uvCategory": "TM",
       "skill": "ENERGY"
-    }
+    },
+    "isStarterCard": "false"
   },
   {
-    "state": "DECK",
     "personalWork": {
       "hasPen": false,
       "skill": "MANAGEMENT",
@@ -946,6 +945,7 @@
       "code": "SO07",
       "uvCategory": "TSS",
       "skill": "MANAGEMENT"
-    }
+    },
+    "isStarterCard": "false"
   }
 ]
