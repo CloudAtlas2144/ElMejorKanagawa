@@ -177,6 +177,10 @@ public class Game {
         Card[] cardsToDeal = new Card[currentRound.getRemainingColumns()];
 
         for (int i = 0; i < cardsToDeal.length; i++) {
+            if (cardDeck.isEmpty()) {
+                loadCards();
+                shuffleCards();
+            }
             cardsToDeal[i] = cardDeck.remove(0);
         }
 
@@ -272,7 +276,7 @@ public class Game {
     public boolean checkGameIsOver() {
         boolean gameOver = false;
 
-        if (roundCount >= 11) {
+        if (roundCount >= 15) {
             gameOver = true;
         } else {
             for (Player player : players) {
