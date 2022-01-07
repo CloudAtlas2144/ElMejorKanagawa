@@ -1,4 +1,4 @@
-package kanagawa;
+package kanagawa.utils;
 
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;

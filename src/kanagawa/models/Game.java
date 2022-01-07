@@ -2,7 +2,6 @@ package kanagawa.models;
 
 import java.io.File;
 import java.io.FileReader;
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.*;
 
@@ -14,14 +13,15 @@ import com.google.gson.stream.JsonReader;
 import kanagawa.models.enums.CardState;
 import kanagawa.utilities.InvalidGameObjectException;
 
+/**
+ * Game class. Contains all game objects and the main methods to play the game.
+ * The Game class is singleton, in order to have only one instance of the game
+ */
 public class Game {
     private Round currentRound;
     private Player currentPlayer;
 
-
-
     private int roundCount; // To count how many rounds there were in the whole game
-    private int indexFirstPlayer;
 
     private ArrayList<Player> players;
     private ArrayList<Card> cardDeck;
@@ -29,12 +29,9 @@ public class Game {
 
     private static Game gameInstance = null;
 
-    public ArrayList<Card> getCardDeck() {
-        return cardDeck;
-    }
-
     /**
-     *
+     * Private constructor for singleton pattern.
+     * Initializes game objects.
      */
     private Game() {
         players = new ArrayList<>();
@@ -62,12 +59,9 @@ public class Game {
         return gameInstance;
     }
 
+    // Getters
     public Round getCurrentRound() {
         return currentRound;
-    }
-
-    public Player getCurrentPlayer() {
-        return currentPlayer;
     }
 
     public ArrayList<DiplomaGroup> getDiplomaGroups() {
@@ -78,26 +72,11 @@ public class Game {
         return roundCount;
     }
 
-    /**
-     * Main game loop
-     */
-    public void gameLoop() {
-        // TODO : Implement method
-        /*
-         * Create a Round instance
-         * Deal the cards
-         */
-
-        do {
-
-            do {
-                distributeCards();
-                currentRound.playRound(indexFirstPlayer);
-            } while (currentRound.getRoundCount() < 3 || currentRound.getRemainingColumns() != 0);
-            nextRound();
-
-        } while (true); // TODO : condition de victoire
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
+
+
 
     /**
      * Load cards data from the json files and checks if they have been parsed
@@ -184,22 +163,11 @@ public class Game {
     }
 
     /**
-     * Computes all players points at the end of the game
-     * 
-     * @return an HashMap with the points associated with the player
-     */
-    public HashMap<Player, Integer> computeTotalPoints() {
-        // TODO : Implement method
-        return null;
-    }
-
-    /**
      * Allows to end current round and to start a new one
      */
     public void nextRound() {
-        currentRound = new Round(players);
+        currentRound = new Round(players); // Creating a new round object
         roundCount++;
-        indexFirstPlayer = firstPlayer();
         currentRound.setRemainingPlayers(players);
         for (Player player: players)
         {
@@ -217,10 +185,10 @@ public class Game {
     /**
      * Add all the players in the list
      * 
-     * @param player1
-     * @param player2
-     * @param player3
-     * @param player4
+     * @param player1 firstPlayer
+     * @param player2 secondPlayer
+     * @param player3 thirdPlayer
+     * @param player4 fourthPlayer
      */
     public void addPlayers(Player player1, Player player2, Player player3, Player player4) {
         players.add(player1);
@@ -232,10 +200,13 @@ public class Game {
             players.add(player4);
     }
 
+    /**
+     * Chooses a random first player from the players' list
+     * This player will be the first one to play on the first round
+     */
     public void chooseRandomFirstPlayer() {
         Random rand = new Random();
         int i = rand.nextInt(players.size());
-        indexFirstPlayer = i;
         Player player = players.get(i);
         player.setPlaying(true);
         player.setFirstPlayer(true);
@@ -246,6 +217,10 @@ public class Game {
 
     }
 
+    /**
+     * Picks one random card from four starter cards in the deck.
+     * Each starter card is randomly assigned to each player
+     */
     public void randomFirstCardForPlayers() {
         ArrayList<Card> starterCards = new ArrayList<>();
         for (Card card : cardDeck) {
@@ -266,29 +241,40 @@ public class Game {
         }
     }
 
+    /**
+     * Allows to shuffle the values of the card deck
+     */
     public void shuffleCards() {
         Collections.shuffle(cardDeck);
     }
 
-    public int firstPlayer() {
-        int i = 0;
-        for (Player p : players) {
-            if (p.isFirstPlayer()) {
-                return i;
-            } else {
-                i++;
+    /**
+     * Checks if game is over.
+     * Either the round count is over 11
+     * Either one of the player has 11 UV cards
+     *
+     * @return
+     */
+    public boolean checkGameIsOver() {
+        boolean gameOver = false;
+
+        if (roundCount >= 11) {
+            gameOver = true;
+        } else {
+            for (Player player : players) {
+                int uvCount = 0;
+                for (UV uv : player.getInventory().getUvPossessed()) {
+                    uvCount++;
+                }
+
+                if (uvCount >= 11) {
+                    gameOver = true;
+                    break;
+                }
             }
         }
-        return i;
-    }
 
-    /**
-     * Getter for the players list
-     * 
-     * @return ArrayList
-     */
-    public ArrayList<Player> getPlayers() {
-        return players;
+        return gameOver;
     }
 
     /**
@@ -296,7 +282,6 @@ public class Game {
      *
      * @return ArrayList
      */
-
     public void nextPlayer() {
         currentPlayer = players.get((players.indexOf(currentPlayer) + 1) % players.size());
     }

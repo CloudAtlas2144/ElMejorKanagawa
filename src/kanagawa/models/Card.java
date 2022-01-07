@@ -8,14 +8,7 @@ public class Card {
     private PersonalWork personalWork;
     private UV uv;
 
-
-
     private boolean isStarterCard;
-
-    // Default constructor
-    public Card() {
-
-    }
 
     // Initialization constructor
     public Card(PersonalWork personalWork, UV uv) {

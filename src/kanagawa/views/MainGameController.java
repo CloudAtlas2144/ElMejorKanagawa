@@ -14,19 +14,16 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.util.Callback;
-import kanagawa.Utils;
+import kanagawa.utils.Utils;
 import kanagawa.models.*;
 import kanagawa.models.enums.Bonus;
 import kanagawa.models.enums.Skill;
-import kanagawa.models.enums.UVCategory;
 
 import java.util.*;
 
 public class MainGameController {
 
-    private Game game;
-    private int compteur=0;  //remet a 0 à chaque nouvelle distribution
-    private int compteurDePlace=0;
+    private Game game; // Game instance
 
     @FXML
     private VBox playersList, availableDiplomasList;
@@ -55,21 +52,24 @@ public class MainGameController {
     @FXML
     private HBox cardsList;
 
+    private int countNewDistribution = 0;  // count to know when to distribute again
+    private int countSpaceRemainingOnBoard = 0; // count to know if board is full
 
 
-    public void initialize() throws InterruptedException {
+    /**
+     * This method is automatically called when the window is created
+     * Initializes display of elements on the screen
+     */
+    @FXML
+    public void initialize() {
         game = Game.getGameInstance();
-
-        // Initialize players data
 
         game.shuffleCards();
         game.randomFirstCardForPlayers();
         game.getCurrentRound().setRemainingPlayers(game.getPlayers());
         game.getCurrentRound().initBoardWithPlayersCount();
 
-        disableButtons();
-
-        game.distributeCards();
+        game.distributeCards(); // First distribution
 
         createPlayers(game.getPlayers());
 
@@ -77,32 +77,35 @@ public class MainGameController {
         showCardsOnBoard();
     }
 
+    /**
+     * Method called when the exit button is clicked
+     * @param event button clicked
+     */
     @FXML
     public void onQuitGameButtonClicked(MouseEvent event) {
         Utils.closeWindow(event);
     }
 
+    /**
+     * Method called when the next player button is clicked
+     * @param event button clicked
+     */
     @FXML
     public void onNextPlayerButtonClicked(MouseEvent event) {
-        compteur++;
-        System.out.println(compteur);
-        System.out.println("cdp"+compteurDePlace);
+        countNewDistribution++;
 
-        if(compteurDePlace>=2 && compteur == game.getCurrentRound().getPlayers().size()) {
+        if(countSpaceRemainingOnBoard >=2 && countNewDistribution == game.getCurrentRound().getPlayers().size()) {
             nextPlayerButton.setDisable(true);
             if (game.getCurrentRound().getPlayers().isEmpty())
-                compteurDePlace = 0;
+                countSpaceRemainingOnBoard = 0;
 
         }
 
-        if (compteur == game.getCurrentRound().getPlayers().size() && compteurDePlace<2) {
+        if (countNewDistribution == game.getCurrentRound().getPlayers().size() && countSpaceRemainingOnBoard <2) {
             {
-                System.out.println("compteur avant" + compteurDePlace);
                 game.distributeCards();
-                compteur = 0;
-                compteurDePlace++;
-                System.out.println("compteur apres" + compteurDePlace);
-
+                countNewDistribution = 0;
+                countSpaceRemainingOnBoard++;
             }
 
 
@@ -117,34 +120,60 @@ public class MainGameController {
                 game.getCurrentRound().initBoardWithPlayersCount();
                 game.distributeCards();
                 roundCountLabel.setText("Tour n°" + game.getRoundCount());
-                compteur = 0;
-                compteurDePlace = 0;
+                countNewDistribution = 0;
+                countSpaceRemainingOnBoard = 0;
             }
             enableButtons();
             updateData();
             showCardsOnBoard();
         }
 
+    /**
+     * Method called when take first column button is clicked
+     * Starts choice loop for first column for the player
+     * @param event button clicked
+     */
     @FXML
     public void onFirstColumnButtonClicked(MouseEvent event) {
         takeCardColumn(0);
     }
 
+    /**
+     * Method called when take second column button is clicked
+     * Starts choice loop for second column for the player
+     * @param event button clicked
+     */
     @FXML
     public void onSecondColumnButtonClicked(MouseEvent event) {
         takeCardColumn(1);
     }
 
+    /**
+     * Method called when take third column button is clicked
+     * Starts choice loop for third column for the player
+     * @param event button clicked
+     */
     @FXML
     public void onThirdColumnButtonClicked(MouseEvent event) {
         takeCardColumn(2);
     }
 
+    /**
+     * Method called when take fourth column button is clicked
+     * Starts choice loop for fourth column for the player
+     * @param event button clicked
+     */
     @FXML
     public void onFourthColumnButtonClicked(MouseEvent event) {
         takeCardColumn(3);
     }
 
+    /**
+     * Starts the choice loop for taking a column of cards.
+     * For each cards in the column, asks the player his choice with a dialog box
+     * If the column is taken, removes it from the board
+     * @param colIndex the column to take
+     */
     private void takeCardColumn(int colIndex) {
         ArrayList<Card> firstColumnCards = game.getCurrentRound().getGameBoard()[colIndex];
 
@@ -155,27 +184,27 @@ public class MainGameController {
         HashMap<Card, Boolean> takenCards = new HashMap<>();
 
         for (int i=0; i<columnSize; i++) {
-            HashMap<Card, Boolean> result = createChoiceDialog(firstColumnCards);
-            if (result != null) {
+            HashMap<Card, Boolean> result = createChoiceDialog(firstColumnCards); // Create dialog box
+            if (result != null) {// If button pressed is other than "cancel" button
                 deleteColumn = true;
                 Map.Entry<Card, Boolean> entry = result.entrySet().iterator().next();
-                if (result.get(entry.getKey())) {
+                if (result.get(entry.getKey())) { // if player wants to add card to personal work
                     game.getCurrentRound().getCurrentPlayer().addToPersonalWork(entry.getKey());
                     takenCards.put(entry.getKey(), true);
-                } else {
+                } else { // if player wants to add card to UV
                     Player currentPlayer = game.getCurrentRound().getCurrentPlayer();
                     boolean hasSkill = currentPlayer.hasSkill(entry.getKey().getUv().getSkill());
-                    if (hasSkill) {
+                    if (hasSkill) { // Checks if player has necessary skill to add UV
                         game.getCurrentRound().getCurrentPlayer().addToUv(entry.getKey());
                         takenCards.put(entry.getKey(), false);
-                    } else {
+                    } else { // If the player does not has the necessary skill, show an error dialog box
                         Alert errorDialog = new Alert(Alert.AlertType.ERROR);
                         errorDialog.setTitle("Erreur");
                         errorDialog.setHeaderText("Impossible d'ajouter l'UV");
                         errorDialog.setContentText("Vérifier les compétences disponibles et les stylos");
                         errorDialog.showAndWait();
 
-                        fireEventButtonEvent(colIndex);
+                        fireEventButtonEvent(colIndex); // Come back to column choice
 
                         deleteColumn = false;
 
@@ -183,11 +212,12 @@ public class MainGameController {
                     }
                 }
 
-                firstColumnCards.remove(entry.getKey());
+                firstColumnCards.remove(entry.getKey()); // Delete card from list
 
-                updateData();
-            } else {
+                updateData(); // Update data on interface
+            } else { // If the cancel button is clicked
                 deleteColumn = false;
+                // Put back taken cards in the list (because the choice sequence was cancelled)
                 for (Map.Entry<Card, Boolean> entry : takenCards.entrySet()) {
                     if (entry.getValue()) {
                         game.getCurrentRound().getCurrentPlayer().getInventory().getPwPossessed().remove(entry.getKey().getPersonalWork());
@@ -202,49 +232,23 @@ public class MainGameController {
             }
         }
 
-        if (deleteColumn) {
-            game.getCurrentRound().removeColumn(colIndex);
-            showCardsOnBoard();
+        if (deleteColumn) { // If the column was taken
+            game.getCurrentRound().removeColumn(colIndex); // remove the column from the board
+            showCardsOnBoard(); // Update card display on the interface
             disableAllButtons();
-            game.getCurrentRound().getPlayers().remove(game.getCurrentRound().getCurrentPlayer());
-            compteur--;
+            game.getCurrentRound().getPlayers().remove(game.getCurrentRound().getCurrentPlayer()); // Current player cannot play anymore (for this round)
+            countNewDistribution--;
             nextPlayerButton.setDisable(false);
         }
 
-        System.out.println(game.getCurrentRound().getCurrentPlayer().findAvailableDiplomas());
-        updateData();
+        updateData(); // Update data on the interface
     }
 
-    private void fireEventButtonEvent(int colIndex) {
-        Button button = null;
-
-        switch (colIndex){
-            case 0:
-                button = firstColumnButton;
-                break;
-            case 1:
-                button = secondColumnButton;
-                break;
-            case 2:
-                button = thirdColumnButton;
-                break;
-            case 3:
-                button = fourthColumnButton;
-                break;
-            default:
-                break;
-        }
-
-        double buttonX = button.getWidth()/2;
-        double buttonY = button.getHeight()/2;
-
-        Point2D screenCoords = button.localToScreen(buttonX, buttonX);
-        Point2D sceneCoords = button.localToScene(buttonX, buttonY);
-
-        button.fireEvent(new MouseEvent(MouseEvent.MOUSE_CLICKED, sceneCoords.getX(), sceneCoords.getY(), screenCoords.getX(),
-                screenCoords.getY(), MouseButton.PRIMARY, 1, true,true, true, true, true, true, true, true, true, true, null));
-    }
-
+    /**
+     * Creates a choice dialog box for the taking column choice sequence and displays it on the screen
+     * @param data the data to add to combo list in the dialog box
+     * @return the choice made by the player
+     */
     private HashMap<Card, Boolean> createChoiceDialog(ArrayList<Card> data) {
         ChoiceDialog dialog = new ChoiceDialog(data.get(0), data);
         dialog.setTitle("Faites votre choix !");
@@ -257,6 +261,7 @@ public class MainGameController {
 
         dialog.getDialogPane().getButtonTypes().addAll(travailPersonelPen,travailPersonelNoPen, UV);
 
+        // Apply event listeners on the choice dialog's buttons
         dialog.setResultConverter(new Callback<ButtonType, HashMap<Card, Boolean>>() {
             @Override
             public HashMap<Card, Boolean> call(ButtonType b) {
@@ -298,7 +303,46 @@ public class MainGameController {
         return null;
     }
 
+    /**
+     * Allows to programmatically fire event on a column event
+     * This allow to come back to the choice sequence after an error panel (If player cannot add UV)
+     * @param colIndex the column you want to come back to
+     */
+    private void fireEventButtonEvent(int colIndex) {
+        Button button = null;
 
+        switch (colIndex){
+            case 0:
+                button = firstColumnButton;
+                break;
+            case 1:
+                button = secondColumnButton;
+                break;
+            case 2:
+                button = thirdColumnButton;
+                break;
+            case 3:
+                button = fourthColumnButton;
+                break;
+            default:
+                break;
+        }
+
+        double buttonX = button.getWidth()/2;
+        double buttonY = button.getHeight()/2;
+
+        Point2D screenCoords = button.localToScreen(buttonX, buttonX);
+        Point2D sceneCoords = button.localToScene(buttonX, buttonY);
+
+        button.fireEvent(new MouseEvent(MouseEvent.MOUSE_CLICKED, sceneCoords.getX(), sceneCoords.getY(), screenCoords.getX(),
+                screenCoords.getY(), MouseButton.PRIMARY, 1, true,true, true, true, true, true, true, true, true, true, null));
+    }
+
+    /**
+     * From the players list, displays them in the list at the right of the screen.
+     * Also displays their characteristics (isPlaying, hasProfessor, isFirstPlayer)
+     * @param players
+     */
     private void createPlayers(ArrayList<Player> players) {
         playersList.getChildren().clear();
 
@@ -357,6 +401,9 @@ public class MainGameController {
         }
     }
 
+    /**
+     * Takes player data and displays it on the left of the screen (skill counts)
+     */
     private void showPlayerData() {
         Player currentPlayer = game.getCurrentRound().getCurrentPlayer();
         Inventory currentPlayerInventory = currentPlayer.getInventory();
@@ -374,6 +421,9 @@ public class MainGameController {
         languageCount.setText(String.valueOf(currentPlayerInventory.getSkillCount(Skill.LANGUAGE)));
     }
 
+    /**
+     * Displays all the cards present on the board
+     */
     private void showCardsOnBoard() {
         HashMap<Integer, Card> cards = new HashMap<>();
         for (int i = 0; i<game.getCurrentRound().getGameBoard().length; i++) {
@@ -398,6 +448,11 @@ public class MainGameController {
         }
     }
 
+    /**
+     * Display one card on the board at a specific position
+     * @param card The card to display
+     * @param position The position where to display the card
+     */
     private void displayCardOnBoard(Card card, AnchorPane position) {
         AnchorPane uv = new AnchorPane();
         uv.setPrefWidth(164);
@@ -479,6 +534,9 @@ public class MainGameController {
         position.getChildren().addAll(uv, pw);
     }
 
+    /**
+     * Display all the cards that the player owns on the list at the bottom
+     */
     private void showPlayerCards() {
         cardsList.getChildren().clear();
 
@@ -491,6 +549,9 @@ public class MainGameController {
         }
     }
 
+    /**
+     * Display all the available diplomas that the player owns on the list at bottom left
+     */
     private void showAvailableDiplomas() {
         availableDiplomasList.getChildren().clear();
 
@@ -503,6 +564,10 @@ public class MainGameController {
         }
     }
 
+    /**
+     * Displays one UV on the bottom list
+     * @param uv The UV to display
+     */
     private void displayCardUv(UV uv) {
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefWidth(250);
@@ -567,6 +632,10 @@ public class MainGameController {
         cardsList.getChildren().add(anchorPane);
     }
 
+    /**
+     * Displays one Personal Work on the bottom list
+     * @param uv The Personal Work to display
+     */
     private void displayCardPersonalWork(PersonalWork pw) {
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefWidth(200);
@@ -629,6 +698,10 @@ public class MainGameController {
         cardsList.getChildren().add(anchorPane);
     }
 
+    /**
+     * Displays one available diploma on the bottom left list
+     * @param diploma The available diploma to display
+     */
     private void displayAvailableDiploma(Diploma diploma) {
         AnchorPane anchorPane = new AnchorPane();
         anchorPane.setPrefHeight(57);
@@ -709,6 +782,44 @@ public class MainGameController {
         availableDiplomasList.getChildren().add(anchorPane);
     }
 
+    /**
+     * If the game is over, displays a panel with the ranking of the players
+     */
+    private void displayEndGamePanel() {
+        if (game.checkGameIsOver()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Fin de la partie !");
+            alert.setHeaderText("Partie terminée !");
+            String s = "";
+            ArrayList<Player> sortedPlayers = new ArrayList<>(game.getPlayers());
+            sortedPlayers.sort(new Comparator<Player>() {
+                @Override
+                public int compare(Player o1, Player o2) {
+                    return Integer.compare(o2.getInventory().getCredits(), o1.getInventory().getCredits());
+                }
+            });
+            for (int i=0; i<sortedPlayers.size(); i++) {
+                s += (i+1) + ". " + sortedPlayers.get(i).getUsername() + " : " + sortedPlayers.get(i).getInventory().getCredits() + " crédits.\n";
+            }
+
+            alert.setOnCloseRequest(new EventHandler<DialogEvent>() {
+                @Override
+                public void handle(DialogEvent dialogEvent) {
+                    System.exit(0);
+                }
+            });
+
+            alert.setContentText(s);
+
+            alert.showAndWait();
+
+        }
+
+    }
+
+    /**
+     * Disable column buttons if the column is null
+     */
     private void disableButtons() {
         if (game.getCurrentRound().getGameBoard()[0] == null) {
             firstColumnButton.setDisable(true);
@@ -727,6 +838,9 @@ public class MainGameController {
         }
     }
 
+    /**
+     * Disables all column buttons
+     */
     private void disableAllButtons() {
         firstColumnButton.setDisable(true);
         secondColumnButton.setDisable(true);
@@ -734,6 +848,9 @@ public class MainGameController {
         fourthColumnButton.setDisable(true);
     }
 
+    /**
+     * Checks if there are any diplomas available for the players. If so, the player cannot skip his turn
+     */
     private void checkDiplomasAvailable() {
         if (game.getCurrentRound().getCurrentPlayer().findAvailableDiplomas() != null) {
             nextPlayerButton.setDisable(true);
@@ -742,6 +859,9 @@ public class MainGameController {
         }
     }
 
+    /**
+     * Enable all column buttons
+     */
     private void enableButtons() {
         if (game.getCurrentRound().getGameBoard()[0] != null) {
             firstColumnButton.setDisable(false);
@@ -759,6 +879,12 @@ public class MainGameController {
             fourthColumnButton.setDisable(false);
         }
     }
+
+    /**
+     * Returns the image path corresponding to a skill
+     * @param skill
+     * @return
+     */
     private String getImageUrlFromSkill(Skill skill) {
         String urlBase = "assets/";
         switch (skill) {
@@ -793,6 +919,11 @@ public class MainGameController {
         return urlBase;
     }
 
+    /**
+     * Returns the image path corresponding to a bonus
+     * @param bonus
+     * @return
+     */
     private String getImageUrlFromBonus(Bonus bonus) {
         String urlBase = "assets/";
         switch (bonus) {
@@ -816,6 +947,11 @@ public class MainGameController {
         return urlBase;
     }
 
+    /**
+     * Returns the image path corresponding to a diplomaGroup name
+     * @param diplomaGroup
+     * @return
+     */
     private String getImageUrlFromDiplomaGroup(String diplomaGroup) {
         String urlBase = "assets/";
         switch (diplomaGroup) {
@@ -842,6 +978,11 @@ public class MainGameController {
         return urlBase;
     }
 
+    /**
+     * Get the right position on the right anchor pane on the interface corresponding to a position
+     * @param position
+     * @return
+     */
     private AnchorPane getAnchorPaneFromPositionNumber(int position) {
         AnchorPane anchorPane = null;
         switch (position) {
@@ -888,11 +1029,16 @@ public class MainGameController {
         return anchorPane;
     }
 
+    /**
+     * Gets all the data from models and updates information displayed on the screen.
+     * This method is called each time a player makes an action.
+     */
     private void updateData() {
         showPlayerData();
         showPlayerCards();
         showAvailableDiplomas();
         checkDiplomasAvailable();
+        displayEndGamePanel();
         disableButtons();
         createPlayers(game.getPlayers());
     }

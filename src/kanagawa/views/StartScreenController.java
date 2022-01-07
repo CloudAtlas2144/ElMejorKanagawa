@@ -11,8 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import kanagawa.Utils;
-import kanagawa.models.Card;
+import kanagawa.utils.Utils;
 import kanagawa.models.Game;
 import kanagawa.models.Player;
 

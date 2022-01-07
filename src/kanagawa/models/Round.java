@@ -2,18 +2,15 @@ package kanagawa.models;
 
 import java.util.*;
 
-import kanagawa.models.enums.Bonus;
-
 public class Round {
     private int roundCount;
 
     private Player currentPlayer;
 
-    private int indexFirstPlayer;
-
     private ArrayList<Card>[] gameBoard;
 
     private ArrayList<Player> players;
+
 
     Round(ArrayList<Player> p) {
         gameBoard = new ArrayList[4];
@@ -51,56 +48,6 @@ public class Round {
         }
     }
 
-    // FIXME : @CloudAtlas2144 is following function useful?
-    /**
-     * Manage the round
-     *
-     * @param firstPlayer a list of players
-     */
-    public void playRound(int firstPlayer) { // TODO: exclure les joueurs qui ont déjà joué
-
-        // variable to stock the column selected by the player
-        int takeCards = -99; // initialize at the value were the player pass
-        int numberPlayerAtStart = players.size(); // if there's only on player at the start he must took a column
-        int indexCurrentPlayer = firstPlayer;
-        indexFirstPlayer = firstPlayer;
-        currentPlayer = players.get(indexCurrentPlayer);
-        boolean choiceCard = false;// true => the player keep the uv | false => the player keep the personalWork
-
-        for (int i = 0; i < numberPlayerAtStart; i++) {
-
-            // TODO: faire choisir le joueur
-
-            // case : the player select a column
-            if (takeCards != -99) {
-                currentPlayer.takeCardColumn(removeColumn(takeCards));
-            } else {
-                // case : there is one column remaining or there is no place left to set cards
-                // on the board
-                if (numberPlayerAtStart == 1 || getRoundCount() == 3) {
-
-                    while (takeCards == -99) {
-                        // TODO: faire choisir le joueur
-                        for (Card card : currentPlayer.getCards()) {
-                            // TODO : faire choisir le joueur et changer choiceCard
-                            choiceCard(choiceCard, card);
-                        }
-                    }
-                    currentPlayer.takeCardColumn(removeColumn(takeCards));
-                }
-            }
-            // Player took card, he use it
-            if (takeCards != -99) {
-                // TODO : usecards()
-
-                players.remove(indexCurrentPlayer);
-                currentPlayer = players.get(indexCurrentPlayer);
-            } else {
-                indexCurrentPlayer = indexCurrentPlayer + 1 % players.size();
-            }
-        }
-    }
-
     /**
      * Removes the specified column of cards from the board and returns it
      * 
@@ -130,31 +77,6 @@ public class Round {
                 j++;
         }
         return j;
-    }
-
-    /**
-     * Manage the use of a card
-     * 
-     * true = player use the uv part
-     * false = player use the personalWork part
-     */
-    public void choiceCard(Boolean choicecard, Card card) {
-        if (choicecard) {
-            currentPlayer.addToUv(card);
-        } else {
-            currentPlayer.addToPersonalWork(card);
-            if (card.getPersonalWork().getBonus() == Bonus.PROFESSOR) {
-                players.get(indexFirstPlayer).setFirstPlayer(false);
-            }
-        }
-    }
-
-    public void removeFromRemainingPlayers(Player player) {
-        players.remove(player);
-    }
-
-    public void resetBoard() {
-        // TODO : Implement method
     }
 
     public void setCurrentPlayer(Player player) {
