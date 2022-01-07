@@ -1,7 +1,8 @@
 package kanagawa.models.enums;
 
 /**
- * UVCategory
+ * UVCategory represents the different ECTS categories of UVs. Points in each
+ * category can be obtained via UVs and are necessary to obtain diplomas.
  */
 public enum UVCategory {
     CS(0),
@@ -9,22 +10,24 @@ public enum UVCategory {
     EC(2),
     TSS(3);
 
+    /**
+     * Numerical value of the enum constant
+     */
     private final int uvCategory;
 
+    /**
+     * Number of existing UV categories
+     */
     public static final int length = 4;
 
     private UVCategory(int uvCategory) {
         this.uvCategory = uvCategory;
     }
 
+    /**
+     * Returns the numerical value of the enum constant
+     */
     public int toInt() {
         return this.uvCategory;
     }
-
-    public UVCategory next() {
-        // FIXME : Check if method is necessary
-        System.out.println("UVCategory.next()");
-        return null;
-    }
-
 }

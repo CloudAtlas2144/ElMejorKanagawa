@@ -2,27 +2,42 @@ package kanagawa.models;
 
 import java.util.*;
 
+/**
+ * Class handling the rounds of the game. A new instance of {@code Round} is
+ * created everytime all columns of the game board have been taken. The
+ * {@code Round} class is responsible for managing the game board where the
+ * cards are and the turn of each player.
+ */
 public class Round {
-    private int roundCount;
 
+    /**
+     * Player currently playing its turn.
+     */
     private Player currentPlayer;
 
+    /**
+     * Array of {@code ArrayList<Card>} representing each column of the game board.
+     */
     private ArrayList<Card>[] gameBoard;
 
     private ArrayList<Player> players;
 
-
-    Round(ArrayList<Player> p) {
+    /**
+     * Constructor of {@code Round} class.
+     */
+    Round() {
         gameBoard = new ArrayList[4];
         for (int i = 0; i < 4; i++) {
             gameBoard[i] = new ArrayList<Card>();
         }
-        roundCount = 0;
     }
 
+    /**
+     * Initializes the game board for the adequate number of players.
+     */
     public void initBoardWithPlayersCount() {
         for (int i = players.size(); i < gameBoard.length; i++) {
-            // On initialise autant de colonne que de joueur
+            // We initalize one column per player
             gameBoard[i] = null;
 
         }
@@ -40,10 +55,8 @@ public class Round {
                 if (gameBoard[j] != null) {
                     gameBoard[j].add(cards[i]);
                     index = j;
-
                     break;
                 }
-
             }
         }
     }
@@ -79,24 +92,22 @@ public class Round {
         return j;
     }
 
+    /**
+     * Sets which player is currently playing its turn.
+     */
     public void setCurrentPlayer(Player player) {
         currentPlayer = player;
     }
 
+    /**
+     * Player currently playing its turn.
+     */
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
-    public int getRoundCount() {
-        return roundCount;
-    }
-
     public ArrayList<Player> getPlayers() {
         return players;
-    }
-
-    public void setRoundCount(int roundCount) {
-        this.roundCount = roundCount;
     }
 
     public void setRemainingPlayers(ArrayList<Player> players) {
@@ -107,15 +118,13 @@ public class Round {
         return gameBoard;
     }
 
-
     /**
-     * Set the next player as the current player
+     * Sets the next player as the current player
      *
      * @return ArrayList
      */
-
-    public void nextPlayer(){
-        currentPlayer=players.get((players.indexOf(currentPlayer)+1)%players.size());
+    public void nextPlayer() {
+        currentPlayer = players.get((players.indexOf(currentPlayer) + 1) % players.size());
         currentPlayer.setPlaying(true);
     }
 }

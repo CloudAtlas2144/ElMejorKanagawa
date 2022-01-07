@@ -1,36 +1,41 @@
 package kanagawa.models;
 
 import java.util.ArrayList;
-import java.util.List;
 import kanagawa.models.enums.Bonus;
 import kanagawa.models.enums.Skill;
 import kanagawa.models.enums.UVCategory;
 
+/**
+ * Class representing a player of the game.
+ */
 public class Player {
+
     private String username;
+
+    /**
+     * Indicates if this player is the one to begin the round.
+     */
     private boolean isFirstPlayer;
 
+    /**
+     * Indicated if the player is currently playing his turn.
+     */
     private boolean isPlaying;
+
     private Game game;
 
     private Inventory inventory;
 
-    private boolean hasPlayedTheRound;
-
     /**
-     * Cards that the player will have to add either to his inventory as UVs or
-     * Personnal Work
+     * Constructor of the {@code Player} class.
+     * 
+     * @param username name of the player.
      */
-    private ArrayList<Card> cardsInHand;
-
-    // Constructor
     public Player(String username) {
         this.username = username;
         this.isFirstPlayer = false;
         this.isPlaying = false;
         this.inventory = new Inventory();
-        this.cardsInHand = new ArrayList<>();
-        hasPlayedTheRound=false;
 
         game = Game.getGameInstance();
     }
@@ -44,10 +49,16 @@ public class Player {
         this.username = username;
     }
 
+    /**
+     * Indicates if this player is the one to begin the round.
+     */
     public boolean isFirstPlayer() {
         return isFirstPlayer;
     }
 
+    /**
+     * Sets if this player is the one to begin the round.
+     */
     public void setFirstPlayer(boolean firstPlayer) {
         isFirstPlayer = firstPlayer;
     }
@@ -60,36 +71,26 @@ public class Player {
         this.inventory = inventory;
     }
 
-    public ArrayList<Card> getCards() {
-        return cardsInHand;
-    }
-
+    /**
+     * Indicated if the player is currently playing his turn.
+     */
     public boolean isPlaying() {
         return isPlaying;
     }
 
+    /**
+     * Sets if the player is currently playing his turn.
+     */
     public void setPlaying(boolean playing) {
         isPlaying = playing;
     }
 
     /**
-     * Add a card in the list of all cards owned by the player
+     * Adds the {@code PersonalWork} part of a {@code Card} to the inventory of the
+     * player.
      * 
      * @param card
      */
-    public void addCard(Card card) {
-        this.cardsInHand.add(card);
-    }
-
-    /**
-     * Adds a column of cards from the board to the player's hand
-     * 
-     * @param cardColumn
-     */
-    public void takeCardColumn(ArrayList<Card> cardColumn) {
-        cardsInHand.addAll(cardColumn);
-    }
-
     public void addToPersonalWork(Card card) {
         inventory.addPersonalWork(card.getPersonalWork());
 
@@ -103,43 +104,55 @@ public class Player {
             this.inventory.setCredits(inventory.getCredits() + 2);
         }
         if (card.getPersonalWork().getBonus() == Bonus.PROFESSOR) {
-            for(Player player : game.getPlayers())
+            for (Player player : game.getPlayers())
                 player.getInventory().setHasProfessor(false);
             this.inventory.setHasProfessor(true);
-
         }
     }
 
+    /**
+     * Adds the {@code UV} part of a {@code Card} to the inventory of the
+     * player.
+     * 
+     * @param card
+     */
     public void addToUv(Card card) {
         inventory.addUv(card.getUv());
     }
 
-    public boolean hasSkill(Skill skill) {
+    /**
+     * Checks if the player possesses the required {@code Skill} and if a pen is on
+     * it.
+     * 
+     * @param skill {@code Skill} to test
+     * @return a {@code boolean}
+     */
+    public boolean hasSkillAvailable(Skill skill) {
         int i = 0;
-        boolean availableSkills = false;
-        PersonalWork cardToTest; // FIXME : look for a less confusing name;
+        boolean isSkillAvailable = false;
+        PersonalWork pwToTest;
+        boolean foundSkill = false;
 
-        boolean out = false;
-
-        while (!out) {
+        while (!foundSkill) {
             if (i < inventory.getPwPossessed().size()) {
-                cardToTest = inventory.getPwPossessed().get(i);
-                if (cardToTest.getSkill() == skill) {
-                    if (cardToTest.isHasPen()) {
-                        availableSkills = true;
-                        out = true;
+                pwToTest = inventory.getPwPossessed().get(i);
+                if (pwToTest.getSkill() == skill) {
+                    if (pwToTest.hasPen()) {
+                        isSkillAvailable = true;
+                        foundSkill = true;
                     }
                 }
                 i++;
             } else {
-                availableSkills = false;
-                out = true;
+                foundSkill = true;
             }
-
         }
-        return availableSkills;
+        return isSkillAvailable;
     }
 
+    /**
+     * Adds 1 pen to the inventory of the player.
+     */
     public void addPen() {
         inventory.setPenCount(inventory.getPenCount() + 1);
     }
@@ -148,10 +161,18 @@ public class Player {
         inventory.setPenCount(inventory.getPenCount() - 1);
     }
 
+    /**
+     * Number of pens the user has.
+     */
     public int getPenCount() {
         return inventory.getPenCount();
     }
 
+    /**
+     * Checks if the number of pen possessed by the player is greater than 0.
+     * 
+     * @return a {@code boolean}
+     */
     public boolean checkPenCount() {
         return getPenCount() > 0;
     }
@@ -163,7 +184,6 @@ public class Player {
                 ", isFirstPlayer=" + isFirstPlayer +
                 ", game=" + game +
                 ", inventory=" + inventory +
-                ", cardsInHand=" + cardsInHand +
                 '}';
     }
 
@@ -200,7 +220,9 @@ public class Player {
             if (!unavailableDiplomaGroups.contains(diplomaGroup)) {
 
                 for (Diploma diploma : diplomaGroup.getDiplomas()) {
-                    // We check if the user has not refused or taken this diploma yet
+                    // We check if the diploma is available and if the user has not refused or taken
+                    // this diploma yet
+
                     if (!refusedDiplomas.contains(diploma) && !inventory.getDiplomaPossessed().contains(diploma)) {
                         int[] necessaryUVs = diploma.getUVArray();
                         int[] necessarySkills = diploma.getSkillArray();

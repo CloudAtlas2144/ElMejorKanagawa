@@ -9,8 +9,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-
-import kanagawa.models.enums.CardState;
 import kanagawa.utilities.InvalidGameObjectException;
 
 /**
@@ -18,13 +16,27 @@ import kanagawa.utilities.InvalidGameObjectException;
  * The Game class is singleton, in order to have only one instance of the game
  */
 public class Game {
+
+    /**
+     * Reference on the {@code Round} that is currently being played.
+     */
     private Round currentRound;
-    private Player currentPlayer;
 
-    private int roundCount; // To count how many rounds there were in the whole game
+    /**
+     * Number of rounds that have been played since the game started.
+     */
+    private int roundCount;
 
+    /**
+     * List of the players.
+     */
     private ArrayList<Player> players;
+
+    /**
+     * List of the cards that have not been distributed yet.
+     */
     private ArrayList<Card> cardDeck;
+
     private ArrayList<DiplomaGroup> diplomaGroups;
 
     private static Game gameInstance = null;
@@ -38,18 +50,17 @@ public class Game {
         cardDeck = new ArrayList<>();
         diplomaGroups = new ArrayList<>();
 
-        currentRound = new Round(players);
+        currentRound = new Round();
 
         roundCount = 1;
         loadCards();
         loadDiplomas();
-
     }
 
     /**
-     * Initializes the game instance if null and returns it
+     * Initializes the game instance if null and returns it.
      * 
-     * @return the game instance
+     * @return the instance of {@code Game}
      */
     public static Game getGameInstance() {
         if (gameInstance == null) {
@@ -59,7 +70,9 @@ public class Game {
         return gameInstance;
     }
 
-    // Getters
+    /**
+     * Reference on the {@code Round} that is currently being played.
+     */
     public Round getCurrentRound() {
         return currentRound;
     }
@@ -68,6 +81,9 @@ public class Game {
         return this.diplomaGroups;
     }
 
+    /**
+     * Number of rounds that have been played since the game started.
+     */
     public int getRoundCount() {
         return roundCount;
     }
@@ -75,8 +91,6 @@ public class Game {
     public ArrayList<Player> getPlayers() {
         return players;
     }
-
-
 
     /**
      * Load cards data from the json files and checks if they have been parsed
@@ -91,15 +105,19 @@ public class Game {
 
         try {
             jsonReader = new JsonReader(new FileReader(file));
+            // We read all cards inside the file
             cardDeck = gson.fromJson(jsonReader, cardListType);
             for (Card card : cardDeck) {
+                // We check if each card has been initialized correctly
                 card.checkInitialization();
             }
             jsonReader.close();
 
         } catch (InvalidGameObjectException e) {
-            e.printStackTrace();
-            System.err.println("Index in cardDeck : " + cardDeck.indexOf(e.getObject()));
+            System.out.println("Game.loadCards() : Failed to load cards.");
+            if (e.getObject() != null) {
+                System.err.println("Index in cardDeck : " + cardDeck.indexOf(e.getObject()));
+            }
             System.exit(-1);
         } catch (Exception e) {
             e.printStackTrace();
@@ -121,24 +139,27 @@ public class Game {
 
         try {
             jsonReader = new JsonReader(new FileReader(file));
+            // We read all diplomas inside the file
             diplomaGroups = gson.fromJson(jsonReader, diplomaGroupListType);
             for (DiplomaGroup diplomaGroup : diplomaGroups) {
+                // We check if each diploma has been initialized correctly
                 diplomaGroup.checkInitialization();
             }
             jsonReader.close();
 
         } catch (InvalidGameObjectException e) {
-            e.printStackTrace();
             Object object = e.getObject();
             Object parent = e.getParent();
-            if (parent == null) {
-                System.err.println("Index in diplomaGroups : " + diplomaGroups.indexOf(object));
-            } else {
-                int index = diplomaGroups.indexOf(parent);
-                System.err.println("Index in diplomaGroups : " + index);
-                System.err.println(
-                        "Index of diploma in diplomas : " + diplomaGroups.get(index).getDiplomas().indexOf(object));
-            }
+            System.out.println("Game.loadDiplomas() : Failed to load diplomas.");
+            if (object != null)
+                if (parent == null) {
+                    System.err.println("Index in diplomaGroups : " + diplomaGroups.indexOf(object));
+                } else {
+                    int index = diplomaGroups.indexOf(parent);
+                    System.err.println("Index in diplomaGroups : " + index);
+                    System.err.println(
+                            "Index of diploma in diplomas : " + diplomaGroups.get(index).getDiplomas().indexOf(object));
+                }
             System.exit(-1);
         } catch (Exception e) {
             e.printStackTrace();
@@ -149,7 +170,7 @@ public class Game {
 
     /**
      * Deals new cards on the board for the current round and passes them to the
-     * Round class
+     * {@code Round} class
      */
     public void distributeCards() {
 
@@ -166,29 +187,26 @@ public class Game {
      * Allows to end current round and to start a new one
      */
     public void nextRound() {
-        currentRound = new Round(players); // Creating a new round object
+        currentRound = new Round();
         roundCount++;
         currentRound.setRemainingPlayers(players);
-        for (Player player: players)
-        {
+        for (Player player : players) {
             player.setFirstPlayer(false);
-            if(player.getInventory().isHasProfessor())
-            {
+            if (player.getInventory().hasProfessor()) {
                 currentRound.setCurrentPlayer(player);
                 currentRound.getCurrentPlayer().setFirstPlayer(true);
             }
-
         }
         currentRound.getCurrentPlayer().setPlaying(true);
     }
 
     /**
-     * Add all the players in the list
+     * Adds all the players in the list
      * 
-     * @param player1 firstPlayer
-     * @param player2 secondPlayer
-     * @param player3 thirdPlayer
-     * @param player4 fourthPlayer
+     * @param player1 first {@code Player}
+     * @param player2 second {@code Player}
+     * @param player3 third {@code Player}
+     * @param player4 fourth {@code Player}
      */
     public void addPlayers(Player player1, Player player2, Player player3, Player player4) {
         players.add(player1);
@@ -212,9 +230,7 @@ public class Game {
         player.setFirstPlayer(true);
         player.getInventory().setHasProfessor(true);
 
-        currentPlayer = player;
         currentRound.setCurrentPlayer(players.get(i));
-
     }
 
     /**
@@ -236,8 +252,6 @@ public class Game {
 
             player.addToPersonalWork(randomCard);
             player.addToUv(randomCard);
-
-            randomCard.setState(CardState.INVENTORY);
         }
     }
 
@@ -249,11 +263,11 @@ public class Game {
     }
 
     /**
-     * Checks if game is over.
-     * Either the round count is over 11
-     * Either one of the player has 11 UV cards
+     * Checks if the game if over :
+     * either 11 rounds have been played
+     * or one player has 11 UVs
      *
-     * @return
+     * @return a {@code boolean}
      */
     public boolean checkGameIsOver() {
         boolean gameOver = false;
@@ -273,16 +287,6 @@ public class Game {
                 }
             }
         }
-
         return gameOver;
-    }
-
-    /**
-     * Set the next player as the current player
-     *
-     * @return ArrayList
-     */
-    public void nextPlayer() {
-        currentPlayer = players.get((players.indexOf(currentPlayer) + 1) % players.size());
     }
 }

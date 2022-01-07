@@ -4,6 +4,10 @@ import kanagawa.models.enums.Skill;
 import kanagawa.models.enums.UVCategory;
 import kanagawa.utilities.InvalidGameObjectException;
 
+/**
+ * Class implementing the UV part of the card. The UV contains a
+ * {@code uvCategory} and a {@code Skill}.
+ */
 public class UV {
 
     private String code;
@@ -11,16 +15,6 @@ public class UV {
     private UVCategory uvCategory;
 
     private Skill skill;
-
-    public UV() {
-
-    }
-
-    public UV(String code, UVCategory uvCategory, Skill skill) {
-        this.code = code;
-        this.uvCategory = uvCategory;
-        this.skill = skill;
-    }
 
     /**
      * Checks if the Object has been parsed and initialized correctly

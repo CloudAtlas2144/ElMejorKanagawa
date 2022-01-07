@@ -6,15 +6,34 @@ package kanagawa.utilities;
  */
 public class InvalidGameObjectException extends Exception {
 
+    /**
+     * Reference on the a parent {@code Object} or {@code Collection} containing the
+     * object responsible for the Exception.
+     */
     private Object parent;
 
+    /**
+     * {@code Object} responsible for the Exception.
+     */
     private Object object;
 
+    /**
+     * Creates an exception if the parsing of an {@code Object} is incorrect.
+     * 
+     * @param object {@code Object} responsible for the Exception
+     */
     public InvalidGameObjectException(Object object) {
         this.object = object;
         this.parent = null;
     }
 
+    /**
+     * Creates an exception if the parsing of an {@code Object} is incorrect.
+     * 
+     * @param object {@code Object} responsible for the Exception
+     * @param parent Reference on the a parent {@code Object} or {@code Collection}
+     *               containing {@code object}
+     */
     public InvalidGameObjectException(Object object, Object parent) {
         this.object = object;
         this.parent = parent;
@@ -29,10 +48,17 @@ public class InvalidGameObjectException extends Exception {
         }
     }
 
+    /**
+     * Reference on the a parent {@code Object} or {@code Collection} containing the
+     * object responsible for the Exception.
+     */
     public Object getParent() {
         return parent;
     }
 
+    /**
+     * {@code Object} responsible for the Exception.
+     */
     public Object getObject() {
         return object;
     }

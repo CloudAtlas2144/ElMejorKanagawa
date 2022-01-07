@@ -19,8 +19,7 @@
           0,
           0
         ],
-        "credit": 3,
-        "isAvailable": true
+        "credits": 3
       },
       {
         "UVArray": [
@@ -39,8 +38,7 @@
           1,
           1
         ],
-        "credit": 6,
-        "isAvailable": true
+        "credits": 6
       },
       {
         "UVArray": [
@@ -59,8 +57,7 @@
           2,
           1
         ],
-        "credit": 9,
-        "isAvailable": true
+        "credits": 9
       }
     ]
   },
@@ -84,8 +81,7 @@
           0,
           0
         ],
-        "credit": 3,
-        "isAvailable": true
+        "credits": 3
       },
       {
         "UVArray": [
@@ -104,8 +100,7 @@
           1,
           1
         ],
-        "credit": 6,
-        "isAvailable": true
+        "credits": 6
       },
       {
         "UVArray": [
@@ -124,8 +119,7 @@
           1,
           2
         ],
-        "credit": 9,
-        "isAvailable": true
+        "credits": 9
       }
     ]
   },
@@ -149,8 +143,7 @@
           0,
           0
         ],
-        "credit": 3,
-        "isAvailable": true
+        "credits": 3
       },
       {
         "UVArray": [
@@ -169,8 +162,7 @@
           1,
           1
         ],
-        "credit": 6,
-        "isAvailable": true
+        "credits": 6
       },
       {
         "UVArray": [
@@ -189,8 +181,7 @@
           2,
           2
         ],
-        "credit": 11,
-        "isAvailable": true
+        "credits": 11
       }
     ]
   },
@@ -214,8 +205,7 @@
           0,
           0
         ],
-        "credit": 5,
-        "isAvailable": true
+        "credits": 5
       },
       {
         "UVArray": [
@@ -234,8 +224,7 @@
           1,
           1
         ],
-        "credit": 7,
-        "isAvailable": true
+        "credits": 7
       },
       {
         "UVArray": [
@@ -254,8 +243,7 @@
           2,
           1
         ],
-        "credit": 11,
-        "isAvailable": true
+        "credits": 11
       }
     ]
   },
@@ -279,8 +267,7 @@
           0,
           0
         ],
-        "credit": 3,
-        "isAvailable": true
+        "credits": 3
       },
       {
         "UVArray": [
@@ -299,8 +286,7 @@
           1,
           1
         ],
-        "credit": 6,
-        "isAvailable": true
+        "credits": 6
       },
       {
         "UVArray": [
@@ -319,8 +305,7 @@
           1,
           2
         ],
-        "credit": 9,
-        "isAvailable": true
+        "credits": 9
       }
     ]
   }

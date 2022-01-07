@@ -4,16 +4,19 @@ import java.util.ArrayList;
 
 import kanagawa.utilities.InvalidGameObjectException;
 
+/**
+ * Class implementing the diploma groups. Each {@code DiplomaGroup} contains 3
+ * diplomas, each player can only obtain 1 diploma from each group.
+ * Once a diploma has been attributed to a player, it is removed from its group.
+ */
 public class DiplomaGroup {
 
     private String groupeName;
 
+    /**
+     * List of the diplomas belonging to this group.
+     */
     private ArrayList<Diploma> diplomas;
-
-    public DiplomaGroup(String groupeName, ArrayList<Diploma> diplomas) {
-        this.groupeName = groupeName;
-        this.diplomas = diplomas;
-    }
 
     /**
      * Checks if the Object has been parsed and initialized correctly
@@ -34,6 +37,9 @@ public class DiplomaGroup {
         return groupeName;
     }
 
+    /**
+     * List of the diplomas belonging to this group.
+     */
     public ArrayList<Diploma> getDiplomas() {
         return diplomas;
     }

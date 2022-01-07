@@ -5,13 +5,18 @@ import java.util.ArrayList;
 import kanagawa.models.enums.Bonus;
 import kanagawa.models.enums.Skill;
 
+/**
+ * Class implementing the inventory of the {@code Player}. The inventory
+ * contains all the items possessed by the player.
+ */
 public class Inventory {
 
     private int credits;
 
+    /**
+     * Number of pens the user has.
+     */
     private int penCount;
-
-    private int tempPenCount;
 
     private ArrayList<PersonalWork> pwPossessed;
 
@@ -29,13 +34,17 @@ public class Inventory {
      */
     private ArrayList<DiplomaGroup> unavailableDiplomaGroups;
 
+    /**
+     * If {@code true}, this player will be the one to begin the next round.
+     */
     private boolean hasProfessor;
 
-    // Constructors
+    /**
+     * Constructor of {@code Card} class.
+     */
     public Inventory() {
         this.credits = 0;
         this.penCount = 2;
-        this.tempPenCount = this.penCount;
         this.pwPossessed = new ArrayList<PersonalWork>();
         this.uvPossessed = new ArrayList<UV>();
         this.diplomaPossessed = new ArrayList<Diploma>();
@@ -44,7 +53,6 @@ public class Inventory {
         this.hasProfessor = false;
     }
 
-    // Getters
     public int getCredits() {
         return credits;
     }
@@ -55,10 +63,6 @@ public class Inventory {
 
     public ArrayList<UV> getUvPossessed() {
         return uvPossessed;
-    }
-
-    public int getTempPenCount() {
-        return tempPenCount;
     }
 
     public ArrayList<Diploma> getDiplomaPossessed() {
@@ -79,10 +83,16 @@ public class Inventory {
         return unavailableDiplomaGroups;
     }
 
-    public boolean isHasProfessor() {
+    /**
+     * If {@code true}, this player will be the one to begin the next round.
+     */
+    public boolean hasProfessor() {
         return hasProfessor;
     }
 
+    /**
+     * Number of pens the user has.
+     */
     public int getPenCount() {
         return penCount;
     }
@@ -96,13 +106,20 @@ public class Inventory {
         this.penCount = penCount;
     }
 
+    /**
+     * Sets if the player will be the one to begin the next round.
+     * 
+     * @param hasProfessor If {@code true}, this player will be the one to begin the
+     *                     next round
+     */
     public void setHasProfessor(boolean hasProfessor) {
         this.hasProfessor = hasProfessor;
     }
 
     /**
-     * Adds a diploma to the inventory of the player and adds the group of the added
-     * diploma to the list of unavailable diploma groups.
+     * Adds a diploma to the inventory of the player, adds the group of the added
+     * diploma to the list of unavailable diploma groups and removes the diploma
+     * from its {@code DiplomaGroup} so that it is no longer available.
      * 
      * @param diploma
      */
@@ -113,14 +130,8 @@ public class Inventory {
         }
         this.diplomaPossessed.add(diploma);
         this.unavailableDiplomaGroups.add(diploma.getGroup());
-
-        updateCredits();
-    }
-
-    private void updateCredits() {
-        for (Diploma diploma : diplomaPossessed) {
-            credits += diploma.getCredit();
-        }
+        diploma.getGroup().getDiplomas().remove(diploma);
+        credits += diploma.getCredit();
     }
 
     /**
@@ -133,10 +144,6 @@ public class Inventory {
             System.err.println("Inventory.addRefusedDiploma() : Diploma already refused.");
         }
         this.refusedDiplomas.add(diploma);
-    }
-
-    public void setTempPenCount(int tempPenCount) {
-        this.tempPenCount = tempPenCount;
     }
 
     @Override
@@ -154,7 +161,6 @@ public class Inventory {
         pwPossessed.add(pw);
         if (pw.getBonus() == Bonus.PROFESSOR) {
             setHasProfessor(true);
-
         }
     }
 
@@ -162,6 +168,12 @@ public class Inventory {
         uvPossessed.add(uv);
     }
 
+    /**
+     * Computes the number of points the player possesses in a given {@code Skill}.
+     * 
+     * @param skill The {@code Skill} category to analyse
+     * @return an {@code int}
+     */
     public int getSkillCount(Skill skill) {
         int count = 0;
         for (PersonalWork pw : pwPossessed) {
@@ -169,7 +181,6 @@ public class Inventory {
                 count++;
             }
         }
-
         return count;
     }
 }
